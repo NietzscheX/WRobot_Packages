@@ -1,0 +1,746 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="RunCode" NameClass="AuchenaiCryptsAuthSettings.Load();&#xD;&#xA;        if (AuchenaiCryptsAuthSettings.CurrentSetting.TransactionId == null)&#xD;&#xA;        {&#xD;&#xA;            AuchenaiCryptsAuthSettings.CurrentSetting.ToForm();&#xD;&#xA;        }&#xD;&#xA;        AuchenaiCryptsAuthSettings.CurrentSetting.Save();&#xD;&#xA;        new Authentication(AuchenaiCryptsAuthSettings.CurrentSetting.TransactionId, &quot;8566e52a7681&quot;);&#xD;&#xA;        ControlAuthentication.SetControl(5);" />
+    <QuestsSorted Action="Pulse" NameClass="AutoUpdate" />
+    <QuestsSorted Action="RunLuaCode" NameClass="if not InfoPanel then&#xD;&#xA;    InfoPanelText = &quot;Waiting for Job&quot;&#xD;&#xA;    InfoPanel = CreateFrame(&quot;Frame&quot;)&#xD;&#xA;    InfoPanel:ClearAllPoints()&#xD;&#xA;    InfoPanel:SetBackdrop({bgFile = &quot;Interface/Buttons/WHITE8X8&quot;,})&#xD;&#xA;    InfoPanel:SetBackdropColor(0,0,0,.4)&#xD;&#xA;    InfoPanel:SetHeight(40)&#xD;&#xA;    InfoPanel:SetWidth(150)&#xD;&#xA;&#xD;&#xA;    InfoPanel.text = InfoPanel:CreateFontString(nil, &quot;BACKGROUND&quot;, &quot;GameFontNormal&quot;)&#xD;&#xA;    InfoPanel.text:SetAllPoints()&#xD;&#xA;    InfoPanel.text:SetText(InfoPanelText)&#xD;&#xA;    InfoPanel.text:SetTextColor(1, 1, 0, 1)&#xD;&#xA;    InfoPanel:SetPoint(&quot;RIGHT&quot;, -50, -100)&#xD;&#xA;&#xD;&#xA;    InfoPanel:SetMovable(true)&#xD;&#xA;    InfoPanel:EnableMouse(true)&#xD;&#xA;    InfoPanel:SetScript(&quot;OnMouseDown&quot;,function() InfoPanel:StartMoving() end)&#xD;&#xA;    InfoPanel:SetScript(&quot;OnMouseUp&quot;,function() InfoPanel:StopMovingOrSizing() end)&#xD;&#xA;    &#xD;&#xA;    InfoPanel.Close = CreateFrame(&quot;BUTTON&quot;, nil, InfoPanel, &quot;UIPanelCloseButton&quot;)&#xD;&#xA;    InfoPanel.Close:SetWidth(20)&#xD;&#xA;    InfoPanel.Close:SetHeight(20)&#xD;&#xA;    InfoPanel.Close:SetPoint(&quot;TOPRIGHT&quot;, InfoPanel, 3, 3)&#xD;&#xA;    InfoPanel.Close:SetScript(&quot;OnClick&quot;, function()&#xD;&#xA;        InfoPanel:Hide()&#xD;&#xA;        DEFAULT_CHAT_FRAME:AddMessage(&quot;Info Panel |cffC41F3Bclosed |cffFFFFFFWrite /InfoPanel to enable again.&quot;)     &#xD;&#xA;    end)&#xD;&#xA;    &#xD;&#xA;    SLASH_WHATEVERYOURFRAMESARECALLED1=&quot;/InfoPanel&quot;&#xD;&#xA;    SlashCmdList.WHATEVERYOURFRAMESARECALLED = function()&#xD;&#xA;        if InfoPanel:IsShown() then&#xD;&#xA;            InfoPanel:Hide()&#xD;&#xA;        else&#xD;&#xA;            InfoPanel:Show()&#xD;&#xA;        end&#xD;&#xA;    end&#xD;&#xA;end" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;InfoPanelText = 'v1.0.0 - Auchenai Crypts Farmer'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;InfoPanel.text:SetText(InfoPanelText)&quot;);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFC813CF Thanks for using a Bambo Product! Feel free to add me on Discord if you have any problems with my products (Bambo#6404). Also checkout my Store please (https://rocketr.net/sellers/bambo). I have alot of TBCWOTLK, TBC and WOTLK Content: Grinders, Quester, Professions, a Gold Making Plugin and much more! |r&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;InfoPanelText = 'Checking for Updates...'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;InfoPanel.text:SetText(InfoPanelText)&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="// Change WRobot settings:&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.MaxUnitsNear=99;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.CanAttackUnitsAlreadyInFight = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.AttackElite = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.AttackBeforeBeingAttacked = false;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.SearchRadius=45;&#xD;&#xA;" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;InfoPanelText = 'Going to AuchenaiCrypts'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;InfoPanel.text:SetText(InfoPanelText)&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="System.Threading.Tasks.Task.Run(delegate&#xD;&#xA;        {&#xD;&#xA;            while (Conditions.ProductIsStarted)&#xD;&#xA;            {﻿&#xD;&#xA;                robotManager.Events.FiniteStateMachineEvents.OnRunState += (engine, state, cancelable) =&gt;&#xD;&#xA;                {&#xD;&#xA;                    if (ObjectManager.Me.IsDeadMe &amp;&amp; ObjectManager.Me.HaveBuff(&quot;Ghost&quot;))&#xD;&#xA;                    {&#xD;&#xA;                            cancelable.Cancel = true;&#xD;&#xA;                            if (!ObjectManager.Me.GetMove)&#xD;&#xA;                            {&#xD;&#xA;w﻿Manager.Wow.Bot.Tas﻿ks.GoToTask.ToPosition(new Vector3(-3362.641f, 5244.757f, -101.0468f));&#xD;&#xA;                                Thread.Sleep(100);&#xD;&#xA;                            }&#xD;&#xA;                    }&#xD;&#xA;                };&#xD;&#xA;                Thread.Sleep(1000/30);&#xD;&#xA;            }&#xD;&#xA;        }); " />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.UseFlyingMount = false;" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.Selling = false;" />
+    <QuestsSorted Action="Pulse" NameClass="GoToAuchenaiCrypts" />
+    <QuestsSorted Action="Wait" NameClass="1000" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey, 3000);" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;InfoPanelText = 'Clear part 1'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;InfoPanel.text:SetText(InfoPanelText)&quot;);" />
+    <QuestsSorted Action="Pulse" NameClass="part1" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;InfoPanelText = 'Clear part 2'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;InfoPanel.text:SetText(InfoPanelText)&quot;);" />
+    <QuestsSorted Action="Pulse" NameClass="part2" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;InfoPanelText = 'Leaving Instance'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;InfoPanel.text:SetText(InfoPanelText)&quot;);" />
+    <QuestsSorted Action="Pulse" NameClass="Exit" />
+    <QuestsSorted Action="Wait" NameClass="2500" />
+    <QuestsSorted Action="Pulse" NameClass="ExitEntranceHall" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;InfoPanelText = 'Selling and Resetting'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;InfoPanel.text:SetText(InfoPanelText)&quot;);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="ResetInstances();" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.Selling = true;" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.MinFreeBagSlotsToGoToTown = 20;" />
+    <QuestsSorted Action="Wait" NameClass="7000" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.MinFreeBagSlotsToGoToTown = 2;" />
+    <QuestsSorted Action="GoToStep" NameClass="10" />
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>AutoUpdate</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>
+public sealed class AutoUpdate : QuestClass
+{
+    public AutoUpdate() // Don't forget to use good classe name
+    {
+		Name = "AutoUpdate";
+	
+try
+{
+    string onlineFile = "http://bambo.myds.me/vanilla/BambosAuchenaiCryptsFarmer.xml";
+    Quester.Bot.QuesterSetting.Load();
+    string currentFile = System.Windows.Forms.Application.StartupPath + @"\Profiles\Quester\" + Quester.Bot.QuesterSetting.CurrentSetting.ProfileName;
+
+    var currentFileContent = System.IO.File.ReadAllText(currentFile, System.Text.Encoding.UTF8);
+    var onlineFileContent = new System.Net.WebClient { Encoding = System.Text.Encoding.UTF8 }.DownloadString(onlineFile);
+
+    if (!string.IsNullOrWhiteSpace(currentFileContent) &amp;&amp; !string.IsNullOrWhiteSpace(onlineFileContent))
+    {
+        if (currentFileContent.Length == 39 &amp;&amp; onlineFileContent.Length == 39) // 39 is size of encrypted files with option "Short file"
+        {
+            if (currentFileContent != onlineFileContent) // if new update
+            {
+                robotManager.Helpful.Logging.Write("[Bambo_AuchenaiCrypts]: New version found, try to update.");
+                System.IO.File.WriteAllText(currentFile, onlineFileContent,
+                System.Text.Encoding.UTF8); // replace user file by online file 
+                new System.Threading.Thread(() =&gt; robotManager.Products.Products.ProductRestart()).Start(); // reload product (profile)
+            }
+            if (currentFileContent == onlineFileContent)
+                robotManager.Helpful.Logging.Write("[Bambo_AuchenaiCrypts]: The version on your pc is the latest updated version.");
+        }
+        else
+            robotManager.Helpful.Logging.Write("[Bambo_AuchenaiCrypts]: Your currently running version is not encrypted.");
+    }
+}
+catch (System.Exception e)
+{
+    robotManager.Helpful.Logging.WriteError("Auto update: " + e);
+}
+
+        Lua.LuaDoString("DungeonFrameWorkLoaded = true");
+    }
+}
+// More info here: http://wrobot.eu/topic/374-how-to-create-quest-profile/ (please don't add using and add only one quest)
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Lua.LuaDoString&lt;bool&gt;("return UpdateFrameWorkLoaded");</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Go To AuchenaiCrypts</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="-3364.4" Y="5172.965" Z="-101.0499" />
+          <Vector3 X="-3363.628" Y="5184.487" Z="-101.0498" />
+          <Vector3 X="-3362.839" Y="5194.599" Z="-101.0497" />
+          <Vector3 X="-3362.049" Y="5205.426" Z="-101.0497" />
+          <Vector3 X="-3361.82" Y="5215.544" Z="-101.0493" />
+          <Vector3 X="-3361.774" Y="5219.745" Z="-101.0492" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>true</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>part1</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-19.10474" Y="0.1233561" Z="-0.1206" />
+          <Vector3 X="44.16306" Y="-0.05845466" Z="-0.1508838" />
+          <Vector3 X="96.77" Y="2.025425" Z="-0.1141122" />
+          <Vector3 X="147.3381" Y="-28.54336" Z="10.2735" />
+          <Vector3 X="230.2936" Y="20.05025" Z="-0.06518903" />
+          <Vector3 X="261.5692" Y="-9.162748" Z="-0.04249487" />
+          <Vector3 X="263.4313" Y="32.91158" Z="13.42805" />
+          <Vector3 X="229.2527" Y="31.75007" Z="26.63538" />
+          <Vector3 X="205.0551" Y="29.72903" Z="26.60244" />
+          <Vector3 X="203.9064" Y="-10.82671" Z="26.60776" />
+          <Vector3 X="215.1608" Y="-34.91511" Z="26.59106" />
+          <Vector3 X="235.9893" Y="-33.03046" Z="26.99684" />
+          <Vector3 X="240.0243" Y="-41.39208" Z="26.59247" />
+          <Vector3 X="238.6078" Y="-126.3067" Z="26.59247" />
+          <Vector3 X="227.7048" Y="-152.436" Z="26.59247" />
+          <Vector3 X="193.6664" Y="-163.4031" Z="26.59131" />
+          <Vector3 X="-16.46932" Y="-161.8561" Z="25.58215" />
+          <Vector3 X="-88.20286" Y="-161.9118" Z="26.59155" />
+        </HotSpots>
+        <EntryTarget>
+          <int>18556</int>
+          <int>18702</int>
+          <int>18559</int>
+          <int>18498</int>
+          <int>18495</int>
+          <int>18497</int>
+          <int>18493</int>
+          <int>18499</int>
+          <int>18371</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ObjectManager.Me.Position.DistanceTo(new Vector3(-88.20286f, -161.9118f, 26.59155f)) &lt; 3;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>part2</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-106.7657" Y="-161.7086" Z="26.5901" />
+          <Vector3 X="-145.4777" Y="-164.1494" Z="26.58871" />
+          <Vector3 X="-144.9704" Y="-181.6103" Z="26.58951" />
+          <Vector3 X="-144.4645" Y="-220.772" Z="26.58952" />
+          <Vector3 X="-132.0228" Y="-264.9787" Z="27.59564" />
+          <Vector3 X="-131.2315" Y="-307.0342" Z="26.50756" />
+          <Vector3 X="-145.264" Y="-322.1003" Z="26.59103" />
+          <Vector3 X="-144.1866" Y="-387.0074" Z="26.59103" />
+          <Vector3 X="-70.23935" Y="-388.4186" Z="26.58995" />
+          <Vector3 X="-40.85408" Y="-413.5716" Z="26.59997" />
+          <Vector3 X="-12.88393" Y="-409.7286" Z="26.58302" />
+          <Vector3 X="31.96012" Y="-410.1781" Z="26.58889" />
+          <Vector3 X="37.75594" Y="-402.8005" Z="26.58468" />
+          <Vector3 X="41.29556" Y="-389.1758" Z="26.58554" />
+        </HotSpots>
+        <EntryTarget>
+          <int>18521</int>
+          <int>18524</int>
+          <int>18495</int>
+          <int>18493</int>
+          <int>18700</int>
+          <int>18702</int>
+          <int>18373</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ObjectManager.Me.Position.DistanceTo(new Vector3(41.29556f, -389.1758f, 26.58554f)) &lt; 2;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Exit</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="33.42059" Y="-386.7768" Z="26.58434" />
+          <Vector3 X="34.60358" Y="-394.7111" Z="26.58434" />
+          <Vector3 X="36.1489" Y="-405.0755" Z="26.58434" />
+          <Vector3 X="31.08717" Y="-412.4401" Z="26.58985" />
+          <Vector3 X="20.62111" Y="-412.9241" Z="26.59112" />
+          <Vector3 X="10.33905" Y="-410.9771" Z="26.58591" />
+          <Vector3 X="-0.3207083" Y="-409.0703" Z="26.58302" />
+          <Vector3 X="-10.43573" Y="-409.4445" Z="26.58302" />
+          <Vector3 X="-20.92812" Y="-409.8439" Z="26.58608" />
+          <Vector3 X="-31.42052" Y="-410.2434" Z="26.59308" />
+          <Vector3 X="-40.48098" Y="-406.0094" Z="26.58533" />
+          <Vector3 X="-42.12822" Y="-395.692" Z="26.58533" />
+          <Vector3 X="-47.37827" Y="-387.4645" Z="26.58536" />
+          <Vector3 X="-57.53445" Y="-384.1025" Z="26.58677" />
+          <Vector3 X="-68.00884" Y="-383.8881" Z="26.58709" />
+          <Vector3 X="-78.4961" Y="-384.4041" Z="26.58873" />
+          <Vector3 X="-88.9621" Y="-384.9261" Z="26.59169" />
+          <Vector3 X="-99.44906" Y="-385.4492" Z="26.59028" />
+          <Vector3 X="-109.9151" Y="-385.9712" Z="26.58881" />
+          <Vector3 X="-120.4018" Y="-386.4983" Z="26.58881" />
+          <Vector3 X="-130.8635" Y="-387.0997" Z="26.58881" />
+          <Vector3 X="-141.1972" Y="-386.3972" Z="26.58898" />
+          <Vector3 X="-146.0762" Y="-377.9718" Z="26.58935" />
+          <Vector3 X="-145.5832" Y="-367.505" Z="26.58956" />
+          <Vector3 X="-145.0346" Y="-357.0193" Z="26.58957" />
+          <Vector3 X="-144.4871" Y="-346.5546" Z="26.58957" />
+          <Vector3 X="-144.0217" Y="-336.0442" Z="26.58957" />
+          <Vector3 X="-144.0741" Y="-325.5876" Z="26.58957" />
+          <Vector3 X="-144.2675" Y="-315.0894" Z="26.58957" />
+          <Vector3 X="-144.4608" Y="-304.5911" Z="26.59785" />
+          <Vector3 X="-144.6758" Y="-296.5302" Z="26.65033" />
+          <Vector3 X="-156.8326" Y="-302.1726" Z="27.14958" />
+          <Vector3 X="-163.636" Y="-295.7883" Z="27.78207" />
+          <Vector3 X="-162.561" Y="-285.8975" Z="26.77719" />
+          <Vector3 X="-161.3637" Y="-278.9543" Z="26.83455" />
+          <Vector3 X="-153.5447" Y="-271.9849" Z="26.29225" />
+          <Vector3 X="-145.7064" Y="-264.4783" Z="26.73134" />
+          <Vector3 X="-140.5532" Y="-255.9594" Z="26.79015" />
+          <Vector3 X="-140.7529" Y="-245.1877" Z="26.53806" />
+          <Vector3 X="-142.542" Y="-234.8626" Z="26.53286" />
+          <Vector3 X="-144.3347" Y="-224.5168" Z="26.59151" />
+          <Vector3 X="-145.714" Y="-214.1228" Z="26.59151" />
+          <Vector3 X="-145.3218" Y="-204.0086" Z="26.59151" />
+          <Vector3 X="-144.8968" Y="-193.5172" Z="26.59151" />
+          <Vector3 X="-144.4582" Y="-182.69" Z="26.59151" />
+          <Vector3 X="-143.7486" Y="-172.2251" Z="26.59151" />
+          <Vector3 X="-137.4437" Y="-164.3471" Z="26.58997" />
+          <Vector3 X="-127.2006" Y="-162.9386" Z="26.58852" />
+          <Vector3 X="-116.7216" Y="-162.9514" Z="26.58852" />
+          <Vector3 X="-106.2216" Y="-162.9642" Z="26.58852" />
+          <Vector3 X="-95.72162" Y="-162.9769" Z="26.58956" />
+          <Vector3 X="-85.26122" Y="-162.9897" Z="26.59017" />
+          <Vector3 X="-74.74023" Y="-163.0025" Z="26.5673" />
+          <Vector3 X="-64.28224" Y="-163.0152" Z="26.50073" />
+          <Vector3 X="-53.76125" Y="-163.028" Z="26.39381" />
+          <Vector3 X="-43.30325" Y="-163.0408" Z="26.3121" />
+          <Vector3 X="-32.80326" Y="-163.0536" Z="26.19903" />
+          <Vector3 X="-22.32426" Y="-163.0663" Z="26.07136" />
+          <Vector3 X="-11.82442" Y="-163.1065" Z="21.93398" />
+          <Vector3 X="-1.324848" Y="-163.2018" Z="13.8379" />
+          <Vector3 X="9.152808" Y="-163.3544" Z="12.65604" />
+          <Vector3 X="19.64959" Y="-163.6145" Z="13.36953" />
+          <Vector3 X="30.12692" Y="-163.8" Z="14.23641" />
+          <Vector3 X="40.62542" Y="-163.9777" Z="14.86053" />
+          <Vector3 X="51.10291" Y="-164.1551" Z="15.24891" />
+          <Vector3 X="61.60141" Y="-164.3328" Z="15.37611" />
+          <Vector3 X="72.45686" Y="-164.5165" Z="15.5266" />
+          <Vector3 X="82.93436" Y="-164.6939" Z="15.37309" />
+          <Vector3 X="93.07611" Y="-164.8518" Z="15.26953" />
+          <Vector3 X="103.9053" Y="-164.4957" Z="14.8645" />
+          <Vector3 X="114.0393" Y="-164.07" Z="14.14099" />
+          <Vector3 X="124.5511" Y="-163.6285" Z="13.20001" />
+          <Vector3 X="135.3565" Y="-163.1746" Z="12.62904" />
+          <Vector3 X="145.4923" Y="-162.8261" Z="13.39356" />
+          <Vector3 X="155.9702" Y="-162.9733" Z="21.41978" />
+          <Vector3 X="166.4687" Y="-163.151" Z="26.29736" />
+          <Vector3 X="177.3031" Y="-163.3385" Z="26.37918" />
+          <Vector3 X="187.4439" Y="-163.55" Z="26.54774" />
+          <Vector3 X="197.9418" Y="-163.7607" Z="26.59109" />
+          <Vector3 X="208.7762" Y="-163.9441" Z="26.59109" />
+          <Vector3 X="219.097" Y="-163.5763" Z="26.59109" />
+          <Vector3 X="222.6292" Y="-165.412" Z="26.59109" />
+          <Vector3 X="228.5551" Y="-171.9153" Z="26.59109" />
+          <Vector3 X="237.0701" Y="-176.8657" Z="26.59109" />
+          <Vector3 X="246.2351" Y="-173.789" Z="27.48464" />
+          <Vector3 X="252.2313" Y="-166.6865" Z="26.59131" />
+          <Vector3 X="248.1531" Y="-157.2889" Z="27.20926" />
+          <Vector3 X="245.3732" Y="-147.1638" Z="28.74885" />
+          <Vector3 X="242.1297" Y="-137.2168" Z="26.60114" />
+          <Vector3 X="239.6134" Y="-127.1097" Z="26.5913" />
+          <Vector3 X="240.1876" Y="-116.6267" Z="26.5913" />
+          <Vector3 X="240.151" Y="-106.1478" Z="26.5913" />
+          <Vector3 X="240.0813" Y="-95.64799" Z="26.5913" />
+          <Vector3 X="240.0113" Y="-85.10623" Z="26.5913" />
+          <Vector3 X="239.8734" Y="-74.67017" Z="26.5913" />
+          <Vector3 X="239.7213" Y="-64.17127" Z="26.5913" />
+          <Vector3 X="239.5694" Y="-53.69337" Z="26.5913" />
+          <Vector3 X="239.4173" Y="-43.19447" Z="26.5913" />
+          <Vector3 X="239.1334" Y="-35.1358" Z="26.59618" />
+          <Vector3 X="227.8847" Y="-31.77915" Z="27.10969" />
+          <Vector3 X="218.3556" Y="-34.18865" Z="26.75583" />
+          <Vector3 X="209.7484" Y="-28.72349" Z="26.59124" />
+          <Vector3 X="208.801" Y="-18.28923" Z="27.02669" />
+          <Vector3 X="207.9761" Y="-8.15876" Z="26.76892" />
+          <Vector3 X="206.0584" Y="1.894108" Z="26.60278" />
+          <Vector3 X="208.0518" Y="11.79578" Z="26.64278" />
+          <Vector3 X="212.06" Y="17.03525" Z="26.78899" />
+          <Vector3 X="211.0769" Y="25.03875" Z="26.64027" />
+          <Vector3 X="211.3199" Y="33.64186" Z="26.62645" />
+          <Vector3 X="217.6168" Y="33.44456" Z="26.62645" />
+          <Vector3 X="228.1067" Y="32.9853" Z="26.62784" />
+          <Vector3 X="236.8612" Y="32.85238" Z="26.62877" />
+          <Vector3 X="245.9523" Y="33.03633" Z="21.4739" />
+          <Vector3 X="256.4711" Y="33.2418" Z="13.51667" />
+          <Vector3 X="266.6934" Y="32.0369" Z="13.43273" />
+          <Vector3 X="268.8515" Y="22.92288" Z="13.43138" />
+          <Vector3 X="268.6943" Y="12.45893" Z="6.912418" />
+          <Vector3 X="269.0062" Y="1.98512" Z="-0.06442145" />
+          <Vector3 X="268.8759" Y="-6.559154" Z="-0.05980549" />
+          <Vector3 X="255.9855" Y="-5.247692" Z="-0.03342384" />
+          <Vector3 X="245.6038" Y="-3.858613" Z="-0.05634756" />
+          <Vector3 X="234.9922" Y="-1.749952" Z="0.103004" />
+          <Vector3 X="224.6809" Y="0.2258829" Z="-0.08357" />
+          <Vector3 X="214.6241" Y="1.490646" Z="-0.1027514" />
+          <Vector3 X="203.806" Y="2.11005" Z="-0.1205893" />
+          <Vector3 X="193.3382" Y="2.594524" Z="-0.1205893" />
+          <Vector3 X="182.8461" Y="2.997537" Z="-0.1220255" />
+          <Vector3 X="172.3261" Y="3.132818" Z="-0.2089924" />
+          <Vector3 X="161.8691" Y="3.048012" Z="-0.1246757" />
+          <Vector3 X="151.3708" Y="2.854572" Z="-0.1261093" />
+          <Vector3 X="140.8726" Y="2.661133" Z="-0.1275189" />
+          <Vector3 X="130.3954" Y="2.46808" Z="-0.1289144" />
+          <Vector3 X="119.8887" Y="2.012191" Z="-0.1289144" />
+          <Vector3 X="109.4722" Y="1.081514" Z="-0.0115166" />
+          <Vector3 X="99.0139" Y="0.1470994" Z="-0.1260698" />
+          <Vector3 X="88.53641" Y="-0.5124841" Z="-0.1194276" />
+          <Vector3 X="78.05927" Y="-0.7096595" Z="-0.1194601" />
+          <Vector3 X="67.55946" Y="-0.7533497" Z="-0.1308524" />
+          <Vector3 X="57.08601" Y="-0.4278444" Z="-0.1679444" />
+          <Vector3 X="46.59303" Y="-0.0441128" Z="-0.1590675" />
+          <Vector3 X="36.11969" Y="0.2921953" Z="-0.130527" />
+          <Vector3 X="25.59915" Y="0.3903713" Z="-0.1211184" />
+          <Vector3 X="15.12031" Y="0.3807137" Z="-0.1211184" />
+          <Vector3 X="4.64251" Y="0.2246838" Z="-0.1211184" />
+          <Vector3 X="-5.854114" Y="-0.03338979" Z="-0.1211184" />
+          <Vector3 X="-14.58793" Y="0.08603095" Z="-0.1211184" />
+          <Vector3 X="-18.45096" Y="0.1706956" Z="-0.1211184" />
+          <Vector3 X="-49.99993" Y="1.068389" Z="-0.1206" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Usefuls.ContinentId == (int) ContinentId.Expansion01;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>ExitEntranceHall</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="-3362.18" Y="5210.752" Z="-101.0485" />
+          <Vector3 X="-3362.922" Y="5204.156" Z="-101.0485" />
+          <Vector3 X="-3362.606" Y="5193.682" Z="-101.0497" />
+          <Vector3 X="-3362.29" Y="5183.208" Z="-101.0497" />
+          <Vector3 X="-3361.972" Y="5172.712" Z="-101.0497" />
+          <Vector3 X="-3361.645" Y="5161.881" Z="-101.0497" />
+          <Vector3 X="-3361.338" Y="5151.722" Z="-101.049" />
+          <Vector3 X="-3361.197" Y="5141.266" Z="-101.0486" />
+          <Vector3 X="-3361.167" Y="5130.409" Z="-101.3956" />
+          <Vector3 X="-3361.146" Y="5122.366" Z="-101.3956" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>using System;
+using System.ComponentModel;
+using System.Configuration;
+using System.IO;
+using System.Net;
+using System.Threading;
+using System.Windows.Forms;
+using robotManager.Helpful;
+using robotManager.Products;
+
+public class Authentication
+{
+    private readonly string orderId;
+    private readonly string productId;
+    private readonly string wRobotAuthKey;
+
+    private readonly BackgroundWorker _validationThread = new BackgroundWorker();
+    private bool _isRunning = false;
+    private string authUrl;
+
+    public Authentication(string orderId, string productId)
+    {
+        if (orderId == null)
+        {
+            MessageBox.Show("You need to enter your transaction id (from your Rocketr email) into the plugin settings to use this!");
+        }
+
+        this.orderId = orderId;
+        this.productId = productId;
+
+        System.Text.RegularExpressions.Match matcher = System.Text.RegularExpressions.Regex.Match(authManager.LoginServer.GetSubcriptionInfoThread(), "(Key: )(.*)(\\.\\.\\.)(.*)");
+        if (matcher.Success) 
+        {
+		    wRobotAuthKey = matcher.Groups[2].Value;
+        }
+
+        _isRunning = true;
+        authUrl = "http://51.38.126.73:8080/authenticate?orderId=" + orderId.Trim() + "&amp;productId=" + productId + "&amp;wRobotAuthKey=" + wRobotAuthKey;
+        _validationThread.DoWork += CheckValidiation;
+        _validationThread.RunWorkerAsync();
+    }
+    
+    ~Authentication()
+    {
+        _isRunning = false;
+        _validationThread.DoWork -= CheckValidiation;
+        _validationThread.Dispose();
+    }
+
+    private void CheckValidiation(object sender, DoWorkEventArgs e)
+    {
+        while (Products.IsStarted &amp;&amp; _isRunning)
+        {
+            try
+            {
+                bool timedOut = false;
+                HttpWebResponse content = null;
+                try
+                {
+                    var request = (HttpWebRequest)WebRequest.Create(authUrl);
+                    request.Timeout = 30000;
+                    request.ReadWriteTimeout = 30000;
+                    content = (HttpWebResponse)request.GetResponse();
+                }
+                catch (Exception ex)
+                {
+                    timedOut = true;
+                }
+                
+                //give it another try
+                if ((content != null &amp;&amp; content.StatusCode != HttpStatusCode.OK) || timedOut)
+                {
+                    Thread.Sleep(3* 60 * 1000);
+                    try
+                    {
+                        var request = (HttpWebRequest)WebRequest.Create(authUrl);
+                        request.Timeout = 30000;
+                        request.ReadWriteTimeout = 30000;
+                        content = (HttpWebResponse)request.GetResponse();
+                        timedOut = false;
+                    }
+                    catch (Exception ex)
+                    {
+                        timedOut = true;
+                    }
+                }
+
+                string result = content != null ? new StreamReader(content.GetResponseStream()).ReadToEnd() : "false";
+
+                if (!bool.Parse(result) || (content != null &amp;&amp; content.StatusCode != HttpStatusCode.OK) || timedOut)
+                {
+                    Products.ProductStop();
+                    _isRunning = false;
+                    _validationThread.DoWork -= CheckValidiation;
+                    _validationThread.Dispose();
+                    MessageBox.Show(@"You are trying to use a transaction id for a different product or another IP is already using this transaction id.
+                    
+If you changed your IP (one on wRobot session), wait 30 minutes.
+
+This error was produced by the AuchenaiCrypts profile of bambo.
+
+                    ");
+                    return;
+                }
+
+                Thread.Sleep(60 * 1000);
+            }
+            catch (Exception exp)
+            {
+                Logging.WriteError("" + exp);
+            }
+        }
+    }
+}
+
+public class ControlAuthentication
+{
+    private static volatile int _controlVariable = 0;
+    private static int _timeout = 0;
+    private static bool _isRunning = true;
+    private static bool disposeAuthThread = false;
+    private static string profileName = "";
+
+    public static void SetControl(int control)
+    {
+        _controlVariable = control;
+    }
+
+    static ControlAuthentication()
+    {
+        new Thread(() =&gt;
+        {
+            profileName = wManager.Wow.Helpers.Quest.QuesterCurrentContext.ProfileName;
+
+            while(_isRunning &amp;&amp; !disposeAuthThread &amp;&amp; (wManager.Wow.Helpers.Conditions.ProductIsStarted || wManager.Wow.Helpers.Conditions.ProductInPause))
+            {
+                if(!wManager.Wow.Helpers.Quest.QuesterCurrentContext.ProfileName.Equals(profileName))
+                {
+                    disposeAuthThread = true;
+                    break;
+                }
+
+                if(!wManager.Wow.Helpers.Conditions.ProductIsStarted)
+                {
+                    disposeAuthThread = true;
+                    break;
+                }
+
+                while(wManager.Wow.Helpers.Quest.QuesterCurrentContext.CurrentStep &lt; 2)
+                {
+                    Thread.Sleep(500);
+
+                    if(_controlVariable == 5 || !wManager.Wow.Helpers.Conditions.ProductIsStarted)
+                        break;
+
+                    _timeout += 500;
+
+                    if(_timeout &gt;= 910000)
+                    {
+                        Products.ProductStop();
+                        MessageBox.Show("[Bambo_AuchenaiCrypts]: Timeout error. Unable to authenticate for more than 15 minutes. \n\nBot name: " + ObjectManager.Me.Name);
+                        break;
+                    }
+                }
+
+                _isRunning = false;
+
+                if(wManager.Wow.Helpers.Conditions.ProductIsStarted || wManager.Wow.Helpers.Conditions.ProductInPause)
+                {
+                    Thread.Sleep(60000);
+
+                    if(_controlVariable != 5)
+                    {
+                        Products.ProductStop();
+                        MessageBox.Show("[Bambo_AuchenaiCrypts]: Please enter your ID faster or make sure the authentication step is enabled. \nRestart the Bot now. \n\nBot name: " + ObjectManager.Me.Name);
+                    }
+                    _timeout = 0;
+                    _isRunning = true;
+                }
+            }
+
+        }).Start();
+    }
+    
+}
+
+[Serializable]
+public class AuchenaiCryptsAuthSettings : robotManager.Helpful.Settings
+{
+    [Setting]
+    [Category("__IMPORTANT__")]
+    [DisplayName("Rocketr ORDER ID")]
+    [Description("You can find this ID at the top of the Email that you have received after your purchase.")]
+    public string TransactionId { get; set; }
+
+    public AuchenaiCryptsAuthSettings()
+    {
+        TransactionId = null;
+    }
+    
+    public static AuchenaiCryptsAuthSettings CurrentSetting { get; set; }
+
+    public bool Save()
+    {
+        try
+        {
+            return Save(AdviserFilePathAndName("AuchenaiCryptsAuthSettings", "TBCWOTLK"));
+        }
+        catch (Exception e)
+        {
+            robotManager.Helpful.Logging.Write("AuchenaiCryptsAuthSettings &gt; Save(): " + e);
+            return false;
+        }
+    }
+
+    public static bool Load()
+    {
+        try
+        {
+            if (File.Exists(AdviserFilePathAndName("AuchenaiCryptsAuthSettings", "TBCWOTLK")))
+            {
+                CurrentSetting =
+                    Load&lt;AuchenaiCryptsAuthSettings&gt;(AdviserFilePathAndName("AuchenaiCryptsAuthSettings", "TBCWOTLK"));
+                return true;
+            }
+            CurrentSetting = new AuchenaiCryptsAuthSettings();
+        }
+        catch (Exception e)
+        {
+            robotManager.Helpful.Logging.Write("AuchenaiCryptsAuthSettings &gt; Load(): " + e);
+        }
+        return false;
+    }
+}</Script>
+  <OffMeshConnections />
+  <BlacklistNpc>
+    <BlackNpc UniqueId="00780B00037C778D203A9092E0496EC0" Name="" />
+    <BlackNpc UniqueId="00780B0000FC784A203A9092E0489D40" Name="" />
+    <BlackNpc UniqueId="00780B00007C784A203A9092E0489D00" Name="" />
+    <BlackNpc UniqueId="00780B00007C784A203A9092E0489CC0" Name="" />
+    <BlackNpc UniqueId="00780B00007C784A203A9092E0489D40" Name="" />
+    <BlackNpc UniqueId="00780B00007C7863203A9092E0489CC0" Name="" />
+    <BlackNpc UniqueId="00780B0000FC7857203A9092E0489D40" Name="" />
+    <BlackNpc UniqueId="00780B00007C786F203A9092E0489D00" Name="" />
+    <BlackNpc UniqueId="00780B00007C7863203A9092E0489D00" Name="" />
+  </BlacklistNpc>
+  <BlacklistNpcType />
+  <Blackspots />
+</EasyQuestProfile>

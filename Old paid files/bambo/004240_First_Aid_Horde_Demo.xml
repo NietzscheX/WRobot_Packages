@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="RunLuaCode" NameClass="if not InfoPanel then&#xD;&#xA;    InfoPanelText = &quot;Updating...&quot;&#xD;&#xA;    InfoPanel = CreateFrame(&quot;Frame&quot;)&#xD;&#xA;    InfoPanel:ClearAllPoints()&#xD;&#xA;    InfoPanel:SetBackdrop({bgFile = &quot;Interface/Buttons/WHITE8X8&quot;,})&#xD;&#xA;    InfoPanel:SetBackdropColor(0,0,0,.4)&#xD;&#xA;    InfoPanel:SetHeight(40)&#xD;&#xA;    InfoPanel:SetWidth(150)&#xD;&#xA;&#xD;&#xA;    InfoPanel.text = InfoPanel:CreateFontString(nil, &quot;BACKGROUND&quot;, &quot;GameFontNormal&quot;)&#xD;&#xA;    InfoPanel.text:SetAllPoints()&#xD;&#xA;    InfoPanel.text:SetText(InfoPanelText)&#xD;&#xA;    InfoPanel.text:SetTextColor(1, 1, 0, 1)&#xD;&#xA;    InfoPanel:SetPoint(&quot;RIGHT&quot;, -50, -100)&#xD;&#xA;&#xD;&#xA;    InfoPanel:SetMovable(true)&#xD;&#xA;    InfoPanel:EnableMouse(true)&#xD;&#xA;    InfoPanel:SetScript(&quot;OnMouseDown&quot;,function() InfoPanel:StartMoving() end)&#xD;&#xA;    InfoPanel:SetScript(&quot;OnMouseUp&quot;,function() InfoPanel:StopMovingOrSizing() end)&#xD;&#xA;    &#xD;&#xA;    InfoPanel.Close = CreateFrame(&quot;BUTTON&quot;, nil, InfoPanel, &quot;UIPanelCloseButton&quot;)&#xD;&#xA;    InfoPanel.Close:SetWidth(20)&#xD;&#xA;    InfoPanel.Close:SetHeight(20)&#xD;&#xA;    InfoPanel.Close:SetPoint(&quot;TOPRIGHT&quot;, InfoPanel, 3, 3)&#xD;&#xA;    InfoPanel.Close:SetScript(&quot;OnClick&quot;, function()&#xD;&#xA;        InfoPanel:Hide()&#xD;&#xA;        DEFAULT_CHAT_FRAME:AddMessage(&quot;Info Panel |cffC41F3Bclosed |cffFFFFFFWrite /InfoPanel to enable again.&quot;)     &#xD;&#xA;    end)&#xD;&#xA;    &#xD;&#xA;    SLASH_WHATEVERYOURFRAMESARECALLED1=&quot;/InfoPanel&quot;&#xD;&#xA;    SlashCmdList.WHATEVERYOURFRAMESARECALLED = function()&#xD;&#xA;        if InfoPanel:IsShown() then&#xD;&#xA;            InfoPanel:Hide()&#xD;&#xA;        else&#xD;&#xA;            InfoPanel:Show()&#xD;&#xA;        end&#xD;&#xA;    end&#xD;&#xA;end" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;InfoPanelText = 'Bambos Wotlk FirstAid Horde - DEMO'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;InfoPanel.text:SetText(InfoPanelText)&quot;);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="function DoTradeSkillByName(SkillName, ItemName, Quantity)&#xD;&#xA;    if (TradeSkillFrame:IsVisible() ) then&#xD;&#xA;        TradeSkillFrame:Hide();&#xD;&#xA;    end&#xD;&#xA;    if not TradeSkillFrame then&#xD;&#xA;        CastSpellByName(SkillName)&#xD;&#xA;    end&#xD;&#xA;    if TradeSkillFrame:IsVisible() == nil then&#xD;&#xA;        CastSpellByName(SkillName)&#xD;&#xA;    end &#xD;&#xA;    for i=1,GetNumTradeSkills() do&#xD;&#xA;        local name, _, _, _ = GetTradeSkillInfo(i)&#xD;&#xA;        if (name == ItemName) then&#xD;&#xA;            DoTradeSkill(i, Quantity)&#xD;&#xA;        end&#xD;&#xA;    end&#xD;&#xA;    if (TradeSkillFrame:IsVisible() and Quantity &lt; 2) then&#xD;&#xA;        TradeSkillFrame:Hide();&#xD;&#xA;    end&#xD;&#xA;end" />
+    <QuestsSorted Action="RunLuaCode" NameClass="function DoTradeSkillByName(SkillName, ItemName, Quantity)&#xD;&#xA;    if not TradeSkillFrame then&#xD;&#xA;        CastSpellByName(SkillName)&#xD;&#xA;    end&#xD;&#xA;    if TradeSkillFrame:IsVisible() == nil then&#xD;&#xA;        CastSpellByName(SkillName)&#xD;&#xA;    end &#xD;&#xA;    for i=1,GetNumTradeSkills() do&#xD;&#xA;        local name, _, _, _ = GetTradeSkillInfo(i)&#xD;&#xA;        if (name == ItemName) then&#xD;&#xA;            DoTradeSkill(i, Quantity)&#xD;&#xA;        end&#xD;&#xA;    end&#xD;&#xA;    if (TradeSkillFrame:IsVisible() and Quantity &lt; 2) then&#xD;&#xA;        TradeSkillFrame:Hide();&#xD;&#xA;    end&#xD;&#xA;end&#xD;&#xA;&#xD;&#xA;function BuyTrainerSkill(SkillName)&#xD;&#xA;    for i=1,GetNumTrainerServices() do&#xD;&#xA;        local name, _, _, _ = GetTrainerServiceInfo(i)&#xD;&#xA;        if (name == SkillName) then&#xD;&#xA;            BuyTrainerService(i)&#xD;&#xA;        end&#xD;&#xA;    end&#xD;&#xA;end" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.Selling = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.SellGray = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.SellWhite = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.SellGreen = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.TrainNewSkills = false;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.LootInCombat = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.HarvestMinerals = false;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.HarvestHerbs = false;" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.FirstAid) &lt; 80 &amp;&amp; !wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Linen Cloth&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Linen Cloth&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="!Skill.Has(SkillLine.FirstAid)" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2EFirstAidBot|r Learn Apprentice First Aid&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerOrgrimmar" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(1482.72, -4159.95, 44.02105), 3373, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Apprentice First Aid&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="SpellManager.UpdateSpellBook();" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.FirstAid) &lt; 45" />
+    <QuestsSorted Action="Pulse" NameClass="LinenCloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;First Aid&quot;, &quot;Linen Bandage&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="1500" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.FirstAid) &lt; 75" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2EFirstAidBot|r Learn Heavy Linen Bandage&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerOrgrimmar" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(1482.72, -4159.95, 44.02105), 3373, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Heavy Linen Bandage&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.FirstAid) &lt; 75" />
+    <QuestsSorted Action="Pulse" NameClass="LinenCloth2" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;First Aid&quot;, &quot;Heavy Linen Bandage&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="1500" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="!wManager.Wow.Helpers.SpellManager.KnowSpell(3274) &amp;&amp; Skill.GetValue(SkillLine.FirstAid) &lt;= 75" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2EFirstAidBot|r Learn Journeyman First Aid&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerOrgrimmar" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(1482.72, -4159.95, 44.02105), 3373, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Journeyman First Aid&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="SpellManager.UpdateSpellBook();" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2EFirstAidBot|r First Aid 1-450 Horde Demo finished&quot;)" />
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc>
+    <Npc>
+      <Position X="-11295.8" Y="-201.343" Z="75.60298" />
+      <Entry>734</Entry>
+      <Name>Corporal Bluth</Name>
+      <GossipOption>-1</GossipOption>
+      <Active>true</Active>
+      <Faction>Neutral</Faction>
+      <Type>Vendor</Type>
+      <VendorItemClass>Food</VendorItemClass>
+      <ContinentId>Azeroth</ContinentId>
+    </Npc>
+  </Npc>
+  <EasyQuests>
+
+    <EasyQuest>
+      <Name>Path Trainer Orgrimmar</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="1484.13" Y="-4156.411" Z="43.42295" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Linen Cloth 1</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-1179.159" Y="-2985.677" Z="93.34376" />
+          <Vector3 X="-1342.26" Y="-3110.99" Z="91.66689" />
+          <Vector3 X="-1490.554" Y="-3007.989" Z="91.66671" />
+          <Vector3 X="-1218.228" Y="-2761.714" Z="96.59214" />
+          <Vector3 X="-1090.438" Y="-2280.92" Z="86.54521" />
+          <Vector3 X="-1128.549" Y="-2025.641" Z="88.65079" />
+          <Vector3 X="-925.0908" Y="-1931.081" Z="92.07066" />
+          <Vector3 X="-162.2934" Y="-1757.373" Z="91.8703" />
+          <Vector3 X="-189.5839" Y="-1673.958" Z="91.92943" />
+          <Vector3 X="-58.76656" Y="-1646.566" Z="91.66678" />
+          <Vector3 X="13.3948" Y="-1760.175" Z="97.96336" />
+        </HotSpots>
+        <EntryTarget>
+          <int>3397</int>
+          <int>3275</int>
+          <int>3274</int>
+          <int>3272</int>
+          <int>3273</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(2589) &gt;=1;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Linen Cloth 2</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-1179.159" Y="-2985.677" Z="93.34376" />
+          <Vector3 X="-1342.26" Y="-3110.99" Z="91.66689" />
+          <Vector3 X="-1490.554" Y="-3007.989" Z="91.66671" />
+          <Vector3 X="-1218.228" Y="-2761.714" Z="96.59214" />
+          <Vector3 X="-1090.438" Y="-2280.92" Z="86.54521" />
+          <Vector3 X="-1128.549" Y="-2025.641" Z="88.65079" />
+          <Vector3 X="-925.0908" Y="-1931.081" Z="92.07066" />
+          <Vector3 X="-162.2934" Y="-1757.373" Z="91.8703" />
+          <Vector3 X="-189.5839" Y="-1673.958" Z="91.92943" />
+          <Vector3 X="-58.76656" Y="-1646.566" Z="91.66678" />
+          <Vector3 X="13.3948" Y="-1760.175" Z="97.96336" />
+        </HotSpots>
+        <EntryTarget>
+          <int>3397</int>
+          <int>3275</int>
+          <int>3274</int>
+          <int>3272</int>
+          <int>3273</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(2589) &gt;=2;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script></Script>
+  <OffMeshConnections />
+  <BlacklistNpc />
+  <BlacklistNpcType />
+  <Blackspots>
+    <Blackspot X="-6164.957" Y="-3017.99463" Z="384.196259" Radius="15" Continent="Azeroth" TypeArea="POLYAREA_BIGDANGER" Comment="Loch Modan &gt; Stonesplinter Valley" />
+    <Blackspot X="-6141.58643" Y="-3025.5874" Z="392.790741" Radius="30" Continent="Azeroth" TypeArea="POLYAREA_BIGDANGER" Comment="Loch Modan &gt; Stonesplinter Valley" />
+    <Blackspot X="5119.505" Y="-460.387482" Z="295.9104" Radius="10" Continent="Kalimdor" TypeArea="POLYAREA_BIGDANGER" Comment="Felwood &gt; Shadow Hold" />
+    <Blackspot X="-12100.7188" Y="-346.695526" Z="8.455648" Radius="30" Continent="Azeroth" TypeArea="POLYAREA_BIGDANGER" Comment="Stranglethorn Vale &gt; Lake Nazferiti" />
+    <Blackspot X="-12093.6543" Y="-339.737854" Z="8.377316" Radius="30" Continent="Azeroth" TypeArea="POLYAREA_BIGDANGER" Comment="Stranglethorn Vale &gt; Lake Nazferiti" />
+    <Blackspot X="5121.37549" Y="-483.8006" Z="295.909454" Radius="50" Continent="Kalimdor" TypeArea="POLYAREA_BIGDANGER" Comment="Felwood &gt; Shadow Hold" />
+  </Blackspots>
+</EasyQuestProfile>

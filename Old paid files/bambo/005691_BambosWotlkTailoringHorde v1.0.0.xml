@@ -1,0 +1,2856 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="RunCode" NameClass="HordeWOTLKTailoringAuthSettings.Load();&#xD;&#xA;        if (HordeWOTLKTailoringAuthSettings.CurrentSetting.TransactionId == null)&#xD;&#xA;        {&#xD;&#xA;            HordeWOTLKTailoringAuthSettings.CurrentSetting.ToForm();&#xD;&#xA;        }&#xD;&#xA;        HordeWOTLKTailoringAuthSettings.CurrentSetting.Save();&#xD;&#xA;        new Authentication(HordeWOTLKTailoringAuthSettings.CurrentSetting.TransactionId, &quot;07086b22734f&quot;);&#xD;&#xA;        ControlAuthentication.SetControl(5);" />
+    <QuestsSorted Action="Pulse" NameClass="AutoUpdate" />
+    <QuestsSorted Action="RunLuaCode" NameClass="if not InfoPanel then&#xD;&#xA;    InfoPanelText = &quot;Updating...&quot;&#xD;&#xA;    InfoPanel = CreateFrame(&quot;Frame&quot;)&#xD;&#xA;    InfoPanel:ClearAllPoints()&#xD;&#xA;    InfoPanel:SetBackdrop({bgFile = &quot;Interface/Buttons/WHITE8X8&quot;,})&#xD;&#xA;    InfoPanel:SetBackdropColor(0,0,0,.4)&#xD;&#xA;    InfoPanel:SetHeight(40)&#xD;&#xA;    InfoPanel:SetWidth(150)&#xD;&#xA;&#xD;&#xA;    InfoPanel.text = InfoPanel:CreateFontString(nil, &quot;BACKGROUND&quot;, &quot;GameFontNormal&quot;)&#xD;&#xA;    InfoPanel.text:SetAllPoints()&#xD;&#xA;    InfoPanel.text:SetText(InfoPanelText)&#xD;&#xA;    InfoPanel.text:SetTextColor(1, 1, 0, 1)&#xD;&#xA;    InfoPanel:SetPoint(&quot;RIGHT&quot;, -50, -100)&#xD;&#xA;&#xD;&#xA;    InfoPanel:SetMovable(true)&#xD;&#xA;    InfoPanel:EnableMouse(true)&#xD;&#xA;    InfoPanel:SetScript(&quot;OnMouseDown&quot;,function() InfoPanel:StartMoving() end)&#xD;&#xA;    InfoPanel:SetScript(&quot;OnMouseUp&quot;,function() InfoPanel:StopMovingOrSizing() end)&#xD;&#xA;    &#xD;&#xA;    InfoPanel.Close = CreateFrame(&quot;BUTTON&quot;, nil, InfoPanel, &quot;UIPanelCloseButton&quot;)&#xD;&#xA;    InfoPanel.Close:SetWidth(20)&#xD;&#xA;    InfoPanel.Close:SetHeight(20)&#xD;&#xA;    InfoPanel.Close:SetPoint(&quot;TOPRIGHT&quot;, InfoPanel, 3, 3)&#xD;&#xA;    InfoPanel.Close:SetScript(&quot;OnClick&quot;, function()&#xD;&#xA;        InfoPanel:Hide()&#xD;&#xA;        DEFAULT_CHAT_FRAME:AddMessage(&quot;Info Panel |cffC41F3Bclosed |cffFFFFFFWrite /InfoPanel to enable again.&quot;)     &#xD;&#xA;    end)&#xD;&#xA;    &#xD;&#xA;    SLASH_WHATEVERYOURFRAMESARECALLED1=&quot;/InfoPanel&quot;&#xD;&#xA;    SlashCmdList.WHATEVERYOURFRAMESARECALLED = function()&#xD;&#xA;        if InfoPanel:IsShown() then&#xD;&#xA;            InfoPanel:Hide()&#xD;&#xA;        else&#xD;&#xA;            InfoPanel:Show()&#xD;&#xA;        end&#xD;&#xA;    end&#xD;&#xA;end" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;InfoPanelText = 'Bambos Wotlk Tailoring Horde - v1.0.0'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;InfoPanel.text:SetText(InfoPanelText)&quot;);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="function DoTradeSkillByName(SkillName, ItemName, Quantity)&#xD;&#xA;    if (TradeSkillFrame:IsVisible() ) then&#xD;&#xA;        TradeSkillFrame:Hide();&#xD;&#xA;    end&#xD;&#xA;    if not TradeSkillFrame then&#xD;&#xA;        CastSpellByName(SkillName)&#xD;&#xA;    end&#xD;&#xA;    if TradeSkillFrame:IsVisible() == nil then&#xD;&#xA;        CastSpellByName(SkillName)&#xD;&#xA;    end &#xD;&#xA;    for i=1,GetNumTradeSkills() do&#xD;&#xA;        local name, _, _, _ = GetTradeSkillInfo(i)&#xD;&#xA;        if (name == ItemName) then&#xD;&#xA;            DoTradeSkill(i, Quantity)&#xD;&#xA;        end&#xD;&#xA;    end&#xD;&#xA;    if (TradeSkillFrame:IsVisible() and Quantity &lt; 2) then&#xD;&#xA;        TradeSkillFrame:Hide();&#xD;&#xA;    end&#xD;&#xA;end" />
+    <QuestsSorted Action="RunLuaCode" NameClass="function DoTradeSkillByName(SkillName, ItemName, Quantity)&#xD;&#xA;    if not TradeSkillFrame then&#xD;&#xA;        CastSpellByName(SkillName)&#xD;&#xA;    end&#xD;&#xA;    if TradeSkillFrame:IsVisible() == nil then&#xD;&#xA;        CastSpellByName(SkillName)&#xD;&#xA;    end &#xD;&#xA;    for i=1,GetNumTradeSkills() do&#xD;&#xA;        local name, _, _, _ = GetTradeSkillInfo(i)&#xD;&#xA;        if (name == ItemName) then&#xD;&#xA;            DoTradeSkill(i, Quantity)&#xD;&#xA;        end&#xD;&#xA;    end&#xD;&#xA;    if (TradeSkillFrame:IsVisible() and Quantity &lt; 2) then&#xD;&#xA;        TradeSkillFrame:Hide();&#xD;&#xA;    end&#xD;&#xA;end&#xD;&#xA;&#xD;&#xA;function BuyTrainerSkill(SkillName)&#xD;&#xA;    for i=1,GetNumTrainerServices() do&#xD;&#xA;        local name, _, _, _ = GetTrainerServiceInfo(i)&#xD;&#xA;        if (name == SkillName) then&#xD;&#xA;            BuyTrainerService(i)&#xD;&#xA;        end&#xD;&#xA;    end&#xD;&#xA;end" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.Selling = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.SellGray = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.SellWhite = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.SellGreen = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.NpcScanVendor = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.AddToNpcDb = true;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.HarvestMinerals = false;&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.HarvestHerbs = false;" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 110 &amp;&amp; !wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Linen Cloth&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Linen Cloth&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 110 &amp;&amp; !wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Bolt of Linen Cloth&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Bolt of Linen Cloth&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 125 &amp;&amp; !wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Wool Cloth&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Wool Cloth&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 125 &amp;&amp; !wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Bolt of Woolen Cloth&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Bolt of Woolen Cloth&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 200 &amp;&amp; !wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Fine Thread&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Fine Thread&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 215 &amp;&amp; !wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Silk Cloth&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Silk Cloth&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 215 &amp;&amp; !wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Bolt of Silk Cloth&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Bolt of Silk Cloth&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 250 &amp;&amp; !wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Mageweave Cloth&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Mageweave Cloth&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 250 &amp;&amp; !wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Bolt of Mageweave&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Bolt of Mageweave&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 300 &amp;&amp; !wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Runecloth&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Runecloth&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 300 &amp;&amp; !wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Bolt of Runecloth&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Bolt of Runecloth&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 350 &amp;&amp; !wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Netherweave Cloth&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Netherweave Cloth&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 350 &amp;&amp; !wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Bolt of Netherweave&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Bolt of Netherweave&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 160 &amp;&amp; !wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Blue Dye&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Blue Dye&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 175 &amp;&amp; !wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Bleach&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Bleach&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 215 &amp;&amp; !wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Red Dye&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Red Dye&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 220 &amp;&amp; !wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Silken Thread&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Silken Thread&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 250 &amp;&amp; !wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Heavy Silken Thread&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Heavy Silken Thread&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 350 &amp;&amp; !wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Rune Thread&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Rune Thread&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Frostweave Cloth&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Frostweave Cloth&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Bolt of Frostweave&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Bolt of Frostweave&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Infinite Dust&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Infinite Dust&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Bolt of Imbued Frostweave&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Bolt of Imbued Frostweave&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="!wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Eternium Thread&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Add(&quot;Eternium Thread&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="!Skill.Has(SkillLine.Tailoring)" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Apprentice Tailor&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerTheBarrens" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(-529.43, -2667.07, 95.78767), 3484, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Apprentice Tailor&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="SpellManager.UpdateSpellBook();" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 45" />
+    <QuestsSorted Action="Pulse" NameClass="LinenCloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Linen Cloth&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 70" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Skill Heavy Linen Gloves&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerTheBarrens" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(-529.43, -2667.07, 95.78767), 3484, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Heavy Linen Gloves&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 70" />
+    <QuestsSorted Action="Pulse" NameClass="BuyCoarseThread1" />
+    <QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.ItemsManager.GetItemCountById(2996) &lt;2" />
+    <QuestsSorted Action="Pulse" NameClass="LinenCloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Linen Cloth&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Heavy Linen Gloves&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 75" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Skill Reinforced Linen Cape&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerTheBarrens" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(-529.43, -2667.07, 95.78767), 3484, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Reinforced Linen Cape&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 75" />
+    <QuestsSorted Action="Pulse" NameClass="BuyCoarseThread2" />
+    <QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.ItemsManager.GetItemCountById(2996) &lt;2" />
+    <QuestsSorted Action="Pulse" NameClass="LinenCloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Linen Cloth&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Reinforced Linen Cape&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="3000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;CoarseThread&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Remove(&quot;Coarse Thread&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="!wManager.Wow.Helpers.SpellManager.KnowSpell(3909) &amp;&amp; Skill.GetValue(SkillLine.Tailoring) &lt;= 75" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Journeyman Tailor&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerTheBarrens" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(-529.43, -2667.07, 95.78767), 3484, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Journeyman Tailor&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="SpellManager.UpdateSpellBook();" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 100" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Skill Bolt of Woolen Cloth&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerTheBarrens" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(-529.43, -2667.07, 95.78767), 3484, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Bolt of Woolen Cloth&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 100" />
+    <QuestsSorted Action="Pulse" NameClass="WoolCloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Woolen Cloth&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 110" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Skill Simple Kilt&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerTheBarrens" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(-529.43, -2667.07, 95.78767), 3484, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Simple Kilt&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 110" />
+    <QuestsSorted Action="Pulse" NameClass="BuyFineThread1" />
+    <QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.ItemsManager.GetItemCountById(2996) &lt;4" />
+    <QuestsSorted Action="Pulse" NameClass="LinenCloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Linen Cloth&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Simple Kilt&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Linen Cloth&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Remove(&quot;Linen Cloth&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Bolt of Linen Cloth&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Remove(&quot;Bolt of Linen Cloth&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 125" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Skill Double-stitched Woolen Shoulders&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerTheBarrens" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(-529.43, -2667.07, 95.78767), 3484, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Double-stitched Woolen Shoulders&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 125" />
+    <QuestsSorted Action="Pulse" NameClass="BuyFineThread2" />
+    <QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.ItemsManager.GetItemCountById(2997) &lt;3" />
+    <QuestsSorted Action="Pulse" NameClass="WoolCloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Woolen Cloth&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Double-stitched Woolen Shoulders&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="12500" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Wool Cloth&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Remove(&quot;Wool Cloth&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Bolt of Woolen Cloth&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Remove(&quot;Bolt of Woolen Cloth&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="!wManager.Wow.Helpers.SpellManager.KnowSpell(3910) &amp;&amp; Skill.GetValue(SkillLine.Tailoring) &lt;= 125" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Expert Tailor&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerBootyBay" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(-14437.8, 384.766, 32.31177), 2627, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Expert Tailor&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="SpellManager.UpdateSpellBook();" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 145" />
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Usefuls.ContinentId == (int)wManager.Wow.Enums.ContinentId.Kalimdor" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Portal To Blasted Lands&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;" />
+    <QuestsSorted Action="Pulse" NameClass="PortaltoBlastedLands" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Skill Bolt of Silk Cloth&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerBootyBay" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(-14437.8, 384.766, 32.31177), 2627, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Bolt of Silk Cloth&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 145" />
+    <QuestsSorted Action="Pulse" NameClass="SilkCloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Silk Cloth&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 160" />
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Usefuls.ContinentId == (int)wManager.Wow.Enums.ContinentId.Kalimdor" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Portal To Blasted Lands&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;" />
+    <QuestsSorted Action="Pulse" NameClass="PortaltoBlastedLands" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Skill Azure Silk Hood&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerBootyBay" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(-14437.8, 384.766, 32.31177), 2627, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Azure Silk Hood&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 160" />
+    <QuestsSorted Action="Pulse" NameClass="BuyBlueDye1" />
+    <QuestsSorted Action="Pulse" NameClass="BuyFineThread3" />
+    <QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.ItemsManager.GetItemCountById(4305) &lt;2" />
+    <QuestsSorted Action="Pulse" NameClass="SilkCloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Silk Cloth&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Azure Silk Hood&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="12500" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Blue Dye&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Remove(&quot;Blue Dye&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 170" />
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Usefuls.ContinentId == (int)wManager.Wow.Enums.ContinentId.Kalimdor" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Portal To Blasted Lands&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;" />
+    <QuestsSorted Action="Pulse" NameClass="PortaltoBlastedLands" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Skill Silk Headband&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerBootyBay" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(-14437.8, 384.766, 32.31177), 2627, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Silk Headband&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 170" />
+    <QuestsSorted Action="Pulse" NameClass="BuyFineThread4" />
+    <QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.ItemsManager.GetItemCountById(4305) &lt;3" />
+    <QuestsSorted Action="Pulse" NameClass="SilkCloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Silk Cloth&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Silk Headband&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="25000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 175" />
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Usefuls.ContinentId == (int)wManager.Wow.Enums.ContinentId.Kalimdor" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Portal To Blasted Lands&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;" />
+    <QuestsSorted Action="Pulse" NameClass="PortaltoBlastedLands" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Skill Formal White Shirt&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerBootyBay" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(-14437.8, 384.766, 32.31177), 2627, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Formal White Shirt&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 175" />
+    <QuestsSorted Action="Pulse" NameClass="BuyBleach1" />
+    <QuestsSorted Action="Pulse" NameClass="BuyFineThread5" />
+    <QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.ItemsManager.GetItemCountById(4305) &lt;3" />
+    <QuestsSorted Action="Pulse" NameClass="SilkCloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Silk Cloth&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Formal White Shirt&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="25000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Bleach&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Remove(&quot;Bleach&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 185" />
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Usefuls.ContinentId == (int)wManager.Wow.Enums.ContinentId.Azeroth" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Ship to Ratchet&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="CatchShiptoRatchet" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Skill Bolt of Mageweave&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PortaltoOrgrimmar" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(1806.85, -4573.32, 23.0065), 3363, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Bolt of Mageweave&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 185" />
+    <QuestsSorted Action="Pulse" NameClass="MageweaveCloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Mageweave&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 200" />
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Usefuls.ContinentId == (int)wManager.Wow.Enums.ContinentId.Kalimdor" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Portal To Blasted Lands&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;" />
+    <QuestsSorted Action="Pulse" NameClass="PortaltoBlastedLands" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Skill Crimson Silk Vest&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerBootyBay" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(-14437.8, 384.766, 32.31177), 2627, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Crimson Silk Vest&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 200" />
+    <QuestsSorted Action="Pulse" NameClass="BuyRedDye1" />
+    <QuestsSorted Action="Pulse" NameClass="BuyFineThread6" />
+    <QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.ItemsManager.GetItemCountById(4305) &lt;4" />
+    <QuestsSorted Action="Pulse" NameClass="SilkCloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Silk Cloth&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Crimson Silk Vest&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="25000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Fine Thread&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Remove(&quot;Fine Thread&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="!wManager.Wow.Helpers.SpellManager.KnowSpell(12180) &amp;&amp; Skill.GetValue(SkillLine.Tailoring) &lt;= 225" />
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Usefuls.ContinentId == (int)wManager.Wow.Enums.ContinentId.Kalimdor" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Portal To Blasted Lands&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;" />
+    <QuestsSorted Action="Pulse" NameClass="PortaltoBlastedLands" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Artisan Tailor&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerBootyBay" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(-14437.8, 384.766, 32.31177), 2627, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Artisan Tailor&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="SpellManager.UpdateSpellBook();" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 215" />
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Usefuls.ContinentId == (int)wManager.Wow.Enums.ContinentId.Kalimdor" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Portal To Blasted Lands&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;" />
+    <QuestsSorted Action="Pulse" NameClass="PortaltoBlastedLands" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Skill Crimson Silk Pantaloons&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerBootyBay" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(-14437.8, 384.766, 32.31177), 2627, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Crimson Silk Pantaloons&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 215" />
+    <QuestsSorted Action="Pulse" NameClass="BuyRedDye1" />
+    <QuestsSorted Action="Pulse" NameClass="BuySilkenThread1" />
+    <QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.ItemsManager.GetItemCountById(4305) &lt;4" />
+    <QuestsSorted Action="Pulse" NameClass="SilkCloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Silk Cloth&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Crimson Silk Pantaloons&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="25000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Red Dye&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Remove(&quot;Red Dye&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Silk Cloth&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Remove(&quot;Silk Cloth&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Bolt of Silk Cloth&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Remove(&quot;Bolt of Silk Cloth&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 220" />
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Usefuls.ContinentId == (int)wManager.Wow.Enums.ContinentId.Azeroth" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Ship to Ratchet&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="CatchShiptoRatchet" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Skill Black Mageweave Leggings&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PortaltoOrgrimmar" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(1806.85, -4573.32, 23.0065), 3363, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Black Mageweave Leggings&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 220" />
+    <QuestsSorted Action="Pulse" NameClass="BuySilkenThread2" />
+    <QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.ItemsManager.GetItemCountById(4339) &lt;2" />
+    <QuestsSorted Action="Pulse" NameClass="MageweaveCloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Mageweave&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Black Mageweave Leggings&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="25000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Silken Thread&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Remove(&quot;Silken Thread&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 230" />
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Usefuls.ContinentId == (int)wManager.Wow.Enums.ContinentId.Azeroth" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Ship to Ratchet&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="CatchShiptoRatchet" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Skill Black Mageweave Gloves&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PortaltoOrgrimmar" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(1806.85, -4573.32, 23.0065), 3363, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Black Mageweave Gloves&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 230" />
+    <QuestsSorted Action="Pulse" NameClass="BuyHeavySilkenThread1" />
+    <QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.ItemsManager.GetItemCountById(4339) &lt;2" />
+    <QuestsSorted Action="Pulse" NameClass="MageweaveCloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Mageweave&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Black Mageweave Gloves&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="25000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 250" />
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Usefuls.ContinentId == (int)wManager.Wow.Enums.ContinentId.Azeroth" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Ship to Ratchet&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="CatchShiptoRatchet" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Skill Black Mageweave Headband&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PortaltoOrgrimmar" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(1806.85, -4573.32, 23.0065), 3363, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Black Mageweave Headband&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 250" />
+    <QuestsSorted Action="Pulse" NameClass="BuyHeavySilkenThread2" />
+    <QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.ItemsManager.GetItemCountById(4339) &lt;3" />
+    <QuestsSorted Action="Pulse" NameClass="MageweaveCloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Mageweave&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Black Mageweave Headband&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="25000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Heavy Silken Thread&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Remove(&quot;Heavy Silken Thread&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 260" />
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Usefuls.ContinentId == (int)wManager.Wow.Enums.ContinentId.Azeroth" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Ship to Ratchet&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="CatchShiptoRatchet" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Skill Bolt of Runecloth&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerTheBarrens" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(-529.43, -2667.07, 95.78767), 3484, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Bolt of Runecloth&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 260" />
+    <QuestsSorted Action="Pulse" NameClass="Runecloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Runecloth&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 280" />
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Usefuls.ContinentId == (int)wManager.Wow.Enums.ContinentId.Azeroth" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Ship to Ratchet&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="CatchShiptoRatchet" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Skill Runecloth Belt&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerTheBarrens" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(-529.43, -2667.07, 95.78767), 3484, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Runecloth Belt&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 280" />
+    <QuestsSorted Action="Pulse" NameClass="BuyRuneThread1" />
+    <QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.ItemsManager.GetItemCountById(14048) &lt;3" />
+    <QuestsSorted Action="Pulse" NameClass="Runecloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Runecloth&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Runecloth Belt&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="25000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 295" />
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Usefuls.ContinentId == (int)wManager.Wow.Enums.ContinentId.Azeroth" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Ship to Ratchet&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="CatchShiptoRatchet" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Skill Runecloth Gloves&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerTheBarrens" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(-529.43, -2667.07, 95.78767), 3484, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Runecloth Gloves&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 295" />
+    <QuestsSorted Action="Pulse" NameClass="BuyRuneThread2" />
+    <QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.ItemsManager.GetItemCountById(14048) &lt;5" />
+    <QuestsSorted Action="Pulse" NameClass="Runecloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Runecloth&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Runecloth Gloves&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="25000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 300" />
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Usefuls.ContinentId == (int)wManager.Wow.Enums.ContinentId.Azeroth" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Ship to Ratchet&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="CatchShiptoRatchet" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Skill Runecloth Headband&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerTheBarrens" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(-529.43, -2667.07, 95.78767), 3484, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Runecloth Headband&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 300" />
+    <QuestsSorted Action="Pulse" NameClass="BuyRuneThread3" />
+    <QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.ItemsManager.GetItemCountById(14048) &lt;6" />
+    <QuestsSorted Action="Pulse" NameClass="Runecloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Runecloth&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Runecloth Headband&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="25000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Runecloth&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Remove(&quot;Runecloth&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Bolt of Runecloth&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Remove(&quot;Bolt of Runecloth&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 350" />
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Usefuls.ContinentId == (int)wManager.Wow.Enums.ContinentId.Kalimdor &amp;&amp; Skill.GetValue(SkillLine.Tailoring) &lt; 350" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ESkinningBot|r Portal To Blasted Lands&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;" />
+    <QuestsSorted Action="Pulse" NameClass="PortaltoBlastedLands" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Usefuls.ContinentId == (int)wManager.Wow.Enums.ContinentId.Azeroth &amp;&amp; Skill.GetValue(SkillLine.Tailoring) &lt; 350" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Portal to Outlands&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;" />
+    <QuestsSorted Action="Pulse" NameClass="DarkPortal" />
+    <QuestsSorted Action="RunCode" NameClass="// Enter Portal &gt; &#xD;&#xA;&#xD;&#xA;Logging.Write(&quot;[Quester] Will enter the Portal in 1 second&quot;);&#xD;&#xA;Thread.Sleep(50);{ wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey, 1500); }" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="!wManager.Wow.Helpers.SpellManager.KnowSpell(26790) &amp;&amp; Skill.GetValue(SkillLine.Tailoring) &lt;= 300" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Master Tailor&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerHellfire" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(204.177, 2617.73, 87.28382), 18749, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Master Tailor&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="SpellManager.UpdateSpellBook();" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 325" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Skill Bolt of Netherweave&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerHellfire" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(204.177, 2617.73, 87.28382), 18749, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Bolt of Netherweave&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 325" />
+    <QuestsSorted Action="Pulse" NameClass="Netherweavecloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Netherweave&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 340" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Skill Netherweave Pants&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerHellfire" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(204.177, 2617.73, 87.28382), 18749, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Netherweave Pants&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 340" />
+    <QuestsSorted Action="Pulse" NameClass="BuyRuneThread4" />
+    <QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.ItemsManager.GetItemCountById(21840) &lt;6" />
+    <QuestsSorted Action="Pulse" NameClass="Netherweavecloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Netherweave&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Netherweave Pants&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="25000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 350" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Buy Buy Pattern Netherweave Robe&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="BuyPatternNetherweaveRobe" />
+    <QuestsSorted Action="Wait" NameClass="500" />
+    <QuestsSorted Action="RunMacroLua" NameClass="/use Pattern: Netherweave Robe" />
+    <QuestsSorted Action="Wait" NameClass="3000" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 350" />
+    <QuestsSorted Action="Pulse" NameClass="BuyRuneThread5" />
+    <QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.ItemsManager.GetItemCountById(21840) &lt;8" />
+    <QuestsSorted Action="Pulse" NameClass="Netherweavecloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Netherweave&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Netherweave Robe&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="25000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Rune Thread&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Remove(&quot;Rune Thread&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Netherweave Cloth&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Remove(&quot;Netherweave Cloth&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Contains(&quot;Bolt of Netherweave&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.DoNotSellList.Remove(&quot;Bolt of Netherweave&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Usefuls.ContinentId == (int)wManager.Wow.Enums.ContinentId.Expansion01 &amp;&amp; Skill.GetValue(SkillLine.Mining) &lt; 450" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.UseFlyingMount = false" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ESkinningBot|r Portal to Orgrimmar&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;" />
+    <QuestsSorted Action="Pulse" NameClass="PortaltoOrgrimmar" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.UseFlyingMount = true" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 450" />
+    <QuestsSorted Action="If" NameClass="wManager.Wow.Helpers.Usefuls.ContinentId == (int)wManager.Wow.Enums.ContinentId.Azeroth &amp;&amp; Skill.GetValue(SkillLine.Tailoring) &lt; 450" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Ship to Borean Tundra&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="CatchShiptoBoreanTundra" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="!wManager.Wow.Helpers.SpellManager.KnowSpell(51309)" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Grand Master Tailor&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerNorthrend" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(8553.96, 863.632, 547.3535), 33580, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Grand Master Tailor&quot;)" />
+    <QuestsSorted Action="RunCode" NameClass="SpellManager.UpdateSpellBook();" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 375" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Skill Bolt of Frostweave&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerNorthrend" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(8553.96, 863.632, 547.3535), 33580, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Bolt of Frostweave&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 375" />
+    <QuestsSorted Action="Pulse" NameClass="FrostweaveCloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Frostweave&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 380" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Skill Frostwoven Belt&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerNorthrend" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(8553.96, 863.632, 547.3535), 33580, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Frostwoven Belt&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 380" />
+    <QuestsSorted Action="Pulse" NameClass="BuyEterniumThread1" />
+    <QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.ItemsManager.GetItemCountById(41510) &lt;3" />
+    <QuestsSorted Action="Pulse" NameClass="FrostweaveCloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Frostweave&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Frostwoven Belt&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="3000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 385" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Skill Frostwoven Boots&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerNorthrend" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(8553.96, 863.632, 547.3535), 33580, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Frostwoven Boots&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 385" />
+    <QuestsSorted Action="Pulse" NameClass="BuyEterniumThread1" />
+    <QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.ItemsManager.GetItemCountById(41510) &lt;4" />
+    <QuestsSorted Action="Pulse" NameClass="FrostweaveCloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Frostweave&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Frostwoven Boots&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="3000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 395" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Skill Frostwoven Cowl&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerNorthrend" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(8553.96, 863.632, 547.3535), 33580, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Frostwoven Cowl&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 395" />
+    <QuestsSorted Action="Pulse" NameClass="BuyEterniumThread2" />
+    <QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.ItemsManager.GetItemCountById(41510) &lt;5" />
+    <QuestsSorted Action="Pulse" NameClass="FrostweaveCloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Frostweave&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Frostwoven Cowl&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="3000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 400" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Skill Duskweave Belt&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerNorthrend" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(8553.96, 863.632, 547.3535), 33580, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Duskweave Belt&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 400" />
+    <QuestsSorted Action="Pulse" NameClass="BuyEterniumThread1" />
+    <QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.ItemsManager.GetItemCountById(41510) &lt;7" />
+    <QuestsSorted Action="Pulse" NameClass="FrostweaveCloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Frostweave&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Duskweave Belt&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="3000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 405" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Skill Bolt of Imbued Frostweave&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerNorthrend" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(8553.96, 863.632, 547.3535), 33580, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Bolt of Imbued Frostweave&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 405" />
+    <QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.ItemsManager.GetItemCountById(34054) &lt;2" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Buy Infinite Dust&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerNorthrend" />
+    <QuestsSorted Action="Wait" NameClass="60000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.ItemsManager.GetItemCountById(41510) &lt;2" />
+    <QuestsSorted Action="Pulse" NameClass="FrostweaveCloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Frostweave&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Imbued Frostweave&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="3000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 410" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Skill Duskweave Wristwraps&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerNorthrend" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(8553.96, 863.632, 547.3535), 33580, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Duskweave Wristwraps&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 410" />
+    <QuestsSorted Action="Pulse" NameClass="BuyEterniumThread1" />
+    <QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.ItemsManager.GetItemCountById(41510) &lt;8" />
+    <QuestsSorted Action="Pulse" NameClass="FrostweaveCloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Frostweave&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Duskweave Wristwraps&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="3000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 415" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Skill Duskweave Gloves&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerNorthrend" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(8553.96, 863.632, 547.3535), 33580, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Duskweave Gloves&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 415" />
+    <QuestsSorted Action="Pulse" NameClass="BuyEterniumThread1" />
+    <QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.ItemsManager.GetItemCountById(41510) &lt;9" />
+    <QuestsSorted Action="Pulse" NameClass="FrostweaveCloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Frostweave&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Duskweave Gloves&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="3000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 425" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Skill Duskweave Boots&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerNorthrend" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(8553.96, 863.632, 547.3535), 33580, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Duskweave Boots&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 425" />
+    <QuestsSorted Action="Pulse" NameClass="BuyEterniumThread2" />
+    <QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.ItemsManager.GetItemCountById(41510) &lt;10" />
+    <QuestsSorted Action="Pulse" NameClass="FrostweaveCloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Frostweave&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Duskweave Boots&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="3000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="If" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 450" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Learn Skill Frostweave Bag&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerNorthrend" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(8553.96, 863.632, 547.3535), 33580, 1, false);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="BuyTrainerSkill(&quot;Frostweave Bag&quot;)" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="While" NameClass="Skill.GetValue(SkillLine.Tailoring) &lt; 450" />
+    <QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.ItemsManager.GetItemCountById(41511) &lt;6" />
+    <QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.ItemsManager.GetItemCountById(34054) &lt;2" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Buy Infinite Dust&quot;)" />
+    <QuestsSorted Action="Pulse" NameClass="PathTrainerNorthrend" />
+    <QuestsSorted Action="Wait" NameClass="60000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="While" NameClass="wManager.Wow.Helpers.ItemsManager.GetItemCountById(41510) &lt;2" />
+    <QuestsSorted Action="Pulse" NameClass="FrostweaveCloth1" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Frostweave&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="2000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Bolt of Imbued Frostweave&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="3000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="Pulse" NameClass="BuyEterniumThread3" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DoTradeSkillByName(&quot;Tailoring&quot;, &quot;Frostweave Bag&quot;, 1)" />
+    <QuestsSorted Action="Wait" NameClass="25000" />
+    <QuestsSorted Action="EndWhile" NameClass="" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ETailoringBot|r Tailoring 1-450 Horde finished&quot;)" />
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc />
+  <EasyQuests>
+
+
+    <EasyQuest>
+      <Name>AutoUpdate</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>
+public sealed class AutoUpdate : QuestClass
+{
+    public AutoUpdate() // Don't forget to use good classe name
+    {
+		Name = "AutoUpdate";
+	
+try
+{
+    string onlineFile = "http://bambo.myds.me/wotlk/BambosWotlkTailoringHorde.xml";
+    Quester.Bot.QuesterSetting.Load();
+    string currentFile = System.Windows.Forms.Application.StartupPath + @"\Profiles\Quester\" + Quester.Bot.QuesterSetting.CurrentSetting.ProfileName;
+
+    var currentFileContent = System.IO.File.ReadAllText(currentFile, System.Text.Encoding.UTF8);
+    var onlineFileContent = new System.Net.WebClient { Encoding = System.Text.Encoding.UTF8 }.DownloadString(onlineFile);
+
+    if (!string.IsNullOrWhiteSpace(currentFileContent) &amp;&amp; !string.IsNullOrWhiteSpace(onlineFileContent))
+    {
+        if (currentFileContent.Length == 39 &amp;&amp; onlineFileContent.Length == 39) // 39 is size of encrypted files with option "Short file"
+        {
+            if (currentFileContent != onlineFileContent) // if new update
+            {
+                robotManager.Helpful.Logging.Write("[Bambo_WotlkTailoring_Horde]: New version found, try to update.");
+                System.IO.File.WriteAllText(currentFile, onlineFileContent,
+                System.Text.Encoding.UTF8); // replace user file by online file 
+                new System.Threading.Thread(() =&gt; robotManager.Products.Products.ProductRestart()).Start(); // reload product (profile)
+            }
+            if (currentFileContent == onlineFileContent)
+                robotManager.Helpful.Logging.Write("[Bambo_WotlkTailoring_Horde]: The version on your pc is the latest updated version.");
+        }
+        else
+            robotManager.Helpful.Logging.Write("[Bambo_WotlkTailoring_Horde]: Your currently running version is not encrypted.");
+    }
+}
+catch (System.Exception e)
+{
+    robotManager.Helpful.Logging.WriteError("Auto update: " + e);
+}
+
+        Lua.LuaDoString("DungeonFrameWorkLoaded = true");
+    }
+}
+// More info here: http://wrobot.eu/topic/374-how-to-create-quest-profile/ (please don't add using and add only one quest)
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Lua.LuaDoString&lt;bool&gt;("return UpdateFrameWorkLoaded");</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+
+    <EasyQuest>
+      <Name>Linen Cloth 1</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-1179.159" Y="-2985.677" Z="93.34376" />
+          <Vector3 X="-1342.26" Y="-3110.99" Z="91.66689" />
+          <Vector3 X="-1490.554" Y="-3007.989" Z="91.66671" />
+          <Vector3 X="-1218.228" Y="-2761.714" Z="96.59214" />
+          <Vector3 X="-1090.438" Y="-2280.92" Z="86.54521" />
+          <Vector3 X="-1128.549" Y="-2025.641" Z="88.65079" />
+          <Vector3 X="-925.0908" Y="-1931.081" Z="92.07066" />
+          <Vector3 X="-162.2934" Y="-1757.373" Z="91.8703" />
+          <Vector3 X="-189.5839" Y="-1673.958" Z="91.92943" />
+          <Vector3 X="-58.76656" Y="-1646.566" Z="91.66678" />
+          <Vector3 X="13.3948" Y="-1760.175" Z="97.96336" />
+        </HotSpots>
+        <EntryTarget>
+          <int>3397</int>
+          <int>3275</int>
+          <int>3274</int>
+          <int>3272</int>
+          <int>3273</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(2589) &gt;=2;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Wool Cloth 1</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="2182.311" Y="-1587.446" Z="85.69635" />
+          <Vector3 X="2266.451" Y="-1477.275" Z="90.50035" />
+          <Vector3 X="2244.497" Y="-1335.053" Z="81.15289" />
+          <Vector3 X="2338.367" Y="-1188.809" Z="87.76971" />
+        </HotSpots>
+        <EntryTarget>
+          <int>3743</int>
+          <int>3750</int>
+          <int>3748</int>
+          <int>3745</int>
+          <int>3749</int>
+          <int>3746</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(2592) &gt;=3;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Silk Cloth 1</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-14612.25" Y="308.2257" Z="3.294735" />
+          <Vector3 X="-14693" Y="519.232" Z="1.152215" />
+          <Vector3 X="-14969.21" Y="304.0549" Z="2.95226" />
+          <Vector3 X="-14890.2" Y="72.61791" Z="1.615714" />
+        </HotSpots>
+        <EntryTarget>
+          <int>1562</int>
+          <int>1561</int>
+          <int>1563</int>
+          <int>1564</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(4306) &gt;=4;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Mageweave Cloth 1</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="4879.821" Y="-601.9396" Z="307.5983" />
+          <Vector3 X="4872.201" Y="-394.0894" Z="349.9675" />
+        </HotSpots>
+        <EntryTarget>
+          <int>9862</int>
+          <int>7114</int>
+          <int>7118</int>
+          <int>7120</int>
+          <int>7112</int>
+          <int>7115</int>
+          <int>7110</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(4338) &gt;=4;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Runecloth 1</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-6760.33" Y="1607.422" Z="6.330439" />
+          <Vector3 X="-6995.408" Y="1164.867" Z="12.01229" />
+          <Vector3 X="-7908.667" Y="1909.098" Z="4.762019" />
+        </HotSpots>
+        <EntryTarget>
+          <int>11881</int>
+          <int>11880</int>
+          <int>15200</int>
+          <int>11882</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(14047) &gt;=4;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Netherweave Cloth 1</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-489.3311" Y="3183.168" Z="-6.962964" />
+          <Vector3 X="-689.9963" Y="3220.22" Z="1.164053" />
+          <Vector3 X="-304.8523" Y="2950.622" Z="-64.57103" />
+        </HotSpots>
+        <EntryTarget>
+          <int>19414</int>
+          <int>19295</int>
+          <int>16878</int>
+          <int>16867</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(21877) &gt;=5;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Frostweave Cloth 1</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="8560.293" Y="1421.193" Z="642.6652" />
+          <Vector3 X="8545.94" Y="1708.05" Z="642.095" />
+        </HotSpots>
+        <EntryTarget>
+          <int>34734</int>
+          <int>34808</int>
+          <int>34728</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(33470) &gt;=5;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Buy Coarse Thread 1</Name>
+      <QuestId />
+      <QuestType>InteractWithNpc</QuestType>
+      <QuestClass xsi:type="InteractWithNpcEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-528.839" Y="-2671.6" Z="95.78776" />
+        </HotSpots>
+        <GossipOptionNpcInteractWith>1</GossipOptionNpcInteractWith>
+        <Macro>BuyMerchantItem(1,35)</Macro>
+        <IgnoreIfDead>false</IgnoreIfDead>
+        <EntryIdTarget>
+          <int>3485</int>
+        </EntryIdTarget>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(2320) &gt;=1;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Buy Coarse Thread 2</Name>
+      <QuestId />
+      <QuestType>InteractWithNpc</QuestType>
+      <QuestClass xsi:type="InteractWithNpcEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-528.839" Y="-2671.6" Z="95.78776" />
+        </HotSpots>
+        <GossipOptionNpcInteractWith>1</GossipOptionNpcInteractWith>
+        <Macro>BuyMerchantItem(1,15)</Macro>
+        <IgnoreIfDead>false</IgnoreIfDead>
+        <EntryIdTarget>
+          <int>3485</int>
+        </EntryIdTarget>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(2320) &gt;=3;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Buy Fine Thread 1</Name>
+      <QuestId />
+      <QuestType>InteractWithNpc</QuestType>
+      <QuestClass xsi:type="InteractWithNpcEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-528.839" Y="-2671.6" Z="95.78812" />
+        </HotSpots>
+        <GossipOptionNpcInteractWith>1</GossipOptionNpcInteractWith>
+        <Macro>BuyMerchantItem(2,13)</Macro>
+        <IgnoreIfDead>false</IgnoreIfDead>
+        <EntryIdTarget>
+          <int>3485</int>
+        </EntryIdTarget>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(2321) &gt;=1;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Buy Fine Thread 2</Name>
+      <QuestId />
+      <QuestType>InteractWithNpc</QuestType>
+      <QuestClass xsi:type="InteractWithNpcEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-528.839" Y="-2671.6" Z="95.78818" />
+        </HotSpots>
+        <GossipOptionNpcInteractWith>1</GossipOptionNpcInteractWith>
+        <Macro>BuyMerchantItem(2,30)</Macro>
+        <IgnoreIfDead>false</IgnoreIfDead>
+        <EntryIdTarget>
+          <int>3485</int>
+        </EntryIdTarget>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(2321) &gt;=2;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Buy Fine Thread 3</Name>
+      <QuestId />
+      <QuestType>InteractWithNpc</QuestType>
+      <QuestClass xsi:type="InteractWithNpcEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-14439.6" Y="388.911" Z="32.3118" />
+        </HotSpots>
+        <GossipOptionNpcInteractWith>1</GossipOptionNpcInteractWith>
+        <Macro>BuyMerchantItem(2,15)</Macro>
+        <IgnoreIfDead>false</IgnoreIfDead>
+        <EntryIdTarget>
+          <int>2670</int>
+        </EntryIdTarget>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(2321) &gt;=1;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Buy Fine Thread 4</Name>
+      <QuestId />
+      <QuestType>InteractWithNpc</QuestType>
+      <QuestClass xsi:type="InteractWithNpcEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-14439.6" Y="388.911" Z="32.3118" />
+        </HotSpots>
+        <GossipOptionNpcInteractWith>1</GossipOptionNpcInteractWith>
+        <Macro>BuyMerchantItem(2,20)</Macro>
+        <IgnoreIfDead>false</IgnoreIfDead>
+        <EntryIdTarget>
+          <int>2670</int>
+        </EntryIdTarget>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(2321) &gt;=2;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Buy Fine Thread 5</Name>
+      <QuestId />
+      <QuestType>InteractWithNpc</QuestType>
+      <QuestClass xsi:type="InteractWithNpcEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-14439.6" Y="388.911" Z="32.3118" />
+        </HotSpots>
+        <GossipOptionNpcInteractWith>1</GossipOptionNpcInteractWith>
+        <Macro>BuyMerchantItem(2,5)</Macro>
+        <IgnoreIfDead>false</IgnoreIfDead>
+        <EntryIdTarget>
+          <int>2670</int>
+        </EntryIdTarget>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(2321) &gt;=1;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Buy Fine Thread 6</Name>
+      <QuestId />
+      <QuestType>InteractWithNpc</QuestType>
+      <QuestClass xsi:type="InteractWithNpcEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-14439.6" Y="388.911" Z="32.3118" />
+        </HotSpots>
+        <GossipOptionNpcInteractWith>1</GossipOptionNpcInteractWith>
+        <Macro>BuyMerchantItem(2,30)</Macro>
+        <IgnoreIfDead>false</IgnoreIfDead>
+        <EntryIdTarget>
+          <int>2670</int>
+        </EntryIdTarget>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(2321) &gt;=2;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Buy Blue Dye 1</Name>
+      <QuestId />
+      <QuestType>InteractWithNpc</QuestType>
+      <QuestClass xsi:type="InteractWithNpcEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-14439.6" Y="388.911" Z="32.3118" />
+        </HotSpots>
+        <GossipOptionNpcInteractWith>1</GossipOptionNpcInteractWith>
+        <Macro>BuyMerchantItem(11,30)</Macro>
+        <IgnoreIfDead>false</IgnoreIfDead>
+        <EntryIdTarget>
+          <int>2670</int>
+        </EntryIdTarget>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(6260) &gt;=2;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Buy Bleach 1</Name>
+      <QuestId />
+      <QuestType>InteractWithNpc</QuestType>
+      <QuestClass xsi:type="InteractWithNpcEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-14439.6" Y="388.911" Z="32.3118" />
+        </HotSpots>
+        <GossipOptionNpcInteractWith>1</GossipOptionNpcInteractWith>
+        <Macro>BuyMerchantItem(3,10)</Macro>
+        <IgnoreIfDead>false</IgnoreIfDead>
+        <EntryIdTarget>
+          <int>2670</int>
+        </EntryIdTarget>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(2324) &gt;=2;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Buy Red Dye 1</Name>
+      <QuestId />
+      <QuestType>InteractWithNpc</QuestType>
+      <QuestClass xsi:type="InteractWithNpcEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-14439.6" Y="388.911" Z="32.3118" />
+        </HotSpots>
+        <GossipOptionNpcInteractWith>1</GossipOptionNpcInteractWith>
+        <Macro>BuyMerchantItem(5,30)</Macro>
+        <IgnoreIfDead>false</IgnoreIfDead>
+        <EntryIdTarget>
+          <int>2670</int>
+        </EntryIdTarget>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(2604) &gt;=2;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Buy Silken Thread 1</Name>
+      <QuestId />
+      <QuestType>InteractWithNpc</QuestType>
+      <QuestClass xsi:type="InteractWithNpcEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-14439.6" Y="388.911" Z="32.3118" />
+        </HotSpots>
+        <GossipOptionNpcInteractWith>1</GossipOptionNpcInteractWith>
+        <Macro>BuyMerchantItem(7,30)</Macro>
+        <IgnoreIfDead>false</IgnoreIfDead>
+        <EntryIdTarget>
+          <int>2670</int>
+        </EntryIdTarget>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(4291) &gt;=2;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Buy Silken Thread 2</Name>
+      <QuestId />
+      <QuestType>InteractWithNpc</QuestType>
+      <QuestClass xsi:type="InteractWithNpcEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="1792.65" Y="-4565.39" Z="23.00663" />
+        </HotSpots>
+        <GossipOptionNpcInteractWith>1</GossipOptionNpcInteractWith>
+        <Macro>BuyMerchantItem(7,15)</Macro>
+        <IgnoreIfDead>false</IgnoreIfDead>
+        <EntryIdTarget>
+          <int>3364</int>
+        </EntryIdTarget>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(4291) &gt;=3;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Buy Heavy Silken Thread 1</Name>
+      <QuestId />
+      <QuestType>InteractWithNpc</QuestType>
+      <QuestClass xsi:type="InteractWithNpcEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="1848.01" Y="-4564.89" Z="24.98721" />
+        </HotSpots>
+        <GossipOptionNpcInteractWith>1</GossipOptionNpcInteractWith>
+        <Macro>BuyMerchantItem(15,20)</Macro>
+        <IgnoreIfDead>false</IgnoreIfDead>
+        <EntryIdTarget>
+          <int>3366</int>
+        </EntryIdTarget>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(8343) &gt;=2;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Buy Heavy Silken Thread 2</Name>
+      <QuestId />
+      <QuestType>InteractWithNpc</QuestType>
+      <QuestClass xsi:type="InteractWithNpcEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="1848.01" Y="-4564.89" Z="24.98721" />
+        </HotSpots>
+        <GossipOptionNpcInteractWith>1</GossipOptionNpcInteractWith>
+        <Macro>BuyMerchantItem(15,46)</Macro>
+        <IgnoreIfDead>false</IgnoreIfDead>
+        <EntryIdTarget>
+          <int>3366</int>
+        </EntryIdTarget>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(8343) &gt;=2;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Buy Rune Thread 1</Name>
+      <QuestId />
+      <QuestType>InteractWithNpc</QuestType>
+      <QuestClass xsi:type="InteractWithNpcEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-6802.31" Y="800.039" Z="51.47552" />
+        </HotSpots>
+        <GossipOptionNpcInteractWith>1</GossipOptionNpcInteractWith>
+        <Macro>BuyMerchantItem(25,25)</Macro>
+        <IgnoreIfDead>false</IgnoreIfDead>
+        <EntryIdTarget>
+          <int>15179</int>
+        </EntryIdTarget>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(14341) &gt;=1;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Buy Rune Thread 2</Name>
+      <QuestId />
+      <QuestType>InteractWithNpc</QuestType>
+      <QuestClass xsi:type="InteractWithNpcEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-6802.31" Y="800.039" Z="51.47552" />
+        </HotSpots>
+        <GossipOptionNpcInteractWith>1</GossipOptionNpcInteractWith>
+        <Macro>BuyMerchantItem(25,36)</Macro>
+        <IgnoreIfDead>false</IgnoreIfDead>
+        <EntryIdTarget>
+          <int>15179</int>
+        </EntryIdTarget>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(14341) &gt;=2;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Buy Rune Thread 3</Name>
+      <QuestId />
+      <QuestType>InteractWithNpc</QuestType>
+      <QuestClass xsi:type="InteractWithNpcEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-6802.31" Y="800.039" Z="51.47552" />
+        </HotSpots>
+        <GossipOptionNpcInteractWith>1</GossipOptionNpcInteractWith>
+        <Macro>BuyMerchantItem(25,10)</Macro>
+        <IgnoreIfDead>false</IgnoreIfDead>
+        <EntryIdTarget>
+          <int>15179</int>
+        </EntryIdTarget>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(14341) &gt;=2;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Buy Rune Thread 4</Name>
+      <QuestId />
+      <QuestType>InteractWithNpc</QuestType>
+      <QuestClass xsi:type="InteractWithNpcEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-708.871" Y="2739.13" Z="94.734" />
+        </HotSpots>
+        <GossipOptionNpcInteractWith>1</GossipOptionNpcInteractWith>
+        <Macro>BuyMerchantItem(7,10)</Macro>
+        <IgnoreIfDead>false</IgnoreIfDead>
+        <EntryIdTarget>
+          <int>16826</int>
+        </EntryIdTarget>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(14341) &gt;=1;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Buy Rune Thread 5</Name>
+      <QuestId />
+      <QuestType>InteractWithNpc</QuestType>
+      <QuestClass xsi:type="InteractWithNpcEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="204.177" Y="2617.73" Z="87.28366" />
+        </HotSpots>
+        <GossipOptionNpcInteractWith>2</GossipOptionNpcInteractWith>
+        <Macro>BuyMerchantItem(7,20)</Macro>
+        <IgnoreIfDead>false</IgnoreIfDead>
+        <EntryIdTarget>
+          <int>18749</int>
+        </EntryIdTarget>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(14341) &gt;=2;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Buy Pattern: Netherweave Robe</Name>
+      <QuestId />
+      <QuestType>InteractWithNpc</QuestType>
+      <QuestClass xsi:type="InteractWithNpcEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-2077.26" Y="5270.03" Z="-37.3236" />
+        </HotSpots>
+        <GossipOptionNpcInteractWith>1</GossipOptionNpcInteractWith>
+        <Macro>BuyMerchantItem(18,1)</Macro>
+        <IgnoreIfDead>false</IgnoreIfDead>
+        <EntryIdTarget>
+          <int>19213</int>
+        </EntryIdTarget>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(21896) &gt;=1;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Buy Eternium Thread 1</Name>
+      <QuestId />
+      <QuestType>InteractWithNpc</QuestType>
+      <QuestClass xsi:type="InteractWithNpcEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="8556.52" Y="862.781" Z="547.4606" />
+        </HotSpots>
+        <GossipOptionNpcInteractWith>1</GossipOptionNpcInteractWith>
+        <Macro>BuyMerchantItem(1,5)</Macro>
+        <IgnoreIfDead>false</IgnoreIfDead>
+        <EntryIdTarget>
+          <int>33596</int>
+        </EntryIdTarget>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(38426) &gt;=1;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Buy Eternium Thread 2</Name>
+      <QuestId />
+      <QuestType>InteractWithNpc</QuestType>
+      <QuestClass xsi:type="InteractWithNpcEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="8556.52" Y="862.781" Z="547.4606" />
+        </HotSpots>
+        <GossipOptionNpcInteractWith>1</GossipOptionNpcInteractWith>
+        <Macro>BuyMerchantItem(1,13)</Macro>
+        <IgnoreIfDead>false</IgnoreIfDead>
+        <EntryIdTarget>
+          <int>33596</int>
+        </EntryIdTarget>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(38426) &gt;=1;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Buy Eternium Thread 3</Name>
+      <QuestId />
+      <QuestType>InteractWithNpc</QuestType>
+      <QuestClass xsi:type="InteractWithNpcEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="8556.52" Y="862.781" Z="547.4606" />
+        </HotSpots>
+        <GossipOptionNpcInteractWith>1</GossipOptionNpcInteractWith>
+        <Macro>BuyMerchantItem(1,20)</Macro>
+        <IgnoreIfDead>false</IgnoreIfDead>
+        <EntryIdTarget>
+          <int>33596</int>
+        </EntryIdTarget>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(38426) &gt;=2;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Dark Portal</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="-11898.36" Y="-3207.459" Z="-14.70771" />
+          <Vector3 X="-11903.21" Y="-3208.192" Z="-14.81858" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>true</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Path Trainer The Barrens</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="-532.4038" Y="-2667.461" Z="95.7886" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Path Trainer Booty Bay</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="-14436.67" Y="387.5075" Z="32.32811" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Path Trainer Auberdine</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="6563.392" Y="439.0458" Z="9.057776" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Path Trainer Hellfire</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="-710.7262" Y="2719.088" Z="101.5916" />
+        </Path>
+        <IsCompleteWhenAtLastPath>false</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Path Trainer Northrend</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="8556.271" Y="867.6368" Z="547.5496" />
+        </Path>
+        <IsCompleteWhenAtLastPath>false</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Portal to Orgrimmar</Name>
+      <QuestId />
+      <QuestType>Gatherer</QuestType>
+      <QuestClass xsi:type="GathererEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-1933.386" Y="5453.636" Z="-12.42724" />
+        </HotSpots>
+        <EntryIdObjects>
+          <int>183323</int>
+        </EntryIdObjects>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition>return Usefuls.ContinentId == (int) ContinentId.Expansion01;</CanCondition>
+      <IsCompleteCondition>return Usefuls.ContinentId == (int) ContinentId.Kalimdor;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Portal to Blasted Lands</Name>
+      <QuestId />
+      <QuestType>Gatherer</QuestType>
+      <QuestClass xsi:type="GathererEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="1472.283" Y="-4216.767" Z="59.22083" />
+        </HotSpots>
+        <EntryIdObjects>
+          <int>195142</int>
+        </EntryIdObjects>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition>return Usefuls.ContinentId == (int) ContinentId.Kalimdor;</CanCondition>
+      <IsCompleteCondition>return Usefuls.ContinentId == (int) ContinentId.Azeroth;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Catch Zeppelin to Borean Tundra</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>// Sample of how to use Zeppelin/Ship
+// In this sample, WRobot catch Zeppelin from Kalimdor (Ogrimmard) to Northrend (Borean Tundra (Warsong Hold))
+
+/* Quest settings:
+    * Can condition: "return Usefuls.ContinentId == (int) ContinentId.Kalimdor;"
+    * Is complete condition: "return Usefuls.ContinentId == (int) ContinentId.Kalimdor &amp;&amp; !ObjectManager.Me.InTransport;"
+    * Not required in quest log: "True"
+    * Quest type: "OverridePulseCSharpCode"
+*/
+
+// You can get zeppelin/ship/player positions and entry ID in tab "Tools" &gt; "Development Tools" &gt; "Dump all informations" (or "Memory information").
+
+// Settings:
+var zeppelinEntryId = 186238; // Zeppelin/Ship EntryId
+// From
+var fromZeppelinWaitPosition = new Vector3(1185.022, -4144.208, 70); // Position where Zeppelin/Ship waits players (from)
+var fromPlayerWaitPosition = new Vector3(1181.275, -4146.95, 51.95126); // Position where the player waits Zeppelin/Ship (from)
+var fromPlayerInZeppelinPosition = new Vector3(1188.944, -4143.859, 52.74902); // Position where the player waits in the Zeppelin/Ship (from)
+// To
+var toZeppelinWaitPosition = new Vector3(2837.908, 6187.443, 140); // Position where Zeppelin/Ship waits players (to)
+var toPlayerLeavePosition = new Vector3(2835.073, 6183.582, 121.8089); // Position to go out the Zeppelin/Ship (to)
+
+// Change WRobot settings:
+wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;
+
+// Code:
+if (!Conditions.InGameAndConnectedAndProductStartedNotInPause)
+    return true;
+
+if (Usefuls.ContinentId == (int)ContinentId.Kalimdor)
+{
+    if (!ObjectManager.Me.InTransport)
+    {
+        if (GoToTask.ToPosition(fromPlayerWaitPosition))
+        {
+            var zeppelin = ObjectManager.GetWoWGameObjectByEntry(zeppelinEntryId).OrderBy(o =&gt; o.GetDistance).FirstOrDefault();
+            if (zeppelin != null &amp;&amp; zeppelin.Position.DistanceTo(fromZeppelinWaitPosition) &lt; 1)
+            {
+                GoToTask.ToPosition(fromPlayerInZeppelinPosition);
+            }
+        }
+    }
+}
+else if (Usefuls.ContinentId == (int)ContinentId.Northrend)
+{
+    if (ObjectManager.Me.InTransport)
+    {
+        var zeppelin = ObjectManager.GetWoWGameObjectByEntry(zeppelinEntryId).OrderBy(o =&gt; o.GetDistance).FirstOrDefault();
+        if (zeppelin != null &amp;&amp; zeppelin.Position.DistanceTo(toZeppelinWaitPosition) &lt; 1)
+        {
+            GoToTask.ToPosition(toPlayerLeavePosition);
+        }
+    }
+}
+return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition>return Usefuls.ContinentId == (int) ContinentId.Kalimdor;</CanCondition>
+      <IsCompleteCondition>return Usefuls.ContinentId == (int) ContinentId.Northrend &amp;&amp; !ObjectManager.Me.InTransport;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Catch Ship to Ratchet</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>// Sample of how to use Zeppelin/Ship
+// In this sample, WRobot catch Zeppelin from Kalimdor (Ogrimmard) to Northrend (Borean Tundra (Warsong Hold))
+
+/* Quest settings:
+    * Can condition: "return Usefuls.ContinentId == (int) ContinentId.Azeroth;"
+    * Is complete condition: "return Usefuls.ContinentId == (int) ContinentId.Kalimdor &amp;&amp; !ObjectManager.Me.InTransport;"
+    * Not required in quest log: "True"
+    * Quest type: "OverridePulseCSharpCode"
+*/
+
+// You can get zeppelin/ship/player positions and entry ID in tab "Tools" &gt; "Development Tools" &gt; "Dump all informations" (or "Memory information").
+
+// Settings:
+var zeppelinEntryId = 20808; // Zeppelin/Ship EntryId
+// From
+var fromZeppelinWaitPosition = new Vector3(-14277.75, 582.8661, 0); // Position where Zeppelin/Ship waits players (from)
+var fromPlayerWaitPosition = new Vector3(-14282.5, 562.4498, 8.078089); // Position where the player waits Zeppelin/Ship (from)
+var fromPlayerInZeppelinPosition = new Vector3(-14275.47, 577.903, 6.110038); // Position where the player waits in the Zeppelin/Ship (from)
+// To
+var toZeppelinWaitPosition = new Vector3(-1005.613, -3841.648, 0); // Position where Zeppelin/Ship waits players (to)
+var toPlayerLeavePosition = new Vector3(-993.3602, -3821.989, 5.616833); // Position to go out the Zeppelin/Ship (to)
+
+// Change WRobot settings:
+wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;
+
+// Code:
+if (!Conditions.InGameAndConnectedAndProductStartedNotInPause)
+    return true;
+
+if (Usefuls.ContinentId == (int)ContinentId.Azeroth)
+{
+    if (!ObjectManager.Me.InTransport)
+    {
+        if (GoToTask.ToPosition(fromPlayerWaitPosition))
+        {
+            var zeppelin = ObjectManager.GetWoWGameObjectByEntry(zeppelinEntryId).OrderBy(o =&gt; o.GetDistance).FirstOrDefault();
+            if (zeppelin != null &amp;&amp; zeppelin.Position.DistanceTo(fromZeppelinWaitPosition) &lt; 1)
+            {
+                GoToTask.ToPosition(fromPlayerInZeppelinPosition);
+            }
+        }
+    }
+}
+else if (Usefuls.ContinentId == (int)ContinentId.Kalimdor)
+{
+    if (ObjectManager.Me.InTransport)
+    {
+        var zeppelin = ObjectManager.GetWoWGameObjectByEntry(zeppelinEntryId).OrderBy(o =&gt; o.GetDistance).FirstOrDefault();
+        if (zeppelin != null &amp;&amp; zeppelin.Position.DistanceTo(toZeppelinWaitPosition) &lt; 1)
+        {
+            GoToTask.ToPosition(toPlayerLeavePosition);
+        }
+    }
+}
+return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition>return Usefuls.ContinentId == (int) ContinentId.Azeroth;</CanCondition>
+      <IsCompleteCondition>return Usefuls.ContinentId == (int) ContinentId.Kalimdor &amp;&amp; !ObjectManager.Me.InTransport;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>999</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>
+using System;
+using System.ComponentModel;
+using System.Configuration;
+using System.IO;
+using System.Net;
+using System.Threading;
+using System.Windows.Forms;
+using robotManager.Helpful;
+using robotManager.Products;
+  
+  
+  
+  public class QuestHelper
+{
+
+    public static void AbandonQuest(string name)
+    {
+        string luaExecute = @"
+            for logId=1,GetNumQuestLogEntries() do
+                local questTitle, level, questTag, suggestedGroup, isHeader, isCollapsed, isComplete = GetQuestLogTitle(logId);
+                if ( questTitle == ""{0}"" ) then
+                    SelectQuestLogEntry(logId);
+                    SetAbandonQuest();
+                    AbandonQuest();
+                    return;
+                end
+            end
+        ";
+
+        Lua.LuaDoString(string.Format(luaExecute, name));
+    }
+
+    public static void LoadStep(string stepName)
+    {
+        var p = wManager.Wow.Helpers.Quest.QuesterCurrentContext.Profile as Quester.Profile.QuesterProfile;
+        if (p != null)
+        {
+            for (int i = 0; i &lt; p.QuestsSorted.Count; i++)
+            {
+                if (p.QuestsSorted[i].NameClass == stepName)
+                {
+                    wManager.Wow.Helpers.Quest.QuesterCurrentContext.CurrentStep = i - 1;
+                    break;
+                }
+            }
+        }
+    }
+
+   public static void LoadOneStepBefore(string stepName)
+    {
+        var p = wManager.Wow.Helpers.Quest.QuesterCurrentContext.Profile as Quester.Profile.QuesterProfile;
+        if (p != null)
+        {
+            for (int i = 0; i &lt; p.QuestsSorted.Count; i++)
+            {
+                if ( p.QuestsSorted[i].NameClass == stepName)
+                {
+                    wManager.Wow.Helpers.Quest.QuesterCurrentContext.CurrentStep = i - 3;
+                    break;
+                }
+            }
+        }
+    }
+}
+
+public class Authentication
+{
+    private readonly string orderId;
+    private readonly string productId;
+    private readonly string wRobotAuthKey;
+
+    private readonly BackgroundWorker _validationThread = new BackgroundWorker();
+    private bool _isRunning = false;
+    private string authUrl;
+
+    public Authentication(string orderId, string productId)
+    {
+        if (orderId == null)
+        {
+            MessageBox.Show("You need to enter your transaction id (from your Rocketr email) into the plugin settings to use this!");
+        }
+
+        this.orderId = orderId;
+        this.productId = productId;
+
+        System.Text.RegularExpressions.Match matcher = System.Text.RegularExpressions.Regex.Match(authManager.LoginServer.GetSubcriptionInfoThread(), "(Key: )(.*)(\\.\\.\\.)(.*)");
+        if (matcher.Success) 
+        {
+		    wRobotAuthKey = matcher.Groups[2].Value;
+        }
+
+        _isRunning = true;
+        authUrl = "http://193.23.126.6:8080/authenticate?orderId=" + orderId.Trim() + "&amp;productId=" + productId + "&amp;wRobotAuthKey=" + wRobotAuthKey;
+        _validationThread.DoWork += CheckValidiation;
+        _validationThread.RunWorkerAsync();
+    }
+    
+    ~Authentication()
+    {
+        _isRunning = false;
+        _validationThread.DoWork -= CheckValidiation;
+        _validationThread.Dispose();
+    }
+
+    private void CheckValidiation(object sender, DoWorkEventArgs e)
+    {
+        while (Products.IsStarted &amp;&amp; _isRunning)
+        {
+            try
+            {
+                bool timedOut = false;
+                HttpWebResponse content = null;
+                try
+                {
+                    var request = (HttpWebRequest)WebRequest.Create(authUrl);
+                    request.Timeout = 30000;
+                    request.ReadWriteTimeout = 30000;
+                    content = (HttpWebResponse)request.GetResponse();
+                }
+                catch (Exception ex)
+                {
+                    timedOut = true;
+                }
+                
+                //give it another try
+                if ((content != null &amp;&amp; content.StatusCode != HttpStatusCode.OK) || timedOut)
+                {
+                    Thread.Sleep(3* 60 * 1000);
+                    try
+                    {
+                        var request = (HttpWebRequest)WebRequest.Create(authUrl);
+                        request.Timeout = 30000;
+                        request.ReadWriteTimeout = 30000;
+                        content = (HttpWebResponse)request.GetResponse();
+                        timedOut = false;
+                    }
+                    catch (Exception ex)
+                    {
+                        timedOut = true;
+                    }
+                }
+
+                string result = content != null ? new StreamReader(content.GetResponseStream()).ReadToEnd() : "false";
+
+                if (!bool.Parse(result) || (content != null &amp;&amp; content.StatusCode != HttpStatusCode.OK) || timedOut)
+                {
+                    Products.ProductStop();
+                    _isRunning = false;
+                    _validationThread.DoWork -= CheckValidiation;
+                    _validationThread.Dispose();
+                    MessageBox.Show(@"You are trying to use a transaction id for a different product or another IP is already using this transaction id.
+                    
+If you changed your IP (one on wRobot session), wait 30 minutes.
+
+This error was produced by the WOTLK Horde Tailoring profile of bambo.
+
+                    ");
+                    return;
+                }
+
+                Thread.Sleep(60 * 1000);
+            }
+            catch (Exception exp)
+            {
+                Logging.WriteError("" + exp);
+            }
+        }
+    }
+}
+
+public class ControlAuthentication
+{
+    private static volatile int _controlVariable = 0;
+    private static int _timeout = 0;
+    private static bool _isRunning = true;
+    private static bool disposeAuthThread = false;
+    private static string profileName = "";
+
+    public static void SetControl(int control)
+    {
+        _controlVariable = control;
+    }
+
+    static ControlAuthentication()
+    {
+        new Thread(() =&gt;
+        {
+            profileName = wManager.Wow.Helpers.Quest.QuesterCurrentContext.ProfileName;
+
+            while(_isRunning &amp;&amp; !disposeAuthThread &amp;&amp; (wManager.Wow.Helpers.Conditions.ProductIsStarted || wManager.Wow.Helpers.Conditions.ProductInPause))
+            {
+                if(!wManager.Wow.Helpers.Quest.QuesterCurrentContext.ProfileName.Equals(profileName))
+                {
+                    disposeAuthThread = true;
+                    break;
+                }
+
+                if(!wManager.Wow.Helpers.Conditions.ProductIsStarted)
+                {
+                    disposeAuthThread = true;
+                    break;
+                }
+
+                while(wManager.Wow.Helpers.Quest.QuesterCurrentContext.CurrentStep &lt; 2)
+                {
+                    Thread.Sleep(500);
+
+                    if(_controlVariable == 5 || !wManager.Wow.Helpers.Conditions.ProductIsStarted)
+                        break;
+
+                    _timeout += 500;
+
+                    if(_timeout &gt;= 910000)
+                    {
+                        Products.ProductStop();
+                        MessageBox.Show("[BambosWOTLKTailoringHorde]: Timeout error. Unable to authenticate for more than 15 minutes. \n\nBot name: " + ObjectManager.Me.Name);
+                        break;
+                    }
+                }
+
+                _isRunning = false;
+
+                if(wManager.Wow.Helpers.Conditions.ProductIsStarted || wManager.Wow.Helpers.Conditions.ProductInPause)
+                {
+                    Thread.Sleep(60000);
+
+                    if(_controlVariable != 5)
+                    {
+                        Products.ProductStop();
+                        MessageBox.Show("[BambosWOTLKTailoringHorde]: Please enter your ID faster or make sure the authentication step is enabled. \nRestart the Bot now. \n\nBot name: " + ObjectManager.Me.Name);
+                    }
+                    _timeout = 0;
+                    _isRunning = true;
+                }
+            }
+
+        }).Start();
+    }
+    
+}
+
+[Serializable]
+public class HordeWOTLKTailoringAuthSettings : robotManager.Helpful.Settings
+{
+    [Setting]
+    [Category("__IMPORTANT__")]
+    [DisplayName("Rocketr ORDER ID")]
+    [Description("You can find this ID at the top of the Email that you have received after your purchase.")]
+    public string TransactionId { get; set; }
+
+    public HordeWOTLKTailoringAuthSettings()
+    {
+        TransactionId = null;
+    }
+    
+    public static HordeWOTLKTailoringAuthSettings CurrentSetting { get; set; }
+
+    public bool Save()
+    {
+        try
+        {
+            return Save(AdviserFilePathAndName("HordeWOTLKTailoringAuthSettings", "WOTLK"));
+        }
+        catch (Exception e)
+        {
+            robotManager.Helpful.Logging.Write("HordeWOTLKTailoringAuthSettings &gt; Save(): " + e);
+            return false;
+        }
+    }
+
+    public static bool Load()
+    {
+        try
+        {
+            if (File.Exists(AdviserFilePathAndName("HordeWOTLKTailoringAuthSettings", "WOTLK")))
+            {
+                CurrentSetting =
+                    Load&lt;HordeWOTLKTailoringAuthSettings&gt;(AdviserFilePathAndName("HordeWOTLKTailoringAuthSettings", "WOTLK"));
+                return true;
+            }
+            CurrentSetting = new HordeWOTLKTailoringAuthSettings();
+        }
+        catch (Exception e)
+        {
+            robotManager.Helpful.Logging.Write("HordeWOTLKTailoringAuthSettings &gt; Load(): " + e);
+        }
+        return false;
+    }
+}
+
+</Script>
+  <OffMeshConnections />
+  <BlacklistNpc />
+  <BlacklistNpcType />
+  <Blackspots />
+</EasyQuestProfile>

@@ -1,0 +1,631 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="RunCode" NameClass="AllianceTBCQuesterAuthSettings.Load();&#xD;&#xA;        if (AllianceTBCQuesterAuthSettings.CurrentSetting.TransactionId == null)&#xD;&#xA;        {&#xD;&#xA;            AllianceTBCQuesterAuthSettings.CurrentSetting.ToForm();&#xD;&#xA;        }&#xD;&#xA;        AllianceTBCQuesterAuthSettings.CurrentSetting.Save();&#xD;&#xA;        new Authentication(AllianceTBCQuesterAuthSettings.CurrentSetting.TransactionId, &quot;0d1d64ee0766&quot;);&#xD;&#xA;        ControlAuthentication.SetControl(5);" />
+    <QuestsSorted Action="Pulse" NameClass="AutoUpdate" />
+    <QuestsSorted Action="RunLuaCode" NameClass="if not InfoPanel then&#xD;&#xA;    InfoPanelText = &quot;Waiting for Job&quot;&#xD;&#xA;    InfoPanel = CreateFrame(&quot;Frame&quot;)&#xD;&#xA;    InfoPanel:ClearAllPoints()&#xD;&#xA;    InfoPanel:SetBackdrop({bgFile = &quot;Interface/Buttons/WHITE8X8&quot;,})&#xD;&#xA;    InfoPanel:SetBackdropColor(0,0,0,.4)&#xD;&#xA;    InfoPanel:SetHeight(40)&#xD;&#xA;    InfoPanel:SetWidth(150)&#xD;&#xA;&#xD;&#xA;    InfoPanel.text = InfoPanel:CreateFontString(nil, &quot;BACKGROUND&quot;, &quot;GameFontNormal&quot;)&#xD;&#xA;    InfoPanel.text:SetAllPoints()&#xD;&#xA;    InfoPanel.text:SetText(InfoPanelText)&#xD;&#xA;    InfoPanel.text:SetTextColor(1, 1, 0, 1)&#xD;&#xA;    InfoPanel:SetPoint(&quot;RIGHT&quot;, -50, -100)&#xD;&#xA;&#xD;&#xA;    InfoPanel:SetMovable(true)&#xD;&#xA;    InfoPanel:EnableMouse(true)&#xD;&#xA;    InfoPanel:SetScript(&quot;OnMouseDown&quot;,function() InfoPanel:StartMoving() end)&#xD;&#xA;    InfoPanel:SetScript(&quot;OnMouseUp&quot;,function() InfoPanel:StopMovingOrSizing() end)&#xD;&#xA;    &#xD;&#xA;    InfoPanel.Close = CreateFrame(&quot;BUTTON&quot;, nil, InfoPanel, &quot;UIPanelCloseButton&quot;)&#xD;&#xA;    InfoPanel.Close:SetWidth(20)&#xD;&#xA;    InfoPanel.Close:SetHeight(20)&#xD;&#xA;    InfoPanel.Close:SetPoint(&quot;TOPRIGHT&quot;, InfoPanel, 3, 3)&#xD;&#xA;    InfoPanel.Close:SetScript(&quot;OnClick&quot;, function()&#xD;&#xA;        InfoPanel:Hide()&#xD;&#xA;        DEFAULT_CHAT_FRAME:AddMessage(&quot;Info Panel |cffC41F3Bclosed |cffFFFFFFWrite /InfoPanel to enable again.&quot;)     &#xD;&#xA;    end)&#xD;&#xA;    &#xD;&#xA;    SLASH_WHATEVERYOURFRAMESARECALLED1=&quot;/InfoPanel&quot;&#xD;&#xA;    SlashCmdList.WHATEVERYOURFRAMESARECALLED = function()&#xD;&#xA;        if InfoPanel:IsShown() then&#xD;&#xA;            InfoPanel:Hide()&#xD;&#xA;        else&#xD;&#xA;            InfoPanel:Show()&#xD;&#xA;        end&#xD;&#xA;    end&#xD;&#xA;end" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;InfoPanelText = 'v1.0.2 - Alliance - TBC Quester'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;InfoPanel.text:SetText(InfoPanelText)&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="robotManager.Helpful.Logging.Write(&quot;Bambo's TBC Quester for Alliance v1.0.2 - Launcher is being loaded.&quot;);&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.SearchRadius = 120;&#xD;&#xA;wManager.Wow.Helpers.NpcDB.AcceptOnlyProfileNpc = true;" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;InfoPanelText = 'Checking for Updates...'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;InfoPanel.text:SetText(InfoPanelText)&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;InfoPanelText = 'Checking for Location...'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;InfoPanel.text:SetText(InfoPanelText)&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;InfoPanelText = 'Required Level to start: 60'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;InfoPanel.text:SetText(InfoPanelText)&quot;);" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.Level &gt; 59" />
+    <QuestsSorted Action="If" NameClass="Usefuls.ContinentId == (int) ContinentId.Kalimdor" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;InfoPanelText = 'Theramore to Menethil'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;InfoPanel.text:SetText(InfoPanelText)&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;" />
+    <QuestsSorted Action="Pulse" NameClass="GoToShipInTheramore" />
+    <QuestsSorted Action="Pulse" NameClass="CatchShipFromTheramore" />
+	<QuestsSorted Action="Wait" NameClass="10000" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;InfoPanelText = 'Loading next Profile...'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;InfoPanel.text:SetText(InfoPanelText)&quot;);" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.Level &lt; 62" />
+    <QuestsSorted Action="If" NameClass="!(Usefuls.ContinentId == (int) ContinentId.Expansion01)" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;InfoPanelText = 'Get Quest and enter Outland'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;InfoPanel.text:SetText(InfoPanelText)&quot;);" />
+    <QuestsSorted Action="PickUp" NameClass="BlastedLandsThroughTheDarkPortal" />
+    <QuestsSorted Action="Pulse" NameClass="DarkPortalSpot1" />
+    <QuestsSorted Action="Pulse" NameClass="DarkPortalSpot2" />
+	<QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey,4000);" />
+	<QuestsSorted Action="Wait" NameClass="10000" />
+	<QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="LoadProfile" NameClass="TBC_Quester_Alliance\HellfirePeninsula.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="!(Usefuls.ContinentId == (int) ContinentId.Expansion01)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPosition(new Vector3(-11888.43f, -3206.383f, -15.19779f));" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey,4000);" />
+	<QuestsSorted Action="Wait" NameClass="10000" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = true;" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.Level &lt; 64" />
+    <QuestsSorted Action="LoadProfile" NameClass="TBC_Quester_Alliance\Zangarmarsh.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.Level &lt; 65" />
+    <QuestsSorted Action="LoadProfile" NameClass="TBC_Quester_Alliance\TerrokkarForest.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.Level &lt; 67" />
+    <QuestsSorted Action="LoadProfile" NameClass="TBC_Quester_Alliance\Nagrand.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.Level &lt; 68" />
+    <QuestsSorted Action="LoadProfile" NameClass="TBC_Quester_Alliance\Blade'sEdgeMountains.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.Level &lt; 70" />
+    <QuestsSorted Action="LoadProfile" NameClass="TBC_Quester_Alliance\Netherstorm.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+  </QuestsSorted>
+  <NpcQuest>
+    <NPCQuest Id="16841" Name="Watch Commander Relthorn Netherwane" GameObject="false">
+      <PickUpQuests>
+        <int>10119</int>
+      </PickUpQuests>
+      <TurnInQuests />
+      <Position X="-11815.2" Y="-3195.54" Z="-30.99916" />
+    </NPCQuest>
+    <NPCQuest Id="19229" Name="Commander Duron" GameObject="false">
+      <PickUpQuests>
+        <int>9407</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>9407</int>
+      </TurnInQuests>
+      <Position X="-266.369" Y="1028.86" Z="54.32331" />
+    </NPCQuest>
+  </NpcQuest>
+  <Npc />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>AutoUpdate</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>
+public sealed class AutoUpdate : QuestClass
+{
+    public AutoUpdate() // Don't forget to use good classe name
+    {
+		Name = "AutoUpdate";
+	
+try
+{
+    string onlineFile = "http://bambo.myds.me/tbc/TBC_Quester_Alliance.xml";
+    Quester.Bot.QuesterSetting.Load();
+    string currentFile = System.Windows.Forms.Application.StartupPath + @"\Profiles\Quester\" + Quester.Bot.QuesterSetting.CurrentSetting.ProfileName;
+
+    var currentFileContent = System.IO.File.ReadAllText(currentFile, System.Text.Encoding.UTF8);
+    var onlineFileContent = new System.Net.WebClient { Encoding = System.Text.Encoding.UTF8 }.DownloadString(onlineFile);
+
+    if (!string.IsNullOrWhiteSpace(currentFileContent) &amp;&amp; !string.IsNullOrWhiteSpace(onlineFileContent))
+    {
+        if (currentFileContent.Length == 39 &amp;&amp; onlineFileContent.Length == 39) // 39 is size of encrypted files with option "Short file"
+        {
+            if (currentFileContent != onlineFileContent) // if new update
+            {
+                robotManager.Helpful.Logging.Write("[Bambo_TBCQuester_Alliance]: New version found, try to update.");
+                System.IO.File.WriteAllText(currentFile, onlineFileContent,
+                System.Text.Encoding.UTF8); // replace user file by online file 
+                new System.Threading.Thread(() =&gt; robotManager.Products.Products.ProductRestart()).Start(); // reload product (profile)
+            }
+            if (currentFileContent == onlineFileContent)
+                robotManager.Helpful.Logging.Write("[Bambo_TBCQuester_Alliance]: The version on your pc is the latest updated version.");
+        }
+        else
+            robotManager.Helpful.Logging.Write("[Bambo_TBCQuester_Alliance]: Your currently running version is not encrypted.");
+    }
+}
+catch (System.Exception e)
+{
+    robotManager.Helpful.Logging.WriteError("Auto update: " + e);
+}
+
+        Lua.LuaDoString("DungeonFrameWorkLoaded = true");
+    }
+}
+// More info here: http://wrobot.eu/topic/374-how-to-create-quest-profile/ (please don't add using and add only one quest)
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Lua.LuaDoString&lt;bool&gt;("return UpdateFrameWorkLoaded");</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Catch Ship (From Theramore)</Name>
+      <QuestId />
+      <QuestType>OverridePulseCSharpCode</QuestType>
+      <QuestClass xsi:type="OverridePulseCSharpCodeEasyQuestClass">
+        <Code>// Sample of how to use Zeppelin/Ship
+// In this sample, WRobot catch Zeppelin from Kalimdor (Ogrimmard) to Northrend (Borean Tundra (Warsong Hold))
+
+/* Quest settings:
+    * Can condition: "return Usefuls.ContinentId == (int) ContinentId.Kalimdor;"
+    * Is complete condition: "return Usefuls.ContinentId == (int) ContinentId.Northrend &amp;&amp; !ObjectManager.Me.InTransport;"
+    * Not required in quest log: "True"
+    * Quest type: "OverridePulseCSharpCode"
+*/
+
+// You can get zeppelin/ship/player positions and entry ID in tab "Tools" &gt; "Development Tools" &gt; "Dump all informations" (or "Memory information").
+
+// Settings:
+var zeppelinEntryId = 176231; // Zeppelin/Ship EntryId
+// From
+var fromZeppelinWaitPosition = new Vector3(-4016.39, -4740.588, 0);// Position where Zeppelin/Ship waits players (from)
+var fromPlayerWaitPosition = new Vector3(-4005.235, -4732.517, 5.439033, "None"); // Position where the player waits Zeppelin/Ship (from)
+var fromPlayerInZeppelinPosition = new Vector3(-4005.948, -4733.486, 5.894122, "None");// Position where the player waits in the Zeppelin/Ship (from)
+// To
+var toZeppelinWaitPosition = new Vector3(-3905.225, -585.8085, 0, "None"); // Position where Zeppelin/Ship waits players (to)
+var toPlayerLeavePosition =  new Vector3(-3896.342, -596.4409, 5.466796, "None"); // Position to go out the Zeppelin/Ship (to)
+// var toPlayerLeaveBoat = new Vector3(-4005.948, -4733.486, 5.894122, "None"); // put player at end of boat (to)
+
+
+// Change WRobot settings:
+wManager.wManagerSetting.CurrentSetting.CloseIfPlayerTeleported = false;
+
+// Code:
+if (!Conditions.InGameAndConnectedAndProductStartedNotInPause)
+    return true;
+
+if (Usefuls.ContinentId == (int)ContinentId.Kalimdor)
+{
+    if (!ObjectManager.Me.InTransport)
+    {
+        if (GoToTask.ToPosition(fromPlayerWaitPosition))
+        {
+            var zeppelin = ObjectManager.GetWoWGameObjectByEntry(zeppelinEntryId).OrderBy(o =&gt; o.GetDistance).FirstOrDefault();
+            if (zeppelin != null &amp;&amp; zeppelin.Position.DistanceTo(fromZeppelinWaitPosition) &lt; 1)
+            {
+                wManager.Wow.Helpers.Move.Forward(Move.MoveAction.PressKey,2500);
+            }
+        }
+    }
+}
+else if (Usefuls.ContinentId == (int)ContinentId.Azeroth)
+{
+    if (ObjectManager.Me.InTransport)
+    {
+        var zeppelin = ObjectManager.GetWoWGameObjectByEntry(zeppelinEntryId).OrderBy(o =&gt; o.GetDistance).FirstOrDefault();
+        if (zeppelin != null &amp;&amp; zeppelin.Position.DistanceTo(toZeppelinWaitPosition) &lt; 1)
+        {
+            wManager.Wow.Helpers.Move.Backward(Move.MoveAction.PressKey,2650);
+        }
+    }
+}
+return true;</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition>return Usefuls.ContinentId == (int) ContinentId.Kalimdor;</CanCondition>
+      <IsCompleteCondition>return Usefuls.ContinentId == (int) ContinentId.Azeroth &amp;&amp; !ObjectManager.Me.InTransport;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>59</MaxLevel>
+      <MinLevel>54</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>BlastedLands_ThroughTheDarkPortal</Name>
+      <QuestId>
+        <int>10119</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>GoToShipInTheramore</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="-3863.147" Y="-4583.319" Z="9.106091" />
+          <Vector3 X="-3867.472" Y="-4584.751" Z="8.920386" />
+          <Vector3 X="-3873.195" Y="-4593.214" Z="9.181345" />
+          <Vector3 X="-3881.268" Y="-4599.927" Z="9.236511" />
+          <Vector3 X="-3888.703" Y="-4607.327" Z="9.397974" />
+          <Vector3 X="-3895.876" Y="-4614.995" Z="9.646159" />
+          <Vector3 X="-3903.049" Y="-4622.664" Z="9.800726" />
+          <Vector3 X="-3910.222" Y="-4630.332" Z="9.697729" />
+          <Vector3 X="-3917.395" Y="-4638" Z="9.485741" />
+          <Vector3 X="-3924.568" Y="-4645.668" Z="9.297881" />
+          <Vector3 X="-3931.74" Y="-4653.336" Z="9.126448" />
+          <Vector3 X="-3938.913" Y="-4661.004" Z="8.96719" />
+          <Vector3 X="-3946.091" Y="-4668.667" Z="8.988621" />
+          <Vector3 X="-3953.336" Y="-4676.267" Z="9.036562" />
+          <Vector3 X="-3960.767" Y="-4683.685" Z="7.555292" />
+          <Vector3 X="-3968.179" Y="-4691.122" Z="5.38612" />
+          <Vector3 X="-3975.394" Y="-4698.75" Z="4.388793" />
+          <Vector3 X="-3982.374" Y="-4706.594" Z="4.359899" />
+          <Vector3 X="-3989.24" Y="-4714.538" Z="4.443789" />
+          <Vector3 X="-3996.106" Y="-4722.481" Z="4.751564" />
+          <Vector3 X="-3999.072" Y="-4725.913" Z="4.892093" />
+          <Vector3 X="-3999.072" Y="-4725.913" Z="4.892093" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>false</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>DarkPortalSpot1</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="-11861.86" Y="-3203.878" Z="-24.11481" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>true</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>DarkPortalSpot2</Name>
+      <QuestId />
+      <QuestType>FollowPath</QuestType>
+      <QuestClass xsi:type="FollowPathEasyQuestClass">
+        <Path>
+          <Vector3 X="-11903.49" Y="-3208.579" Z="-14.82515" />
+        </Path>
+        <IsCompleteWhenAtLastPath>true</IsCompleteWhenAtLastPath>
+        <ForceToStartFirstPosition>true</ForceToStartFirstPosition>
+        <IsHotSpots>false</IsHotSpots>
+        <IsLoop>false</IsLoop>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>using System;
+using System.ComponentModel;
+using System.Configuration;
+using System.IO;
+using System.Net;
+using System.Threading;
+using System.Windows.Forms;
+using robotManager.Helpful;
+using robotManager.Products;
+
+public class Authentication
+{
+    private readonly string orderId;
+    private readonly string productId;
+    private readonly string wRobotAuthKey;
+
+    private readonly BackgroundWorker _validationThread = new BackgroundWorker();
+    private bool _isRunning = false;
+    private string authUrl;
+
+    public Authentication(string orderId, string productId)
+    {
+        if (orderId == null)
+        {
+            MessageBox.Show("You need to enter your transaction id (from your Rocketr email) into the plugin settings to use this!");
+        }
+
+        this.orderId = orderId;
+        this.productId = productId;
+        this.wRobotAuthKey = robotManager.Helpful.Others.StringBetween(authManager.LoginServer.GetSubcriptionInfoThread(), robotManager.Translate.Get("License Key") + ": ", "...  - " + robotManager.Translate.Get("Subscription time expire"));
+        authUrl = "http://51.38.126.73:8080/authenticate?orderId=" + orderId.Trim() + "&amp;productId=" + productId + "&amp;wRobotAuthKey=" + wRobotAuthKey;
+
+        _isRunning = true;
+        _validationThread.DoWork += CheckValidiation;
+        _validationThread.RunWorkerAsync();
+    }
+    
+    ~Authentication()
+    {
+        _isRunning = false;
+        _validationThread.DoWork -= CheckValidiation;
+        _validationThread.Dispose();
+    }
+
+    private void CheckValidiation(object sender, DoWorkEventArgs e)
+    {
+        while (Products.IsStarted &amp;&amp; _isRunning)
+        {
+            try
+            {
+                bool timedOut = false;
+                HttpWebResponse content = null;
+                try
+                {
+                    var request = (HttpWebRequest)WebRequest.Create(authUrl);
+                    request.Timeout = 30000;
+                    request.ReadWriteTimeout = 30000;
+                    content = (HttpWebResponse)request.GetResponse();
+                }
+                catch (Exception ex)
+                {
+                    timedOut = true;
+                }
+                
+                //give it another try
+                if ((content != null &amp;&amp; content.StatusCode != HttpStatusCode.OK) || timedOut)
+                {
+                    Thread.Sleep(3* 60 * 1000);
+                    try
+                    {
+                        var request = (HttpWebRequest)WebRequest.Create(authUrl);
+                        request.Timeout = 30000;
+                        request.ReadWriteTimeout = 30000;
+                        content = (HttpWebResponse)request.GetResponse();
+                        timedOut = false;
+                    }
+                    catch (Exception ex)
+                    {
+                        timedOut = true;
+                    }
+                }
+
+                string result = content != null ? new StreamReader(content.GetResponseStream()).ReadToEnd() : "false";
+
+                if (!bool.Parse(result) || (content != null &amp;&amp; content.StatusCode != HttpStatusCode.OK) || timedOut)
+                {
+                    Products.ProductStop();
+                    _isRunning = false;
+                    _validationThread.DoWork -= CheckValidiation;
+                    _validationThread.Dispose();
+                    MessageBox.Show(@"You are trying to use a transaction id for a different product or another IP is already using this transaction id.
+                    
+If you changed your IP (one on wRobot session), wait 30 minutes.
+
+This error was produced by the TBC alliance quester of bambo.
+
+                    ");
+                    return;
+                }
+
+                Thread.Sleep(60 * 1000);
+            }
+            catch (Exception exp)
+            {
+                Logging.WriteError("" + exp);
+            }
+        }
+    }
+}
+
+public class ControlAuthentication
+{
+    private static volatile int _controlVariable = 0;
+    private static int _timeout = 0;
+    private static bool _isRunning = true;
+    private static bool disposeAuthThread = false;
+    private static string profileName = "";
+
+    public static void SetControl(int control)
+    {
+        _controlVariable = control;
+    }
+
+    static ControlAuthentication()
+    {
+        new Thread(() =&gt;
+        {
+            profileName = wManager.Wow.Helpers.Quest.QuesterCurrentContext.ProfileName;
+
+            while(_isRunning &amp;&amp; !disposeAuthThread &amp;&amp; (wManager.Wow.Helpers.Conditions.ProductIsStarted || wManager.Wow.Helpers.Conditions.ProductInPause))
+            {
+                if(!wManager.Wow.Helpers.Quest.QuesterCurrentContext.ProfileName.Equals(profileName))
+                {
+                    disposeAuthThread = true;
+                    break;
+                }
+
+                if(!wManager.Wow.Helpers.Conditions.ProductIsStarted)
+                {
+                    disposeAuthThread = true;
+                    break;
+                }
+
+                while(wManager.Wow.Helpers.Quest.QuesterCurrentContext.CurrentStep &lt; 2)
+                {
+                    Thread.Sleep(500);
+
+                    if(_controlVariable == 5 || !wManager.Wow.Helpers.Conditions.ProductIsStarted)
+                        break;
+
+                    _timeout += 500;
+
+                    if(_timeout &gt;= 910000)
+                    {
+                        Products.ProductStop();
+                        MessageBox.Show("[BambosTBCQuesterAlliance]: Timeout error. Unable to authenticate for more than 15 minutes. \n\nBot name: " + ObjectManager.Me.Name);
+                        break;
+                    }
+                }
+
+                _isRunning = false;
+
+                if(wManager.Wow.Helpers.Conditions.ProductIsStarted || wManager.Wow.Helpers.Conditions.ProductInPause)
+                {
+                    Thread.Sleep(60000);
+
+                    if(_controlVariable != 5)
+                    {
+                        Products.ProductStop();
+                        MessageBox.Show("[BambosTBCQuesterAlliance]: Please enter your ID faster or make sure the authentication step is enabled. \nRestart the Bot now. \n\nBot name: " + ObjectManager.Me.Name);
+                    }
+                    _timeout = 0;
+                    _isRunning = true;
+                }
+            }
+
+        }).Start();
+    }
+    
+}
+
+[Serializable]
+public class AllianceTBCQuesterAuthSettings : robotManager.Helpful.Settings
+{
+    [Setting]
+    [Category("__IMPORTANT__")]
+    [DisplayName("Rocketr ORDER ID")]
+    [Description("You can find this ID at the top of the Email that you have received after your purchase.")]
+    public string TransactionId { get; set; }
+
+    public AllianceTBCQuesterAuthSettings()
+    {
+        TransactionId = null;
+    }
+    
+    public static AllianceTBCQuesterAuthSettings CurrentSetting { get; set; }
+
+    public bool Save()
+    {
+        try
+        {
+            return Save(AdviserFilePathAndName("AllianceTBCQuesterAuthSettings", "TBC"));
+        }
+        catch (Exception e)
+        {
+            robotManager.Helpful.Logging.Write("AllianceTBCQuesterAuthSettings &gt; Save(): " + e);
+            return false;
+        }
+    }
+
+    public static bool Load()
+    {
+        try
+        {
+            if (File.Exists(AdviserFilePathAndName("AllianceTBCQuesterAuthSettings", "TBC")))
+            {
+                CurrentSetting =
+                    Load&lt;AllianceTBCQuesterAuthSettings&gt;(AdviserFilePathAndName("AllianceTBCQuesterAuthSettings", "TBC"));
+                return true;
+            }
+            CurrentSetting = new AllianceTBCQuesterAuthSettings();
+        }
+        catch (Exception e)
+        {
+            robotManager.Helpful.Logging.Write("AllianceTBCQuesterAuthSettings &gt; Load(): " + e);
+        }
+        return false;
+    }
+}  </Script>
+  <OffMeshConnections />
+  <BlacklistNpc />
+  <BlacklistNpcType />
+  <Blackspots />
+</EasyQuestProfile>

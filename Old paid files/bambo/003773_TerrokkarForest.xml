@@ -1,0 +1,1705 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="RunCode" NameClass="AllianceTBCQuesterAuthSettings.Load();&#xD;&#xA;        if (AllianceTBCQuesterAuthSettings.CurrentSetting.TransactionId == null)&#xD;&#xA;        {&#xD;&#xA;            AllianceTBCQuesterAuthSettings.CurrentSetting.ToForm();&#xD;&#xA;        }&#xD;&#xA;        AllianceTBCQuesterAuthSettings.CurrentSetting.Save();&#xD;&#xA;        new Authentication(AllianceTBCQuesterAuthSettings.CurrentSetting.TransactionId, &quot;0d1d64ee0766&quot;);&#xD;&#xA;        ControlAuthentication.SetControl(5);" />
+    <QuestsSorted Action="Pulse" NameClass="AutoUpdate" />
+    <QuestsSorted Action="RunLuaCode" NameClass="if not InfoPanel then&#xD;&#xA;    InfoPanelText = &quot;Waiting for Job&quot;&#xD;&#xA;    InfoPanel = CreateFrame(&quot;Frame&quot;)&#xD;&#xA;    InfoPanel:ClearAllPoints()&#xD;&#xA;    InfoPanel:SetBackdrop({bgFile = &quot;Interface/Buttons/WHITE8X8&quot;,})&#xD;&#xA;    InfoPanel:SetBackdropColor(0,0,0,.4)&#xD;&#xA;    InfoPanel:SetHeight(40)&#xD;&#xA;    InfoPanel:SetWidth(150)&#xD;&#xA;&#xD;&#xA;    InfoPanel.text = InfoPanel:CreateFontString(nil, &quot;BACKGROUND&quot;, &quot;GameFontNormal&quot;)&#xD;&#xA;    InfoPanel.text:SetAllPoints()&#xD;&#xA;    InfoPanel.text:SetText(InfoPanelText)&#xD;&#xA;    InfoPanel.text:SetTextColor(1, 1, 0, 1)&#xD;&#xA;    InfoPanel:SetPoint(&quot;RIGHT&quot;, -50, -100)&#xD;&#xA;&#xD;&#xA;    InfoPanel:SetMovable(true)&#xD;&#xA;    InfoPanel:EnableMouse(true)&#xD;&#xA;    InfoPanel:SetScript(&quot;OnMouseDown&quot;,function() InfoPanel:StartMoving() end)&#xD;&#xA;    InfoPanel:SetScript(&quot;OnMouseUp&quot;,function() InfoPanel:StopMovingOrSizing() end)&#xD;&#xA;    &#xD;&#xA;    InfoPanel.Close = CreateFrame(&quot;BUTTON&quot;, nil, InfoPanel, &quot;UIPanelCloseButton&quot;)&#xD;&#xA;    InfoPanel.Close:SetWidth(20)&#xD;&#xA;    InfoPanel.Close:SetHeight(20)&#xD;&#xA;    InfoPanel.Close:SetPoint(&quot;TOPRIGHT&quot;, InfoPanel, 3, 3)&#xD;&#xA;    InfoPanel.Close:SetScript(&quot;OnClick&quot;, function()&#xD;&#xA;        InfoPanel:Hide()&#xD;&#xA;        DEFAULT_CHAT_FRAME:AddMessage(&quot;Info Panel |cffC41F3Bclosed |cffFFFFFFWrite /InfoPanel to enable again.&quot;)     &#xD;&#xA;    end)&#xD;&#xA;    &#xD;&#xA;    SLASH_WHATEVERYOURFRAMESARECALLED1=&quot;/InfoPanel&quot;&#xD;&#xA;    SlashCmdList.WHATEVERYOURFRAMESARECALLED = function()&#xD;&#xA;        if InfoPanel:IsShown() then&#xD;&#xA;            InfoPanel:Hide()&#xD;&#xA;        else&#xD;&#xA;            InfoPanel:Show()&#xD;&#xA;        end&#xD;&#xA;    end&#xD;&#xA;end" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;InfoPanelText = 'Terrokkar Forest Quest Chain'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;InfoPanel.text:SetText(InfoPanelText)&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="robotManager.Helpful.Logging.Write(&quot;Bambo's TBC Quester - Terrokkar Forest is being loaded.&quot;);&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.SearchRadius = 120;&#xD;&#xA;wManager.Wow.Helpers.NpcDB.AcceptOnlyProfileNpc = true;" />
+    <QuestsSorted Action="TurnIn" NameClass="TerrokkarForestWhatsWrongAtCenarionThicket" />
+    <QuestsSorted Action="PickUp" NameClass="TerrokkarForestStrangeEnergy" />
+    <QuestsSorted Action="PickUp" NameClass="TerrokkarForestCluesInTheThicket" />
+    <QuestsSorted Action="PickUp" NameClass="TerrokkarForestItsWatchingYou" />
+    <QuestsSorted Action="Pulse" NameClass="TerrokkarForestCluesInTheThicket" />
+    <QuestsSorted Action="Pulse" NameClass="TerrokkarForestStrangeEnergy" />
+    <QuestsSorted Action="TurnIn" NameClass="TerrokkarForestItsWatchingYou" />
+    <QuestsSorted Action="TurnIn" NameClass="TerrokkarForestStrangeEnergy" />
+    <QuestsSorted Action="TurnIn" NameClass="TerrokkarForestCluesInTheThicket" />
+    <QuestsSorted Action="RunCode" NameClass="if(!wManager.Wow.Helpers.FinishedQuestsSettings.CurrentSetting.FinishedQuest.Contains(9793)) {&#xD;&#xA;wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(-1831.366f, 5300.957f, -12.42812f), 18940);&#xD;&#xA;}" />
+    <QuestsSorted Action="TurnIn" NameClass="TerrokkarForestTheFateOfTuurem" />
+    <QuestsSorted Action="PickUp" NameClass="TerrokkarForestMagicalDisturbances" />
+    <QuestsSorted Action="PickUp" NameClass="TerrokkarForestStymyingTheArakkoa1" />
+    <QuestsSorted Action="PickUp" NameClass="TerrokkarForestUnrulyNeighbors" />
+    <QuestsSorted Action="PickUp" NameClass="TerrokkarForestTimberWorgTails" />
+    <QuestsSorted Action="PickUp" NameClass="TerrokkarForestWANTEDBonelashersDead" />
+    <QuestsSorted Action="PickUp" NameClass="TerrokkarForestOlembaSeeds" />
+    <QuestsSorted Action="PickUp" NameClass="TerrokkarForestOlembaSeeds" />
+    <QuestsSorted Action="PickUp" NameClass="TerrokkarForestSecretsOfTheArakkoa" />
+    <QuestsSorted Action="PickUp" NameClass="TerrokkarForestSpeakWithPrivateWeeks" />
+    <QuestsSorted Action="PickUp" NameClass="TerrokkarForestThinTheFlock" />
+    <QuestsSorted Action="If" NameClass="!wManager.Wow.Helpers.FinishedQuestsSettings.CurrentSetting.FinishedQuest.Contains(10033)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(-2919.618f, 4020.632f, 0.4214284f, &quot;none&quot;), 19296);" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;GossipTitleButton1:Click();&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;StaticPopup1Button1:Click();&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(-2993.771f, 3872.573f, 9.500173f, &quot;none&quot;), 18809);" />
+    <QuestsSorted Action="Pulse" NameClass="TerrokkarForestOlembaSeeds" />
+    <QuestsSorted Action="Pulse" NameClass="TerrokkarForestTimberWorgTails" />
+    <QuestsSorted Action="Pulse" NameClass="TerrokkarForestUnrulyNeighbors" />
+    <QuestsSorted Action="Pulse" NameClass="TerrokkarForestMagicalDisturbances" />
+    <QuestsSorted Action="Pulse" NameClass="TerrokkarForestStymyingTheArakkoa1" />
+    <QuestsSorted Action="Pulse" NameClass="TerrokkarForestThinTheFlock" />
+    <QuestsSorted Action="Pulse" NameClass="TerrokkarForestWANTEDBonelashersDead" />
+    <QuestsSorted Action="Pulse" NameClass="TerrokkarForestStymyingTheArakkoa2" />
+    <QuestsSorted Action="Pulse" NameClass="TerrokkarForestStymyingTheArakkoa3" />
+    <QuestsSorted Action="RunCode" NameClass="ItemsManager.UseItem(6948);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="TurnIn" NameClass="TerrokkarForestWANTEDBonelashersDead" />
+    <QuestsSorted Action="TurnIn" NameClass="TerrokkarForestMagicalDisturbances" />
+    <QuestsSorted Action="TurnIn" NameClass="TerrokkarForestStymyingTheArakkoa3" />
+    <QuestsSorted Action="TurnIn" NameClass="TerrokkarForestTimberWorgTails" />
+    <QuestsSorted Action="PickUp" NameClass="TerrokkarForestTheElusiveIronjaw" />
+    <QuestsSorted Action="TurnIn" NameClass="TerrokkarForestOlembaSeeds" />
+    <QuestsSorted Action="PickUp" NameClass="TerrokkarForestVesselsOfPower" />
+    <QuestsSorted Action="TurnIn" NameClass="TerrokkarForestThinTheFlock" />
+    <QuestsSorted Action="Pulse" NameClass="TerrokkarForestTheElusiveIronjaw" />
+    <QuestsSorted Action="Pulse" NameClass="TerrokkarForestVesselsOfPower" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.WowClass == WoWClass.Mage || ObjectManager.Me.WowClass == WoWClass.Priest || ObjectManager.Me.WowClass == WoWClass.Warlock" />
+    <QuestsSorted Action="TurnIn" NameClass="TerrokkarForestClothTheElusiveIronjaw" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.WowClass == WoWClass.Rogue || ObjectManager.Me.WowClass == WoWClass.Druid" />
+    <QuestsSorted Action="TurnIn" NameClass="TerrokkarForestLeatherTheElusiveIronjaw" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.WowClass == WoWClass.Hunter" />
+    <QuestsSorted Action="TurnIn" NameClass="TerrokkarForestMailTheElusiveIronjaw" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.WowClass == WoWClass.Warrior || ObjectManager.Me.WowClass == WoWClass.Paladin" />
+    <QuestsSorted Action="TurnIn" NameClass="TerrokkarForestPlateTheElusiveIronjaw" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="TurnIn" NameClass="TerrokkarForestUnrulyNeighbors" />
+    <QuestsSorted Action="PickUp" NameClass="TerrokkarForestTheFirewingLiaison" />
+    <QuestsSorted Action="PickUp" NameClass="TerrokkarForestThinningTheRanks" />
+    <QuestsSorted Action="Pulse" NameClass="TerrokkarForestThinningTheRanks" />
+    <QuestsSorted Action="Pulse" NameClass="TerrokkarForestTheFirewingLiaison" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.WowClass == WoWClass.Mage || ObjectManager.Me.WowClass == WoWClass.Priest || ObjectManager.Me.WowClass == WoWClass.Warlock" />
+    <QuestsSorted Action="TurnIn" NameClass="TerrokkarForestClothThinningTheRanks" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.WowClass == WoWClass.Rogue || ObjectManager.Me.WowClass == WoWClass.Druid" />
+    <QuestsSorted Action="TurnIn" NameClass="TerrokkarForestLeatherThinningTheRanks" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.WowClass == WoWClass.Hunter" />
+    <QuestsSorted Action="TurnIn" NameClass="TerrokkarForestMailThinningTheRanks" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.WowClass == WoWClass.Warrior || ObjectManager.Me.WowClass == WoWClass.Paladin" />
+    <QuestsSorted Action="TurnIn" NameClass="TerrokkarForestPlateThinningTheRanks" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="TurnIn" NameClass="TerrokkarForestTheFirewingLiaison" />
+    <QuestsSorted Action="RunCode" NameClass="if(!wManager.Wow.Helpers.FinishedQuestsSettings.CurrentSetting.FinishedQuest.Contains(10028)) {&#xD;&#xA;ItemsManager.UseItem(6948);&#xD;&#xA;}" />
+    <QuestsSorted Action="TurnIn" NameClass="TerrokkarForestVesselsOfPower" />
+    <QuestsSorted Action="TurnIn" NameClass="TerrokkarForestSecretsOfTheArakkoa" />
+    <QuestsSorted Action="TurnIn" NameClass="TerrokkarForestSpeakWithPrivateWeeks" />
+    <QuestsSorted Action="PickUp" NameClass="TerrokkarForestBeforeDarknessFalls" />
+    <QuestsSorted Action="Pulse" NameClass="TerrokkarForestBeforeDarknessFalls" />
+    <QuestsSorted Action="Pulse" NameClass="TerrokkarForestTheTombOfLights" />
+    <QuestsSorted Action="If" NameClass="!wManager.Wow.Helpers.FinishedQuestsSettings.CurrentSetting.FinishedQuest.Contains(10878)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPosition(new Vector3(-2511.405f, 5423.26f, 0.04762313f, &quot;none&quot;));" />
+    <QuestsSorted Action="RunCode" NameClass="ItemsManager.UseItem(31610);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="TurnIn" NameClass="TerrokkarForestBeforeDarknessFalls" />
+    <QuestsSorted Action="TurnIn" NameClass="TerrokkarForestTheTombOfLights" />
+    <QuestsSorted Action="Pulse" NameClass="GrindTo65" />
+    <QuestsSorted Action="LoadProfile" NameClass="TBC_Quester_Alliance\Nagrand.xml" />
+  </QuestsSorted>
+  <NpcQuest>
+    <NPCQuest Id="18446" Name="Earthbinder Tavgren" GameObject="false">
+      <PickUpQuests>
+        <int>9971</int>
+        <int>9968</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>9957</int>
+        <int>9971</int>
+        <int>9968</int>
+      </TurnInQuests>
+      <Position X="-1947.2" Y="4689.5" Z="-2.190537" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="18424" Name="Warden Treelos" GameObject="false">
+      <PickUpQuests>
+        <int>9951</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>9951</int>
+      </TurnInQuests>
+      <Position X="-1923.77" Y="4681.98" Z="-1.536413" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="18252" Name="Andarl" GameObject="false">
+      <PickUpQuests>
+        <int>10026</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>9793</int>
+        <int>10026</int>
+      </TurnInQuests>
+      <Position X="-2928.19" Y="3922.56" Z="3.28251" />
+    </NPCQuest>
+    <NPCQuest Id="18389" Name="Thander" GameObject="false">
+      <PickUpQuests>
+        <int>9986</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>9986</int>
+      </TurnInQuests>
+      <Position X="-2953.12" Y="3960.91" Z="0.9783564" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="18387" Name="Bertelm" GameObject="false">
+      <PickUpQuests>
+        <int>9998</int>
+        <int>10016</int>
+        <int>10022</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>10016</int>
+        <int>10022</int>
+      </TurnInQuests>
+      <Position X="-2971.17" Y="3935.18" Z="3.810312" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="182587" Name="Wanted Poster" GameObject="true">
+      <PickUpQuests>
+        <int>10033</int>
+      </PickUpQuests>
+      <TurnInQuests />
+      <Position X="-2971.17" Y="3935.18" Z="3.810312" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="18390" Name="Ros'eleth" GameObject="false">
+      <PickUpQuests>
+        <int>9992</int>
+        <int>10028</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>9992</int>
+        <int>10028</int>
+      </TurnInQuests>
+      <Position X="-2995.95" Y="3983.49" Z="3.105266" />
+    </NPCQuest>
+    <NPCQuest Id="15991" Name="Lady Dena Kennedy" GameObject="false">
+      <PickUpQuests>
+        <int>10863</int>
+      </PickUpQuests>
+      <TurnInQuests />
+      <Position X="-3016.63" Y="3963.4" Z="3.105666" />
+    </NPCQuest>
+    <NPCQuest Id="18713" Name="Lieutenant Gravelhammer" GameObject="false">
+      <PickUpQuests>
+        <int>10038</int>
+        <int>10869</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>10869</int>
+      </TurnInQuests>
+      <Position X="-3007.9" Y="3978.22" Z="3.10527" />
+    </NPCQuest>
+    <NPCQuest Id="18704" Name="Taela Everstride" GameObject="false">
+      <PickUpQuests />
+      <TurnInQuests>
+        <int>10033</int>
+      </TurnInQuests>
+      <Position X="-2923.09" Y="3945.71" Z="0.770363" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="18565" Name="Theloria Shadecloak" GameObject="false">
+      <PickUpQuests>
+        <int>10002</int>
+        <int>10007</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>10002</int>
+        <int>10007</int>
+        <int>9998</int>
+      </TurnInQuests>
+      <Position X="-2592.44" Y="3317.34" Z="0.5976964" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="22292" Name="Rilak the Redeemed" GameObject="false">
+      <PickUpQuests />
+      <TurnInQuests>
+        <int>10863</int>
+      </TurnInQuests>
+      <Position X="-1656.93" Y="5448.97" Z="-40.40564" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="18715" Name="Private Weeks" GameObject="false">
+      <PickUpQuests />
+      <TurnInQuests>
+        <int>10038</int>
+      </TurnInQuests>
+      <Position X="-2301.67" Y="4898.39" Z="1.145063" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="22370" Name="Mekeda" GameObject="false">
+      <PickUpQuests>
+        <int>10878</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>10878</int>
+      </TurnInQuests>
+      <Position X="-2821.95" Y="5072.062" Z="-14.85982" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="22278" Name="High Priest Orglum" GameObject="false">
+      <PickUpQuests>
+        <int>10840</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>10840</int>
+      </TurnInQuests>
+      <Position X="-2827.24" Y="5060.84" Z="-15.51822" Type="Flying" />
+    </NPCQuest>
+  </NpcQuest>
+  <Npc />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>AutoUpdate</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>
+public sealed class AutoUpdate : QuestClass
+{
+    public AutoUpdate() // Don't forget to use good classe name
+    {
+		Name = "AutoUpdate";
+	
+try
+{
+    string onlineFile = "http://bambo.myds.me/tbc/alliancequester/TerrokkarForest.xml";
+    Quester.Bot.QuesterSetting.Load();
+    string currentFile = System.Windows.Forms.Application.StartupPath + @"\Profiles\Quester\" + Quester.Bot.QuesterSetting.CurrentSetting.ProfileName;
+
+    var currentFileContent = System.IO.File.ReadAllText(currentFile, System.Text.Encoding.UTF8);
+    var onlineFileContent = new System.Net.WebClient { Encoding = System.Text.Encoding.UTF8 }.DownloadString(onlineFile);
+
+    if (!string.IsNullOrWhiteSpace(currentFileContent) &amp;&amp; !string.IsNullOrWhiteSpace(onlineFileContent))
+    {
+        if (currentFileContent.Length == 39 &amp;&amp; onlineFileContent.Length == 39) // 39 is size of encrypted files with option "Short file"
+        {
+            if (currentFileContent != onlineFileContent) // if new update
+            {
+                robotManager.Helpful.Logging.Write("[Bambo_Alliance_TBCQuester]: New version found, try to update.");
+                System.IO.File.WriteAllText(currentFile, onlineFileContent,
+                System.Text.Encoding.UTF8); // replace user file by online file 
+                new System.Threading.Thread(() =&gt; robotManager.Products.Products.ProductRestart()).Start(); // reload product (profile)
+            }
+            if (currentFileContent == onlineFileContent)
+                robotManager.Helpful.Logging.Write("[Bambo_Alliance_TBCQuester]: The version on your pc is the latest updated version.");
+        }
+        else
+            robotManager.Helpful.Logging.Write("[Bambo_Alliance_TBCQuester]: Your currently running version is not encrypted.");
+    }
+}
+catch (System.Exception e)
+{
+    robotManager.Helpful.Logging.WriteError("Auto update: " + e);
+}
+
+        Lua.LuaDoString("DungeonFrameWorkLoaded = true");
+    }
+}
+// More info here: http://wrobot.eu/topic/374-how-to-create-quest-profile/ (please don't add using and add only one quest)
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Lua.LuaDoString&lt;bool&gt;("return UpdateFrameWorkLoaded");</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>TerrokkarForest_TheFateOfTuurem</Name>
+      <QuestId>
+        <int>9793</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>TerrokkarForest_What'sWrongAtCenarionThicket?</Name>
+      <QuestId>
+        <int>9957</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>TerrokkarForest_StrangeEnergy</Name>
+      <QuestId>
+        <int>9968</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-1865.459" Y="4774.544" Z="0.9308529" />
+          <Vector3 X="-1909.051" Y="4823.386" Z="2.474678" />
+          <Vector3 X="-2041.87" Y="4906.755" Z="14.18525" />
+          <Vector3 X="-2192.049" Y="4849.936" Z="-4.377688" />
+          <Vector3 X="-2007.242" Y="4619.011" Z="-4.020728" />
+          <Vector3 X="-1859.484" Y="4540.615" Z="10.93056" />
+          <Vector3 X="-1895.004" Y="4584.522" Z="10.24907" />
+        </HotSpots>
+        <EntryTarget>
+          <int>18468</int>
+          <int>18437</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>4</ObjectiveCount1>
+      <ObjectiveCount2>4</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>true</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(25672) &gt;= 4 &amp;&amp; ItemsManager.GetItemCountById(24279) &gt;= 4;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>TerrokkarForest_CluesInTheThicket</Name>
+      <QuestId>
+        <int>9971</int>
+      </QuestId>
+      <QuestType>Gatherer</QuestType>
+      <QuestClass xsi:type="GathererEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-1785.2" Y="4647.91" Z="14.62773" />
+        </HotSpots>
+        <EntryIdObjects>
+          <int>183789</int>
+        </EntryIdObjects>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>TerrokkarForest_It'sWatchingYou!</Name>
+      <QuestId>
+        <int>9951</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-1788.304" Y="4727.005" Z="65.95674" />
+        </HotSpots>
+        <EntryTarget>
+          <int>18438</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>3</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>TerrokkarForest_MagicalDisturbances</Name>
+      <QuestId>
+        <int>10026</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-2360.026" Y="4073.549" Z="-12.33957" />
+          <Vector3 X="-2260.996" Y="4107.114" Z="-15.46387" />
+          <Vector3 X="-2765.272" Y="3833.065" Z="-6.365407" />
+          <Vector3 X="-2115.724" Y="3741.845" Z="-19.6761" />
+        </HotSpots>
+        <EntryTarget>
+          <int>18464</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>TerrokkarForest_StymyingTheArakkoa2</Name>
+      <QuestId>
+        <int>9986</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-1859.055" Y="3883.443" Z="4.929406" />
+        </HotSpots>
+        <EntryTarget>
+          <int>18540</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>1</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>true</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>TerrokkarForest_StymyingTheArakkoa1</Name>
+      <QuestId>
+        <int>9986</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-1613.553" Y="4435.034" Z="52.61821" />
+        </HotSpots>
+        <EntryTarget>
+          <int>18539</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>TerrokkarForest_StymyingTheArakkoa3</Name>
+      <QuestId>
+        <int>9986</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-2509.294" Y="5380.724" Z="27.15659" />
+        </HotSpots>
+        <EntryTarget>
+          <int>18541</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>1</ObjectiveCount2>
+      <ObjectiveCount3>1</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>true</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>true</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>TerrokkarForest_UnrulyNeighbors</Name>
+      <QuestId>
+        <int>9998</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-2861.76" Y="3515.838" Z="-32.42404" />
+          <Vector3 X="-2828.555" Y="3449.26" Z="-39.03108" />
+          <Vector3 X="-2833.506" Y="3366.209" Z="-29.68545" />
+        </HotSpots>
+        <EntryTarget>
+          <int>18595</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>12</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>TerrokkarForest_TimberWorgTails</Name>
+      <QuestId>
+        <int>10016</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-2455.042" Y="5312.542" Z="-1.537242" />
+          <Vector3 X="-2581.145" Y="5259.95" Z="7.971518" />
+          <Vector3 X="-2281.214" Y="5338.126" Z="-8.605931" />
+          <Vector3 X="-2337.171" Y="5212.524" Z="-3.556638" />
+          <Vector3 X="-2268.658" Y="5070.576" Z="-10.32891" />
+          <Vector3 X="-2192.872" Y="4767.755" Z="1.094763" />
+          <Vector3 X="-1999.75" Y="4737.25" Z="1.12559" />
+        </HotSpots>
+        <EntryTarget>
+          <int>18477</int>
+          <int>18476</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>12</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(25807) &gt;= 12;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>TerrokkarForest_WANTED:BonelashersDead!</Name>
+      <QuestId>
+        <int>10033</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-2839.396" Y="4939.129" Z="-18.7534" />
+          <Vector3 X="-2835.137" Y="4825.231" Z="-12.0728" />
+          <Vector3 X="-3099.679" Y="4553.927" Z="-22.35715" />
+          <Vector3 X="-2871.561" Y="4506.45" Z="-9.232472" />
+          <Vector3 X="-2890.74" Y="5125.623" Z="-19.28624" />
+          <Vector3 X="-2916.404" Y="5231.323" Z="-14.98202" />
+        </HotSpots>
+        <EntryTarget>
+          <int>18470</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>20</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>TerrokkarForest_OlembaSeeds</Name>
+      <QuestId>
+        <int>9992</int>
+      </QuestId>
+      <QuestType>Gatherer</QuestType>
+      <QuestClass xsi:type="GathererEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-2275.527" Y="4843.146" Z="0.5233907" />
+          <Vector3 X="-2219.073" Y="4585.375" Z="1.46383" />
+          <Vector3 X="-2288.853" Y="4376.44" Z="4.730436" />
+          <Vector3 X="-2405.005" Y="3989.767" Z="-10.31094" />
+          <Vector3 X="-2805.626" Y="3817.776" Z="-0.2433376" />
+          <Vector3 X="-2214.139" Y="3391.937" Z="-24.19111" />
+        </HotSpots>
+        <EntryIdObjects>
+          <int>182541</int>
+        </EntryIdObjects>
+      </QuestClass>
+      <ObjectiveCount1>30</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(25745) &gt;= 30;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>TerrokkarForest_SecretsOfTheArakkoa</Name>
+      <QuestId>
+        <int>10863</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>TerrokkarForest_SpeakWithPrivateWeeks</Name>
+      <QuestId>
+        <int>10038</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>TerrokkarForest_ThinTheFlock</Name>
+      <QuestId>
+        <int>10869</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-1945.376" Y="3915.264" Z="-0.7370443" />
+          <Vector3 X="-1916.927" Y="3838.894" Z="0.5309145" />
+          <Vector3 X="-1866.71" Y="3876.274" Z="3.432761" />
+        </HotSpots>
+        <EntryTarget>
+          <int>18449</int>
+          <int>18450</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>14</ObjectiveCount1>
+      <ObjectiveCount2>6</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>true</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>TerrokkarForest_TheElusiveIronjaw</Name>
+      <QuestId>
+        <int>10022</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-2254.511" Y="3559.751" Z="-17.48019" />
+        </HotSpots>
+        <EntryTarget>
+          <int>18670</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(25837) &gt;= 1;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>TerrokkarForest_ClothTheElusiveIronjaw</Name>
+      <QuestId>
+        <int>10022</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>2</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>TerrokkarForest_MailTheElusiveIronjaw</Name>
+      <QuestId>
+        <int>10022</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>2</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>TerrokkarForest_PlateTheElusiveIronjaw</Name>
+      <QuestId>
+        <int>10022</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>3</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>TerrokkarForest_LeatherTheElusiveIronjaw</Name>
+      <QuestId>
+        <int>10022</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>4</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>TerrokkarForest_VesselsOfPower</Name>
+      <QuestId>
+        <int>10028</int>
+      </QuestId>
+      <QuestType>Gatherer</QuestType>
+      <QuestClass xsi:type="GathererEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-2182.41" Y="4246.214" Z="4.261203" />
+          <Vector3 X="-2187.919" Y="4309.731" Z="1.469871" />
+          <Vector3 X="-2041.654" Y="4273.307" Z="4.892318" />
+        </HotSpots>
+        <EntryIdObjects>
+          <int>182581</int>
+        </EntryIdObjects>
+      </QuestClass>
+      <ObjectiveCount1>8</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(25841) &gt;= 8;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>TerrokkarForest_TheFirewingLiaison</Name>
+      <QuestId>
+        <int>10002</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-2919.412" Y="3426.718" Z="0.9494576" />
+        </HotSpots>
+        <EntryTarget>
+          <int>18583</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>TerrokkarForest_ThinningTheRanks</Name>
+      <QuestId>
+        <int>10007</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-2936.302" Y="3571.871" Z="-8.480083" />
+          <Vector3 X="-2957.603" Y="3594.914" Z="-8.345961" />
+          <Vector3 X="-2824.995" Y="3498.252" Z="-35.19453" />
+        </HotSpots>
+        <EntryTarget>
+          <int>16772</int>
+          <int>16810</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>10</ObjectiveCount1>
+      <ObjectiveCount2>6</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>true</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>TerrokkarForest_LeatherThinningTheRanks</Name>
+      <QuestId>
+        <int>10007</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots />
+        <EntryTarget />
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>TerrokkarForest_MailThinningTheRanks</Name>
+      <QuestId>
+        <int>10007</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots />
+        <EntryTarget />
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>TerrokkarForest_PlateThinningTheRanks</Name>
+      <QuestId>
+        <int>10007</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots />
+        <EntryTarget />
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>TerrokkarForest_ClothThinningTheRanks</Name>
+      <QuestId>
+        <int>10007</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>TerrokkarForest_BeforeDarknessFalls</Name>
+      <QuestId>
+        <int>10878</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-3096.473" Y="4946.903" Z="-20.8473" />
+          <Vector3 X="-2953.481" Y="4947.073" Z="-21.6044" />
+          <Vector3 X="-3116" Y="4849.479" Z="-21.98788" />
+        </HotSpots>
+        <EntryTarget>
+          <int>21661</int>
+          <int>21907</int>
+          <int>21902</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>8</ObjectiveCount1>
+      <ObjectiveCount2>4</ObjectiveCount2>
+      <ObjectiveCount3>2</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>true</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>true</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>TerrokkarForest_TheTombOfLights</Name>
+      <QuestId>
+        <int>10840</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-3029.223" Y="4535.899" Z="-22.14399" />
+          <Vector3 X="-2988.514" Y="4500.983" Z="-20.59248" />
+          <Vector3 X="-2925.371" Y="4524.082" Z="-17.67605" />
+          <Vector3 X="-2987.156" Y="4599.723" Z="-20.28373" />
+        </HotSpots>
+        <EntryTarget>
+          <int>21370</int>
+          <int>21368</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>10</ObjectiveCount1>
+      <ObjectiveCount2>10</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>true</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>GrindTo65</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-2879.166" Y="4956.527" Z="-20.46746" />
+          <Vector3 X="-2820.68" Y="4879.291" Z="-14.81288" />
+          <Vector3 X="-3126.898" Y="4444.61" Z="-22.20767" />
+          <Vector3 X="-2532.513" Y="4007.381" Z="5.937875" />
+          <Vector3 X="-2233.76" Y="3907.08" Z="0.9384072" />
+          <Vector3 X="-2251.973" Y="3559.851" Z="-18.04769" />
+        </HotSpots>
+        <EntryTarget>
+          <int>18470</int>
+          <int>22100</int>
+          <int>22095</int>
+          <int>21849</int>
+          <int>18464</int>
+          <int>18469</int>
+          <int>18477</int>
+          <int>18463</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>64</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>
+using System;
+using System.ComponentModel;
+using System.Configuration;
+using System.IO;
+using System.Net;
+using System.Threading;
+using System.Windows.Forms;
+using robotManager.Helpful;
+using robotManager.Products;
+
+public class Authentication
+{
+    private readonly string orderId;
+    private readonly string productId;
+    private readonly string wRobotAuthKey;
+
+    private readonly BackgroundWorker _validationThread = new BackgroundWorker();
+    private bool _isRunning = false;
+    private string authUrl;
+
+    public Authentication(string orderId, string productId)
+    {
+        if (orderId == null)
+        {
+            MessageBox.Show("You need to enter your transaction id (from your Rocketr email) into the plugin settings to use this!");
+        }
+
+        this.orderId = orderId;
+        this.productId = productId;
+        this.wRobotAuthKey = robotManager.Helpful.Others.StringBetween(authManager.LoginServer.GetSubcriptionInfoThread(), robotManager.Translate.Get("License Key") + ": ", "...  - " + robotManager.Translate.Get("Subscription time expire"));
+        authUrl = "http://51.38.126.73:8080/authenticate?orderId=" + orderId.Trim() + "&amp;productId=" + productId + "&amp;wRobotAuthKey=" + wRobotAuthKey;
+
+        _isRunning = true;
+        _validationThread.DoWork += CheckValidiation;
+        _validationThread.RunWorkerAsync();
+    }
+    
+    ~Authentication()
+    {
+        _isRunning = false;
+        _validationThread.DoWork -= CheckValidiation;
+        _validationThread.Dispose();
+    }
+
+    private void CheckValidiation(object sender, DoWorkEventArgs e)
+    {
+        while (Products.IsStarted &amp;&amp; _isRunning)
+        {
+            try
+            {
+                bool timedOut = false;
+                HttpWebResponse content = null;
+                try
+                {
+                    var request = (HttpWebRequest)WebRequest.Create(authUrl);
+                    request.Timeout = 30000;
+                    request.ReadWriteTimeout = 30000;
+                    content = (HttpWebResponse)request.GetResponse();
+                }
+                catch (Exception ex)
+                {
+                    timedOut = true;
+                }
+                
+                //give it another try
+                if ((content != null &amp;&amp; content.StatusCode != HttpStatusCode.OK) || timedOut)
+                {
+                    Thread.Sleep(3* 60 * 1000);
+                    try
+                    {
+                        var request = (HttpWebRequest)WebRequest.Create(authUrl);
+                        request.Timeout = 30000;
+                        request.ReadWriteTimeout = 30000;
+                        content = (HttpWebResponse)request.GetResponse();
+                        timedOut = false;
+                    }
+                    catch (Exception ex)
+                    {
+                        timedOut = true;
+                    }
+                }
+
+                string result = content != null ? new StreamReader(content.GetResponseStream()).ReadToEnd() : "false";
+
+                if (!bool.Parse(result) || (content != null &amp;&amp; content.StatusCode != HttpStatusCode.OK) || timedOut)
+                {
+                    Products.ProductStop();
+                    _isRunning = false;
+                    _validationThread.DoWork -= CheckValidiation;
+                    _validationThread.Dispose();
+                    MessageBox.Show(@"You are trying to use a transaction id for a different product or another IP is already using this transaction id.
+                    
+If you changed your IP (one on wRobot session), wait 30 minutes.
+
+This error was produced by the TBC alliance quester of bambo.
+
+                    ");
+                    return;
+                }
+
+                Thread.Sleep(60 * 1000);
+            }
+            catch (Exception exp)
+            {
+                Logging.WriteError("" + exp);
+            }
+        }
+    }
+}
+
+public class ControlAuthentication
+{
+    private static volatile int _controlVariable = 0;
+    private static int _timeout = 0;
+    private static bool _isRunning = true;
+    private static bool disposeAuthThread = false;
+    private static string profileName = "";
+
+    public static void SetControl(int control)
+    {
+        _controlVariable = control;
+    }
+
+    static ControlAuthentication()
+    {
+        new Thread(() =&gt;
+        {
+            profileName = wManager.Wow.Helpers.Quest.QuesterCurrentContext.ProfileName;
+
+            while(_isRunning &amp;&amp; !disposeAuthThread &amp;&amp; (wManager.Wow.Helpers.Conditions.ProductIsStarted || wManager.Wow.Helpers.Conditions.ProductInPause))
+            {
+                if(!wManager.Wow.Helpers.Quest.QuesterCurrentContext.ProfileName.Equals(profileName))
+                {
+                    disposeAuthThread = true;
+                    break;
+                }
+
+                if(!wManager.Wow.Helpers.Conditions.ProductIsStarted)
+                {
+                    disposeAuthThread = true;
+                    break;
+                }
+
+                while(wManager.Wow.Helpers.Quest.QuesterCurrentContext.CurrentStep &lt; 2)
+                {
+                    Thread.Sleep(500);
+
+                    if(_controlVariable == 5 || !wManager.Wow.Helpers.Conditions.ProductIsStarted)
+                        break;
+
+                    _timeout += 500;
+
+                    if(_timeout &gt;= 910000)
+                    {
+                        Products.ProductStop();
+                        MessageBox.Show("[BambosTBCQuesterAlliance]: Timeout error. Unable to authenticate for more than 15 minutes. \n\nBot name: " + ObjectManager.Me.Name);
+                        break;
+                    }
+                }
+
+                _isRunning = false;
+
+                if(wManager.Wow.Helpers.Conditions.ProductIsStarted || wManager.Wow.Helpers.Conditions.ProductInPause)
+                {
+                    Thread.Sleep(60000);
+
+                    if(_controlVariable != 5)
+                    {
+                        Products.ProductStop();
+                        MessageBox.Show("[BambosTBCQuesterAlliance]: Please enter your ID faster or make sure the authentication step is enabled. \nRestart the Bot now. \n\nBot name: " + ObjectManager.Me.Name);
+                    }
+                    _timeout = 0;
+                    _isRunning = true;
+                }
+            }
+
+        }).Start();
+    }
+    
+}
+
+[Serializable]
+public class AllianceTBCQuesterAuthSettings : robotManager.Helpful.Settings
+{
+    [Setting]
+    [Category("__IMPORTANT__")]
+    [DisplayName("Rocketr ORDER ID")]
+    [Description("You can find this ID at the top of the Email that you have received after your purchase.")]
+    public string TransactionId { get; set; }
+
+    public AllianceTBCQuesterAuthSettings()
+    {
+        TransactionId = null;
+    }
+    
+    public static AllianceTBCQuesterAuthSettings CurrentSetting { get; set; }
+
+    public bool Save()
+    {
+        try
+        {
+            return Save(AdviserFilePathAndName("AllianceTBCQuesterAuthSettings", "TBC"));
+        }
+        catch (Exception e)
+        {
+            robotManager.Helpful.Logging.Write("AllianceTBCQuesterAuthSettings &gt; Save(): " + e);
+            return false;
+        }
+    }
+
+    public static bool Load()
+    {
+        try
+        {
+            if (File.Exists(AdviserFilePathAndName("AllianceTBCQuesterAuthSettings", "TBC")))
+            {
+                CurrentSetting =
+                    Load&lt;AllianceTBCQuesterAuthSettings&gt;(AdviserFilePathAndName("AllianceTBCQuesterAuthSettings", "TBC"));
+                return true;
+            }
+            CurrentSetting = new AllianceTBCQuesterAuthSettings();
+        }
+        catch (Exception e)
+        {
+            robotManager.Helpful.Logging.Write("AllianceTBCQuesterAuthSettings &gt; Load(): " + e);
+        }
+        return false;
+    }
+} 
+</Script>
+  <OffMeshConnections />
+  <BlacklistNpc />
+  <BlacklistNpcType />
+  <Blackspots>
+    <Blackspot X="-3456.229" Y="4436.991" Z="-10.5223484" Radius="30" Continent="Expansion01" TypeArea="POLYAREA_BIGDANGER" Comment="Terokkar Forest &gt; Writhing Mound" />
+    <Blackspot X="-3414.4834" Y="4453.6" Z="-7.968045" Radius="30" Continent="Expansion01" TypeArea="POLYAREA_BIGDANGER" Comment="Terokkar Forest &gt; Writhing Mound" />
+    <Blackspot X="-3384.83618" Y="4496.23" Z="-12.4158773" Radius="30" Continent="Expansion01" TypeArea="POLYAREA_BIGDANGER" Comment="Terokkar Forest &gt; Writhing Mound" />
+    <Blackspot X="-2627.28027" Y="4420.07764" Z="35.3583832" Radius="30" Continent="Expansion01" TypeArea="POLYAREA_BIGDANGER" Comment="Terokkar Forest &gt; Stonebreaker Hold" />
+    <Blackspot X="-2627.28027" Y="4420.07764" Z="35.3583832" Radius="95" Continent="Expansion01" TypeArea="POLYAREA_BIGDANGER" Comment="Terokkar Forest &gt; Stonebreaker Hold" />
+  </Blackspots>
+</EasyQuestProfile>

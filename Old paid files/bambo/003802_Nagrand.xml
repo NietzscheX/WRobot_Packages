@@ -1,0 +1,1575 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="RunCode" NameClass="AllianceTBCQuesterAuthSettings.Load();&#xD;&#xA;        if (AllianceTBCQuesterAuthSettings.CurrentSetting.TransactionId == null)&#xD;&#xA;        {&#xD;&#xA;            AllianceTBCQuesterAuthSettings.CurrentSetting.ToForm();&#xD;&#xA;        }&#xD;&#xA;        AllianceTBCQuesterAuthSettings.CurrentSetting.Save();&#xD;&#xA;        new Authentication(AllianceTBCQuesterAuthSettings.CurrentSetting.TransactionId, &quot;0d1d64ee0766&quot;);&#xD;&#xA;        ControlAuthentication.SetControl(5);" />
+    <QuestsSorted Action="Pulse" NameClass="AutoUpdate" />
+    <QuestsSorted Action="RunLuaCode" NameClass="if not InfoPanel then&#xD;&#xA;    InfoPanelText = &quot;Waiting for Job&quot;&#xD;&#xA;    InfoPanel = CreateFrame(&quot;Frame&quot;)&#xD;&#xA;    InfoPanel:ClearAllPoints()&#xD;&#xA;    InfoPanel:SetBackdrop({bgFile = &quot;Interface/Buttons/WHITE8X8&quot;,})&#xD;&#xA;    InfoPanel:SetBackdropColor(0,0,0,.4)&#xD;&#xA;    InfoPanel:SetHeight(40)&#xD;&#xA;    InfoPanel:SetWidth(150)&#xD;&#xA;&#xD;&#xA;    InfoPanel.text = InfoPanel:CreateFontString(nil, &quot;BACKGROUND&quot;, &quot;GameFontNormal&quot;)&#xD;&#xA;    InfoPanel.text:SetAllPoints()&#xD;&#xA;    InfoPanel.text:SetText(InfoPanelText)&#xD;&#xA;    InfoPanel.text:SetTextColor(1, 1, 0, 1)&#xD;&#xA;    InfoPanel:SetPoint(&quot;RIGHT&quot;, -50, -100)&#xD;&#xA;&#xD;&#xA;    InfoPanel:SetMovable(true)&#xD;&#xA;    InfoPanel:EnableMouse(true)&#xD;&#xA;    InfoPanel:SetScript(&quot;OnMouseDown&quot;,function() InfoPanel:StartMoving() end)&#xD;&#xA;    InfoPanel:SetScript(&quot;OnMouseUp&quot;,function() InfoPanel:StopMovingOrSizing() end)&#xD;&#xA;    &#xD;&#xA;    InfoPanel.Close = CreateFrame(&quot;BUTTON&quot;, nil, InfoPanel, &quot;UIPanelCloseButton&quot;)&#xD;&#xA;    InfoPanel.Close:SetWidth(20)&#xD;&#xA;    InfoPanel.Close:SetHeight(20)&#xD;&#xA;    InfoPanel.Close:SetPoint(&quot;TOPRIGHT&quot;, InfoPanel, 3, 3)&#xD;&#xA;    InfoPanel.Close:SetScript(&quot;OnClick&quot;, function()&#xD;&#xA;        InfoPanel:Hide()&#xD;&#xA;        DEFAULT_CHAT_FRAME:AddMessage(&quot;Info Panel |cffC41F3Bclosed |cffFFFFFFWrite /InfoPanel to enable again.&quot;)     &#xD;&#xA;    end)&#xD;&#xA;    &#xD;&#xA;    SLASH_WHATEVERYOURFRAMESARECALLED1=&quot;/InfoPanel&quot;&#xD;&#xA;    SlashCmdList.WHATEVERYOURFRAMESARECALLED = function()&#xD;&#xA;        if InfoPanel:IsShown() then&#xD;&#xA;            InfoPanel:Hide()&#xD;&#xA;        else&#xD;&#xA;            InfoPanel:Show()&#xD;&#xA;        end&#xD;&#xA;    end&#xD;&#xA;end" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;InfoPanelText = 'Nagrand Quest Chain'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;InfoPanel.text:SetText(InfoPanelText)&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="robotManager.Helpful.Logging.Write(&quot;Bambo's TBC Quester - Nagrand is being loaded.&quot;);&#xD;&#xA;wManager.wManagerSetting.CurrentSetting.SearchRadius = 120;&#xD;&#xA;wManager.Wow.Helpers.NpcDB.AcceptOnlyProfileNpc = true;" />
+    <QuestsSorted Action="PickUp" NameClass="NagrandDoMyEyesDeceiveMe" />
+    <QuestsSorted Action="PickUp" NameClass="NagrandTheNesingwarySafari" />
+    <QuestsSorted Action="PickUp" NameClass="NagrandTheThroneOfTheElements" />
+    <QuestsSorted Action="If" NameClass="!wManager.Wow.Helpers.FinishedQuestsSettings.CurrentSetting.FinishedQuest.Contains(10113)" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(-2724.293f, 7303.311f, 88.63589f, &quot;none&quot;), 18789);" />
+    <QuestsSorted Action="RunCode" NameClass="wManager.Wow.Bot.Tasks.GoToTask.ToPositionAndIntecractWithNpc(new Vector3(-2761.861f, 7305.467f, 43.47323f, &quot;none&quot;), 18914);" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;GossipTitleButton1:Click();&quot;);" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;StaticPopup1Button1:Click();&quot;);" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="Pulse" NameClass="NagrandDoMyEyesDeceiveMe" />
+    <QuestsSorted Action="TurnIn" NameClass="NagrandTheNesingwarySafari" />
+    <QuestsSorted Action="PickUp" NameClass="NagrandClefthoofMastery1" />
+    <QuestsSorted Action="PickUp" NameClass="NagrandTalbukMastery1" />
+    <QuestsSorted Action="PickUp" NameClass="NagrandWindrocMastery1" />
+    <QuestsSorted Action="Pulse" NameClass="NagrandTalbukMastery1" />
+    <QuestsSorted Action="Pulse" NameClass="NagrandWindrocMastery1" />
+    <QuestsSorted Action="Pulse" NameClass="NagrandClefthoofMastery1" />
+    <QuestsSorted Action="TurnIn" NameClass="NagrandClefthoofMastery1" />
+    <QuestsSorted Action="PickUp" NameClass="NagrandClefthoofMastery2" />
+    <QuestsSorted Action="TurnIn" NameClass="NagrandTalbukMastery1" />
+    <QuestsSorted Action="PickUp" NameClass="NagrandTalbukMastery2" />
+    <QuestsSorted Action="TurnIn" NameClass="NagrandWindrocMastery1" />
+    <QuestsSorted Action="PickUp" NameClass="NagrandWindrocMastery2" />
+    <QuestsSorted Action="Pulse" NameClass="NagrandTalbukMastery2" />
+    <QuestsSorted Action="Pulse" NameClass="NagrandClefthoofMastery2" />
+    <QuestsSorted Action="Pulse" NameClass="NagrandWindrocMastery2" />
+    <QuestsSorted Action="TurnIn" NameClass="NagrandClefthoofMastery2" />
+    <QuestsSorted Action="TurnIn" NameClass="NagrandTalbukMastery2" />
+    <QuestsSorted Action="TurnIn" NameClass="NagrandWindrocMastery2" />
+    <QuestsSorted Action="TurnIn" NameClass="NagrandDoMyEyesDeceiveMe" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.WowClass == WoWClass.Mage || ObjectManager.Me.WowClass == WoWClass.Priest || ObjectManager.Me.WowClass == WoWClass.Warlock" />
+    <QuestsSorted Action="TurnIn" NameClass="NagrandClothMessageToTelaar" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.WowClass == WoWClass.Rogue" />
+    <QuestsSorted Action="TurnIn" NameClass="NagrandRogueMessageToTelaar" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.WowClass == WoWClass.Druid || ObjectManager.Me.WowClass == WoWClass.Hunter || ObjectManager.Me.WowClass == WoWClass.Shaman || ObjectManager.Me.WowClass == WoWClass.Warrior || ObjectManager.Me.WowClass == WoWClass.Paladin" />
+    <QuestsSorted Action="TurnIn" NameClass="NagrandDruidMailPlateMessageToTelaar" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="TurnIn" NameClass="NagrandTheThroneOfTheElements" />
+    <QuestsSorted Action="PickUp" NameClass="NagrandMuckDiving" />
+    <QuestsSorted Action="PulseAllInOne" NameClass="NagrandTheUnderneath" />
+    <QuestsSorted Action="PickUp" NameClass="NagrandTheTorturedEarth" />
+    <QuestsSorted Action="Pulse" NameClass="NagrandMuckDiving" />
+    <QuestsSorted Action="Pulse" NameClass="NagrandTheTorturedEarth" />
+    <QuestsSorted Action="TurnIn" NameClass="NagrandTheTorturedEarth" />
+    <QuestsSorted Action="PickUp" NameClass="NagrandEatingDamnation" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.WowClass == WoWClass.Mage || ObjectManager.Me.WowClass == WoWClass.Priest || ObjectManager.Me.WowClass == WoWClass.Warlock || ObjectManager.Me.WowClass == WoWClass.Rogue || ObjectManager.Me.WowClass == WoWClass.Druid" />
+    <QuestsSorted Action="TurnIn" NameClass="NagrandClothLeatherMuckDiving" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.WowClass == WoWClass.Hunter || ObjectManager.Me.WowClass == WoWClass.Shaman" />
+    <QuestsSorted Action="TurnIn" NameClass="NagrandMailMuckDiving" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.WowClass == WoWClass.Warrior || ObjectManager.Me.WowClass == WoWClass.Paladin" />
+    <QuestsSorted Action="TurnIn" NameClass="NagrandPlateMuckDiving" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="Pulse" NameClass="NagrandEatingDamnation" />
+    <QuestsSorted Action="TurnIn" NameClass="NagrandEatingDamnation" />
+    <QuestsSorted Action="PulseAllInOne" NameClass="NagrandShatteringTheVeil" />
+    <QuestsSorted Action="PulseAllInOne" NameClass="NagrandTheConsortiumNeedsYou" />
+    <QuestsSorted Action="PickUp" NameClass="NagrandStealingFromThieves" />
+    <QuestsSorted Action="PickUp" NameClass="NagrandAHeadFullOfIvory" />
+    <QuestsSorted Action="PickUp" NameClass="NagrandGavaxi" />
+    <QuestsSorted Action="PickUp" NameClass="NagrandMattersOfSecurity" />
+    <QuestsSorted Action="Pulse" NameClass="NagrandAHeadFullOfIvory" />
+    <QuestsSorted Action="Pulse" NameClass="NagrandStealingFromThieves" />
+    <QuestsSorted Action="Pulse" NameClass="NagrandMattersOfSecurity" />
+    <QuestsSorted Action="Pulse" NameClass="NagrandGavaxi" />
+    <QuestsSorted Action="TurnIn" NameClass="NagrandGavaxi" />
+    <QuestsSorted Action="TurnIn" NameClass="NagrandMattersOfSecurity" />
+    <QuestsSorted Action="TurnIn" NameClass="NagrandStealingFromThieves" />
+    <QuestsSorted Action="TurnIn" NameClass="NagrandAHeadFullOfIvory" />
+    <QuestsSorted Action="RunCode" NameClass="Var.SetVar(&quot;MyVarName_SelectedTask&quot;, Others.Random(1, 2));&#xD;&#xA;Logging.Write(&quot;v = &quot; + Var.GetVar&lt;int&gt;(&quot;MyVarName_SelectedTask&quot;));&#xD;&#xA;" />
+    <QuestsSorted Action="Pulse" NameClass="GrindTo67A" />
+    <QuestsSorted Action="Pulse" NameClass="GrindTo67B" />
+    <QuestsSorted Action="LoadProfile" NameClass="TBC_Quester_Alliance\Blade'sEdgeMountains.xml" />
+  </QuestsSorted>
+  <NpcQuest>
+    <NPCQuest Id="18353" Name="Huntress Bintook" GameObject="false">
+      <PickUpQuests>
+        <int>9917</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>9917</int>
+      </TurnInQuests>
+      <Position X="-2556.34" Y="7254.19" Z="15.12097" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="19137" Name="&quot;Shotgun&quot; Jones" GameObject="false">
+      <PickUpQuests>
+        <int>10113</int>
+      </PickUpQuests>
+      <TurnInQuests />
+      <Position X="-2551.05" Y="7256.63" Z="16.57825" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="18233" Name="Elementalist Ioki" GameObject="false">
+      <PickUpQuests>
+        <int>9869</int>
+      </PickUpQuests>
+      <TurnInQuests />
+      <Position X="-2491.86" Y="7228.57" Z="16.23771" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="18180" Name="Hemet Nesingwary" GameObject="false">
+      <PickUpQuests>
+        <int>9789</int>
+        <int>9850</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>10113</int>
+        <int>9789</int>
+        <int>9850</int>
+      </TurnInQuests>
+      <Position X="-1461.78" Y="6344.3" Z="37.24049" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="18218" Name="Harold Lane" GameObject="false">
+      <PickUpQuests>
+        <int>9857</int>
+        <int>9858</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>9857</int>
+        <int>9858</int>
+      </TurnInQuests>
+      <Position X="-1454.64" Y="6352.28" Z="37.24078" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="18200" Name="Shado 'Fitz' Farstrider" GameObject="false">
+      <PickUpQuests>
+        <int>9854</int>
+        <int>9855</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>9854</int>
+        <int>9855</int>
+      </TurnInQuests>
+      <Position X="-1450.88" Y="6341.37" Z="37.37299" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="18261" Name="Lantresor of the Blade" GameObject="false">
+      <PickUpQuests>
+        <int>9933</int>
+      </PickUpQuests>
+      <TurnInQuests />
+      <Position X="-2264.14" Y="6217.8" Z="44.39252" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="18183" Name="Arechron" GameObject="false">
+      <PickUpQuests />
+      <TurnInQuests>
+        <int>9933</int>
+      </TurnInQuests>
+      <Position X="-2488.78" Y="7230.66" Z="16.23812" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="18072" Name="Elementalist Sharvak" GameObject="false">
+      <PickUpQuests />
+      <TurnInQuests>
+        <int>9869</int>
+      </TurnInQuests>
+      <Position X="-772.433" Y="6944.55" Z="32.25832" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="18073" Name="Elementalist Lo'ap" GameObject="false">
+      <PickUpQuests>
+        <int>9815</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>9815</int>
+      </TurnInQuests>
+      <Position X="-782.63" Y="6936.53" Z="32.39445" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="18071" Name="Elementalist Untrag" GameObject="false">
+      <PickUpQuests>
+        <int>9818</int>
+      </PickUpQuests>
+      <TurnInQuests />
+      <Position X="-792.767" Y="6944.64" Z="32.09515" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="18099" Name="Gordawg" GameObject="false">
+      <PickUpQuests>
+        <int>9819</int>
+        <int>9821</int>
+        <int>9849</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>9818</int>
+        <int>9819</int>
+        <int>9821</int>
+        <int>9849</int>
+      </TurnInQuests>
+      <Position X="-866.3743" Y="6982.402" Z="34.63671" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="18335" Name="Consortium Recruiter" GameObject="false">
+      <PickUpQuests>
+        <int>9913</int>
+      </PickUpQuests>
+      <TurnInQuests />
+      <Position X="-2528.36" Y="7472.06" Z="-4.583004" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="18265" Name="Gezhe" GameObject="false">
+      <PickUpQuests>
+        <int>9882</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>9913</int>
+        <int>9882</int>
+      </TurnInQuests>
+      <Position X="-2087.02" Y="8562.94" Z="22.01472" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="18333" Name="Shadrek" GameObject="false">
+      <PickUpQuests>
+        <int>9914</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>9914</int>
+      </TurnInQuests>
+      <Position X="-2049.91" Y="8540.49" Z="24.20452" Type="Flying" />
+    </NPCQuest>
+    <NPCQuest Id="18276" Name="Zerid" GameObject="false">
+      <PickUpQuests>
+        <int>9900</int>
+        <int>9925</int>
+      </PickUpQuests>
+      <TurnInQuests>
+        <int>9900</int>
+        <int>9925</int>
+      </TurnInQuests>
+      <Position X="-2099.59" Y="8595.17" Z="19.53626" Type="Flying" />
+    </NPCQuest>
+  </NpcQuest>
+  <Npc />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>AutoUpdate</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>
+public sealed class AutoUpdate : QuestClass
+{
+    public AutoUpdate() // Don't forget to use good classe name
+    {
+		Name = "AutoUpdate";
+	
+try
+{
+    string onlineFile = "http://bambo.myds.me/tbc/alliancequester/Nagrand.xml";
+    Quester.Bot.QuesterSetting.Load();
+    string currentFile = System.Windows.Forms.Application.StartupPath + @"\Profiles\Quester\" + Quester.Bot.QuesterSetting.CurrentSetting.ProfileName;
+
+    var currentFileContent = System.IO.File.ReadAllText(currentFile, System.Text.Encoding.UTF8);
+    var onlineFileContent = new System.Net.WebClient { Encoding = System.Text.Encoding.UTF8 }.DownloadString(onlineFile);
+
+    if (!string.IsNullOrWhiteSpace(currentFileContent) &amp;&amp; !string.IsNullOrWhiteSpace(onlineFileContent))
+    {
+        if (currentFileContent.Length == 39 &amp;&amp; onlineFileContent.Length == 39) // 39 is size of encrypted files with option "Short file"
+        {
+            if (currentFileContent != onlineFileContent) // if new update
+            {
+                robotManager.Helpful.Logging.Write("[Bambo_Alliance_TBCQuester]: New version found, try to update.");
+                System.IO.File.WriteAllText(currentFile, onlineFileContent,
+                System.Text.Encoding.UTF8); // replace user file by online file 
+                new System.Threading.Thread(() =&gt; robotManager.Products.Products.ProductRestart()).Start(); // reload product (profile)
+            }
+            if (currentFileContent == onlineFileContent)
+                robotManager.Helpful.Logging.Write("[Bambo_Alliance_TBCQuester]: The version on your pc is the latest updated version.");
+        }
+        else
+            robotManager.Helpful.Logging.Write("[Bambo_Alliance_TBCQuester]: Your currently running version is not encrypted.");
+    }
+}
+catch (System.Exception e)
+{
+    robotManager.Helpful.Logging.WriteError("Auto update: " + e);
+}
+
+        Lua.LuaDoString("DungeonFrameWorkLoaded = true");
+    }
+}
+// More info here: http://wrobot.eu/topic/374-how-to-create-quest-profile/ (please don't add using and add only one quest)
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Lua.LuaDoString&lt;bool&gt;("return UpdateFrameWorkLoaded");</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Nagrand_DoMyEyesDeceiveMe</Name>
+      <QuestId>
+        <int>9917</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-2687.336" Y="6872.76" Z="-3.957169" />
+          <Vector3 X="-2553.166" Y="6855.481" Z="23.23594" />
+          <Vector3 X="-2676.732" Y="6761.857" Z="-2.498575" />
+        </HotSpots>
+        <EntryTarget>
+          <int>18352</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>1</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(25468) &gt;= 1;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Nagrand_TheNesingwarySafari</Name>
+      <QuestId>
+        <int>10113</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Nagrand_TheThroneOfTheElements</Name>
+      <QuestId>
+        <int>9869</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Nagrand_ClefthoofMastery1</Name>
+      <QuestId>
+        <int>9789</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-1475.191" Y="6856.233" Z="7.465854" />
+          <Vector3 X="-1763.085" Y="6545.942" Z="18.68935" />
+          <Vector3 X="-1868.817" Y="6437.169" Z="32.90274" />
+          <Vector3 X="-2028.449" Y="6354.473" Z="45.036" />
+          <Vector3 X="-1476.066" Y="6289.588" Z="47.00985" />
+          <Vector3 X="-1640.051" Y="6455.165" Z="28.02173" />
+        </HotSpots>
+        <EntryTarget>
+          <int>18205</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>30</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Nagrand_TalbukMastery1</Name>
+      <QuestId>
+        <int>9857</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-1507.068" Y="6402.546" Z="29.01428" />
+          <Vector3 X="-1779.006" Y="6399.269" Z="36.52483" />
+          <Vector3 X="-1738.289" Y="6854.797" Z="-27.61649" />
+          <Vector3 X="-1459.397" Y="6936.12" Z="3.630633" />
+        </HotSpots>
+        <EntryTarget>
+          <int>17130</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>30</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Nagrand_WindrocMastery1</Name>
+      <QuestId>
+        <int>9854</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-1269.64" Y="6812.849" Z="34.43684" />
+          <Vector3 X="-1380.019" Y="6625.64" Z="42.40458" />
+          <Vector3 X="-1430.568" Y="6487.427" Z="31.78671" />
+          <Vector3 X="-1392.931" Y="6398.559" Z="36.19706" />
+          <Vector3 X="-1716.059" Y="6520.244" Z="23.78028" />
+          <Vector3 X="-1744.104" Y="6752.614" Z="-16.8359" />
+        </HotSpots>
+        <EntryTarget>
+          <int>17128</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>30</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Nagrand_ClefthoofMastery2</Name>
+      <QuestId>
+        <int>9850</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-1616.558" Y="7186.909" Z="2.873416" />
+          <Vector3 X="-1535.262" Y="7001.314" Z="5.570334" />
+          <Vector3 X="-1376.274" Y="7622.176" Z="1.455835" />
+        </HotSpots>
+        <EntryTarget>
+          <int>17132</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>30</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Nagrand_TalbukMastery2</Name>
+      <QuestId>
+        <int>9858</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-1886.444" Y="7407.877" Z="-16.42705" />
+          <Vector3 X="-1664.766" Y="7192.44" Z="2.413605" />
+          <Vector3 X="-1432.654" Y="6953.226" Z="6.980568" />
+          <Vector3 X="-977.6655" Y="7659.122" Z="33.61094" />
+          <Vector3 X="-1004.304" Y="7827.719" Z="30.90863" />
+        </HotSpots>
+        <EntryTarget>
+          <int>17131</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>30</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Nagrand_WindrocMastery2</Name>
+      <QuestId>
+        <int>9855</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-2286.099" Y="7496.294" Z="-14.40126" />
+          <Vector3 X="-2132.382" Y="7725.171" Z="-32.83105" />
+          <Vector3 X="-2037.932" Y="7892.471" Z="-26.76432" />
+          <Vector3 X="-2131.913" Y="7545.168" Z="-36.58378" />
+          <Vector3 X="-2209.488" Y="7435.675" Z="-29.97307" />
+        </HotSpots>
+        <EntryTarget>
+          <int>18220</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>30</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Nagrand_ClothMessageToTelaar</Name>
+      <QuestId>
+        <int>9933</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Nagrand_DruidMailPlateMessageToTelaar</Name>
+      <QuestId>
+        <int>9933</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>2</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Nagrand_RogueMessageToTelaar</Name>
+      <QuestId>
+        <int>9933</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>3</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Nagrand_MuckDiving</Name>
+      <QuestId>
+        <int>9815</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-1791.165" Y="7844.668" Z="-99.70939" />
+          <Vector3 X="-1763.804" Y="7935.74" Z="-99.91221" />
+          <Vector3 X="-1533.213" Y="7793.875" Z="-101.1262" />
+          <Vector3 X="-1467.825" Y="7835.416" Z="-102.0129" />
+          <Vector3 X="-1370.567" Y="7938.703" Z="-100.2775" />
+        </HotSpots>
+        <EntryTarget>
+          <int>17154</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>5</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(24469) &gt;= 5;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Nagrand_MailMuckDiving</Name>
+      <QuestId>
+        <int>9815</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots />
+        <EntryTarget />
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>5</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(24469) &gt;= 5;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Nagrand_PlateMuckDiving</Name>
+      <QuestId>
+        <int>9815</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots />
+        <EntryTarget />
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>5</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(24469) &gt;= 5;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>2</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Nagrand_ClothLeatherMuckDiving</Name>
+      <QuestId>
+        <int>9815</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots />
+        <EntryTarget />
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>5</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(24469) &gt;= 5;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>3</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Nagrand_TheUnderneath</Name>
+      <QuestId>
+        <int>9818</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Nagrand_TheTorturedEarth</Name>
+      <QuestId>
+        <int>9819</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-2179.776" Y="7093.133" Z="-12.54713" />
+          <Vector3 X="-2264.034" Y="7070.49" Z="-18.45361" />
+          <Vector3 X="-2569.259" Y="6956.615" Z="-0.4901967" />
+          <Vector3 X="-1327.621" Y="6611.278" Z="48.59867" />
+          <Vector3 X="-1395.241" Y="6619.341" Z="43.48958" />
+          <Vector3 X="-1905.798" Y="6766.345" Z="-69.10897" />
+          <Vector3 X="-1933.277" Y="6789.787" Z="-74.4988" />
+        </HotSpots>
+        <EntryTarget>
+          <int>17156</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>15</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Nagrand_EatingDamnation</Name>
+      <QuestId>
+        <int>9821</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-634.8406" Y="7162.877" Z="61.23898" />
+          <Vector3 X="-661.8711" Y="7170.424" Z="55.57095" />
+          <Vector3 X="-707.1936" Y="7290.989" Z="57.41121" />
+          <Vector3 X="-689.4296" Y="7443.554" Z="64.81281" />
+          <Vector3 X="-715.5354" Y="7515.937" Z="66.77143" />
+        </HotSpots>
+        <EntryTarget>
+          <int>18062</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>15</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(24473) &gt;= 15;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Nagrand_ShatteringTheVeil</Name>
+      <QuestId>
+        <int>9849</int>
+      </QuestId>
+      <QuestType>UseItemOn</QuestType>
+      <QuestClass xsi:type="UseItemOnEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-2844.288" Y="8643.973" Z="-27.2643" />
+          <Vector3 X="-2810.881" Y="8751.452" Z="-30.53039" />
+          <Vector3 X="-2677.924" Y="8736.732" Z="-24.60163" />
+        </HotSpots>
+        <EntryIdTarget>
+          <int>17157</int>
+        </EntryIdTarget>
+        <ItemId>24501</ItemId>
+        <Range>4.5</Range>
+      </QuestClass>
+      <ObjectiveCount1>30</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Nagrand_TheConsortiumNeedsYou!</Name>
+      <QuestId>
+        <int>9913</int>
+      </QuestId>
+      <QuestType>None</QuestType>
+      <QuestClass />
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Nagrand_StealingFromThieves</Name>
+      <QuestId>
+        <int>9882</int>
+      </QuestId>
+      <QuestType>Gatherer</QuestType>
+      <QuestClass xsi:type="GathererEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-2409.527" Y="8279.656" Z="-38.13375" />
+          <Vector3 X="-2406.955" Y="8203.573" Z="-39.72525" />
+          <Vector3 X="-2598.881" Y="7999.38" Z="-50.23307" />
+          <Vector3 X="-2772.917" Y="8361.016" Z="-39.06215" />
+          <Vector3 X="-2758.822" Y="8568.233" Z="-37.29302" />
+          <Vector3 X="-2724.101" Y="8641.571" Z="-27.83336" />
+          <Vector3 X="-2310.596" Y="8389.107" Z="-36.53939" />
+        </HotSpots>
+        <EntryIdObjects>
+          <int>182258</int>
+        </EntryIdObjects>
+      </QuestClass>
+      <ObjectiveCount1>10</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(25416) &gt;= 10;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Nagrand_AHeadFullOfIvory</Name>
+      <QuestId>
+        <int>9914</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-1643.79" Y="7212.016" Z="1.688241" />
+          <Vector3 X="-1427.73" Y="6915.65" Z="10.62372" />
+          <Vector3 X="-1468.414" Y="6859.07" Z="8.139638" />
+          <Vector3 X="-1546.772" Y="6769.969" Z="11.78796" />
+        </HotSpots>
+        <EntryTarget>
+          <int>18334</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return ItemsManager.GetItemCountById(25463) &gt;= 3;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Nagrand_Gava'xi</Name>
+      <QuestId>
+        <int>9900</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-2667.482" Y="7950.435" Z="-20.37047" />
+        </HotSpots>
+        <EntryTarget>
+          <int>18298</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>3</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>Nagrand_MattersOfSecurity</Name>
+      <QuestId>
+        <int>9925</int>
+      </QuestId>
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-2482.194" Y="8080.077" Z="-44.6015" />
+          <Vector3 X="-2637.064" Y="8104.625" Z="-45.44176" />
+          <Vector3 X="-2339.671" Y="8243.806" Z="-37.88107" />
+          <Vector3 X="-2418.842" Y="8413.551" Z="-37.98877" />
+          <Vector3 X="-2501.561" Y="8482.001" Z="-36.07787" />
+          <Vector3 X="-2623.708" Y="8542.974" Z="-34.61831" />
+        </HotSpots>
+        <EntryTarget>
+          <int>17981</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>false</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>12</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>true</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition />
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>GrindTo67A</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-1913.67" Y="7363.213" Z="-19.72371" />
+          <Vector3 X="-2143.1" Y="7529.142" Z="-30.54246" />
+          <Vector3 X="-2456.549" Y="7772.452" Z="-32.00574" />
+          <Vector3 X="-2349.625" Y="6981.816" Z="-5.724664" />
+          <Vector3 X="-2266.225" Y="6546.223" Z="7.488959" />
+        </HotSpots>
+        <EntryTarget>
+          <int>17132</int>
+          <int>18220</int>
+          <int>18334</int>
+          <int>18205</int>
+          <int>17158</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>true</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition>return Var.GetVar&lt;int&gt;("MyVarName_SelectedTask") == 1;</CanCondition>
+      <IsCompleteCondition>return !CanConditions() || ObjectManager.Me.Level &gt;= 67;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>66</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+    <EasyQuest>
+      <Name>GrindTo67B</Name>
+      <QuestId />
+      <QuestType>KillAndLoot</QuestType>
+      <QuestClass xsi:type="KillAndLootEasyQuestClass">
+        <HotSpots>
+          <Vector3 X="-1037.439" Y="7888.2" Z="23.31667" />
+          <Vector3 X="-1049.108" Y="7845.945" Z="25.77026" />
+          <Vector3 X="-2275.406" Y="7895.271" Z="-30.39938" />
+          <Vector3 X="-2662.032" Y="7841.562" Z="-45.88663" />
+          <Vector3 X="-2802.789" Y="8476.901" Z="-34.2012" />
+          <Vector3 X="-2323.294" Y="8612.905" Z="-17.15562" />
+          <Vector3 X="-2198.314" Y="8649.612" Z="-4.104673" />
+        </HotSpots>
+        <EntryTarget>
+          <int>18062</int>
+          <int>17132</int>
+          <int>17131</int>
+          <int>18289</int>
+          <int>17981</int>
+          <int>17160</int>
+        </EntryTarget>
+        <IsGrinderNotQuest>true</IsGrinderNotQuest>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition>return Var.GetVar&lt;int&gt;("MyVarName_SelectedTask") == 2;</CanCondition>
+      <IsCompleteCondition>return !CanConditions() || ObjectManager.Me.Level &gt;= 67;</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>false</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>66</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>
+using System;
+using System.ComponentModel;
+using System.Configuration;
+using System.IO;
+using System.Net;
+using System.Threading;
+using System.Windows.Forms;
+using robotManager.Helpful;
+using robotManager.Products;
+
+public class Authentication
+{
+    private readonly string orderId;
+    private readonly string productId;
+    private readonly string wRobotAuthKey;
+
+    private readonly BackgroundWorker _validationThread = new BackgroundWorker();
+    private bool _isRunning = false;
+    private string authUrl;
+
+    public Authentication(string orderId, string productId)
+    {
+        if (orderId == null)
+        {
+            MessageBox.Show("You need to enter your transaction id (from your Rocketr email) into the plugin settings to use this!");
+        }
+
+        this.orderId = orderId;
+        this.productId = productId;
+        this.wRobotAuthKey = robotManager.Helpful.Others.StringBetween(authManager.LoginServer.GetSubcriptionInfoThread(), robotManager.Translate.Get("License Key") + ": ", "...  - " + robotManager.Translate.Get("Subscription time expire"));
+        authUrl = "http://51.38.126.73:8080/authenticate?orderId=" + orderId.Trim() + "&amp;productId=" + productId + "&amp;wRobotAuthKey=" + wRobotAuthKey;
+
+        _isRunning = true;
+        _validationThread.DoWork += CheckValidiation;
+        _validationThread.RunWorkerAsync();
+    }
+    
+    ~Authentication()
+    {
+        _isRunning = false;
+        _validationThread.DoWork -= CheckValidiation;
+        _validationThread.Dispose();
+    }
+
+    private void CheckValidiation(object sender, DoWorkEventArgs e)
+    {
+        while (Products.IsStarted &amp;&amp; _isRunning)
+        {
+            try
+            {
+                bool timedOut = false;
+                HttpWebResponse content = null;
+                try
+                {
+                    var request = (HttpWebRequest)WebRequest.Create(authUrl);
+                    request.Timeout = 30000;
+                    request.ReadWriteTimeout = 30000;
+                    content = (HttpWebResponse)request.GetResponse();
+                }
+                catch (Exception ex)
+                {
+                    timedOut = true;
+                }
+                
+                //give it another try
+                if ((content != null &amp;&amp; content.StatusCode != HttpStatusCode.OK) || timedOut)
+                {
+                    Thread.Sleep(3* 60 * 1000);
+                    try
+                    {
+                        var request = (HttpWebRequest)WebRequest.Create(authUrl);
+                        request.Timeout = 30000;
+                        request.ReadWriteTimeout = 30000;
+                        content = (HttpWebResponse)request.GetResponse();
+                        timedOut = false;
+                    }
+                    catch (Exception ex)
+                    {
+                        timedOut = true;
+                    }
+                }
+
+                string result = content != null ? new StreamReader(content.GetResponseStream()).ReadToEnd() : "false";
+
+                if (!bool.Parse(result) || (content != null &amp;&amp; content.StatusCode != HttpStatusCode.OK) || timedOut)
+                {
+                    Products.ProductStop();
+                    _isRunning = false;
+                    _validationThread.DoWork -= CheckValidiation;
+                    _validationThread.Dispose();
+                    MessageBox.Show(@"You are trying to use a transaction id for a different product or another IP is already using this transaction id.
+                    
+If you changed your IP (one on wRobot session), wait 30 minutes.
+
+This error was produced by the TBC alliance quester of bambo.
+
+                    ");
+                    return;
+                }
+
+                Thread.Sleep(60 * 1000);
+            }
+            catch (Exception exp)
+            {
+                Logging.WriteError("" + exp);
+            }
+        }
+    }
+}
+
+public class ControlAuthentication
+{
+    private static volatile int _controlVariable = 0;
+    private static int _timeout = 0;
+    private static bool _isRunning = true;
+    private static bool disposeAuthThread = false;
+    private static string profileName = "";
+
+    public static void SetControl(int control)
+    {
+        _controlVariable = control;
+    }
+
+    static ControlAuthentication()
+    {
+        new Thread(() =&gt;
+        {
+            profileName = wManager.Wow.Helpers.Quest.QuesterCurrentContext.ProfileName;
+
+            while(_isRunning &amp;&amp; !disposeAuthThread &amp;&amp; (wManager.Wow.Helpers.Conditions.ProductIsStarted || wManager.Wow.Helpers.Conditions.ProductInPause))
+            {
+                if(!wManager.Wow.Helpers.Quest.QuesterCurrentContext.ProfileName.Equals(profileName))
+                {
+                    disposeAuthThread = true;
+                    break;
+                }
+
+                if(!wManager.Wow.Helpers.Conditions.ProductIsStarted)
+                {
+                    disposeAuthThread = true;
+                    break;
+                }
+
+                while(wManager.Wow.Helpers.Quest.QuesterCurrentContext.CurrentStep &lt; 2)
+                {
+                    Thread.Sleep(500);
+
+                    if(_controlVariable == 5 || !wManager.Wow.Helpers.Conditions.ProductIsStarted)
+                        break;
+
+                    _timeout += 500;
+
+                    if(_timeout &gt;= 910000)
+                    {
+                        Products.ProductStop();
+                        MessageBox.Show("[BambosTBCQuesterAlliance]: Timeout error. Unable to authenticate for more than 15 minutes. \n\nBot name: " + ObjectManager.Me.Name);
+                        break;
+                    }
+                }
+
+                _isRunning = false;
+
+                if(wManager.Wow.Helpers.Conditions.ProductIsStarted || wManager.Wow.Helpers.Conditions.ProductInPause)
+                {
+                    Thread.Sleep(60000);
+
+                    if(_controlVariable != 5)
+                    {
+                        Products.ProductStop();
+                        MessageBox.Show("[BambosTBCQuesterAlliance]: Please enter your ID faster or make sure the authentication step is enabled. \nRestart the Bot now. \n\nBot name: " + ObjectManager.Me.Name);
+                    }
+                    _timeout = 0;
+                    _isRunning = true;
+                }
+            }
+
+        }).Start();
+    }
+    
+}
+
+[Serializable]
+public class AllianceTBCQuesterAuthSettings : robotManager.Helpful.Settings
+{
+    [Setting]
+    [Category("__IMPORTANT__")]
+    [DisplayName("Rocketr ORDER ID")]
+    [Description("You can find this ID at the top of the Email that you have received after your purchase.")]
+    public string TransactionId { get; set; }
+
+    public AllianceTBCQuesterAuthSettings()
+    {
+        TransactionId = null;
+    }
+    
+    public static AllianceTBCQuesterAuthSettings CurrentSetting { get; set; }
+
+    public bool Save()
+    {
+        try
+        {
+            return Save(AdviserFilePathAndName("AllianceTBCQuesterAuthSettings", "TBC"));
+        }
+        catch (Exception e)
+        {
+            robotManager.Helpful.Logging.Write("AllianceTBCQuesterAuthSettings &gt; Save(): " + e);
+            return false;
+        }
+    }
+
+    public static bool Load()
+    {
+        try
+        {
+            if (File.Exists(AdviserFilePathAndName("AllianceTBCQuesterAuthSettings", "TBC")))
+            {
+                CurrentSetting =
+                    Load&lt;AllianceTBCQuesterAuthSettings&gt;(AdviserFilePathAndName("AllianceTBCQuesterAuthSettings", "TBC"));
+                return true;
+            }
+            CurrentSetting = new AllianceTBCQuesterAuthSettings();
+        }
+        catch (Exception e)
+        {
+            robotManager.Helpful.Logging.Write("AllianceTBCQuesterAuthSettings &gt; Load(): " + e);
+        }
+        return false;
+    }
+}  
+</Script>
+  <OffMeshConnections />
+  <BlacklistNpc />
+  <BlacklistNpcType />
+  <Blackspots>
+    <Blackspot X="-1563.05" Y="7945.67" Z="-22.5568" Radius="100" Continent="Expansion01" TypeArea="POLYAREA_BIGDANGER" Comment="Nagrand &gt; Halaa" />
+    <Blackspot X="-1349.00867" Y="7234.541" Z="33.1040649" Radius="230" Continent="Expansion01" TypeArea="POLYAREA_BIGDANGER" Comment="Nagrand &gt; Garadar" />
+  </Blackspots>
+</EasyQuestProfile>

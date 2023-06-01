@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="RunLuaCode" NameClass="if not InfoPanel then&#xD;&#xA;    InfoPanelText = &quot;Waiting for Job&quot;&#xD;&#xA;    InfoPanel = CreateFrame(&quot;Frame&quot;)&#xD;&#xA;    InfoPanel:ClearAllPoints()&#xD;&#xA;    InfoPanel:SetBackdrop({bgFile = &quot;Interface/Buttons/WHITE8X8&quot;,})&#xD;&#xA;    InfoPanel:SetBackdropColor(0,0,0,.4)&#xD;&#xA;    InfoPanel:SetHeight(40)&#xD;&#xA;    InfoPanel:SetWidth(150)&#xD;&#xA;&#xD;&#xA;    InfoPanel.text = InfoPanel:CreateFontString(nil, &quot;BACKGROUND&quot;, &quot;GameFontNormal&quot;)&#xD;&#xA;    InfoPanel.text:SetAllPoints()&#xD;&#xA;    InfoPanel.text:SetText(InfoPanelText)&#xD;&#xA;    InfoPanel.text:SetTextColor(1, 1, 0, 1)&#xD;&#xA;    InfoPanel:SetPoint(&quot;RIGHT&quot;, -50, -100)&#xD;&#xA;&#xD;&#xA;    InfoPanel:SetMovable(true)&#xD;&#xA;    InfoPanel:EnableMouse(true)&#xD;&#xA;    InfoPanel:SetScript(&quot;OnMouseDown&quot;,function() InfoPanel:StartMoving() end)&#xD;&#xA;    InfoPanel:SetScript(&quot;OnMouseUp&quot;,function() InfoPanel:StopMovingOrSizing() end)&#xD;&#xA;    &#xD;&#xA;    InfoPanel.Close = CreateFrame(&quot;BUTTON&quot;, nil, InfoPanel, &quot;UIPanelCloseButton&quot;)&#xD;&#xA;    InfoPanel.Close:SetWidth(20)&#xD;&#xA;    InfoPanel.Close:SetHeight(20)&#xD;&#xA;    InfoPanel.Close:SetPoint(&quot;TOPRIGHT&quot;, InfoPanel, 3, 3)&#xD;&#xA;    InfoPanel.Close:SetScript(&quot;OnClick&quot;, function()&#xD;&#xA;        InfoPanel:Hide()&#xD;&#xA;        DEFAULT_CHAT_FRAME:AddMessage(&quot;Info Panel |cffC41F3Bclosed |cffFFFFFFWrite /InfoPanel to enable again.&quot;)     &#xD;&#xA;    end)&#xD;&#xA;    &#xD;&#xA;    SLASH_WHATEVERYOURFRAMESARECALLED1=&quot;/InfoPanel&quot;&#xD;&#xA;    SlashCmdList.WHATEVERYOURFRAMESARECALLED = function()&#xD;&#xA;        if InfoPanel:IsShown() then&#xD;&#xA;            InfoPanel:Hide()&#xD;&#xA;        else&#xD;&#xA;            InfoPanel:Show()&#xD;&#xA;        end&#xD;&#xA;    end&#xD;&#xA;end" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;InfoPanelText = 'DEMO - A Quester - Launcher'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;InfoPanel.text:SetText(InfoPanelText)&quot;);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFC813CF Thanks for using a Bambo Product! Feel free to add me on Discord if you have any problems with my products (Bambo#6404). Also checkout my Store please (https://rocketr.net/sellers/bambo). I have alot of Vanilla, tbc and wotlk Content: Grinders, Quester, Professions, a Gold Making Plugin and much more! |r&quot;)" />
+     <QuestsSorted Action="If" NameClass="(ObjectManager.Me.PlayerRace == PlayerFactions.NightElf) &amp;&amp; ObjectManager.Me.Level &lt; 12" />
+	 <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;Current Profile: Alliance 1-12 Teldrassil!&quot;)" />
+	 <QuestsSorted Action="LoadProfile" NameClass="\BambosVanillaTBCAllianceQuesterDEMO\Alliance1-12TeldrassilDEMO.xml" />
+	 <QuestsSorted Action="EndIf" NameClass="" />
+     <QuestsSorted Action="If" NameClass="(ObjectManager.Me.PlayerRace == PlayerFactions.Dwarf || ObjectManager.Me.PlayerRace == PlayerFactions.Gnome) &amp;&amp; ObjectManager.Me.Level &lt; 12" />
+	 <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;Current Profile: Alliance 1-12 Dun Morogh!&quot;)" />
+	 <QuestsSorted Action="LoadProfile" NameClass="\BambosVanillaTBCAllianceQuesterDEMO\Alliance1-12DunMoroghDEMO.xml" />
+	 <QuestsSorted Action="EndIf" NameClass="" />
+	 <QuestsSorted Action="If" NameClass="(ObjectManager.Me.PlayerRace == PlayerFactions.Human) &amp;&amp; ObjectManager.Me.Level &lt; 12" />
+	 <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;Current Profile: Alliance 1-12 Elwynn Forest!&quot;)" />
+	 <QuestsSorted Action="LoadProfile" NameClass="\BambosVanillaTBCAllianceQuesterDEMO\Alliance1-12ElwynnForestDEMO.xml" />
+	 <QuestsSorted Action="EndIf" NameClass="" />
+	 <QuestsSorted Action="If" NameClass="(ObjectManager.Me.PlayerRace == PlayerFactions.Dwarf || ObjectManager.Me.PlayerRace == PlayerFactions.Gnome || ObjectManager.Me.PlayerRace == PlayerFactions.Human) &amp;&amp; ObjectManager.Me.Level &lt; 13" />
+	 <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;Current Profile: Alliance 12-13 Loch Modan!&quot;)" />
+	 <QuestsSorted Action="LoadProfile" NameClass="\BambosVanillaTBCAllianceQuesterDEMO\Alliance12-13LochModanDEMO.xml" />
+	 <QuestsSorted Action="EndIf" NameClass="" />
+
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc />
+  <EasyQuests />
+
+  <Script></Script>
+  <OffMeshConnections />
+  <BlacklistNpc />
+  <BlacklistNpcType />
+  <Blackspots />
+</EasyQuestProfile>

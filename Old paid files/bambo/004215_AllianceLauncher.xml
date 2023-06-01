@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="RunCode" NameClass="AllianceQuesterVanillaTBCAuthSettings.Load();&#xD;&#xA;        if (AllianceQuesterVanillaTBCAuthSettings.CurrentSetting.TransactionId == null)&#xD;&#xA;        {&#xD;&#xA;            AllianceQuesterVanillaTBCAuthSettings.CurrentSetting.ToForm();&#xD;&#xA;        }&#xD;&#xA;        AllianceQuesterVanillaTBCAuthSettings.CurrentSetting.Save();&#xD;&#xA;        new Authentication(AllianceQuesterVanillaTBCAuthSettings.CurrentSetting.TransactionId, &quot;ef0ee853d7ad&quot;);&#xD;&#xA;        ControlAuthentication.SetControl(5);" />
+    <QuestsSorted Action="Pulse" NameClass="AutoUpdate" />
+    <QuestsSorted Action="RunLuaCode" NameClass="if not InfoPanel then&#xD;&#xA;    InfoPanelText = &quot;Waiting for Job&quot;&#xD;&#xA;    InfoPanel = CreateFrame(&quot;Frame&quot;)&#xD;&#xA;    InfoPanel:ClearAllPoints()&#xD;&#xA;    InfoPanel:SetBackdrop({bgFile = &quot;Interface/Buttons/WHITE8X8&quot;,})&#xD;&#xA;    InfoPanel:SetBackdropColor(0,0,0,.4)&#xD;&#xA;    InfoPanel:SetHeight(40)&#xD;&#xA;    InfoPanel:SetWidth(150)&#xD;&#xA;&#xD;&#xA;    InfoPanel.text = InfoPanel:CreateFontString(nil, &quot;BACKGROUND&quot;, &quot;GameFontNormal&quot;)&#xD;&#xA;    InfoPanel.text:SetAllPoints()&#xD;&#xA;    InfoPanel.text:SetText(InfoPanelText)&#xD;&#xA;    InfoPanel.text:SetTextColor(1, 1, 0, 1)&#xD;&#xA;    InfoPanel:SetPoint(&quot;RIGHT&quot;, -50, -100)&#xD;&#xA;&#xD;&#xA;    InfoPanel:SetMovable(true)&#xD;&#xA;    InfoPanel:EnableMouse(true)&#xD;&#xA;    InfoPanel:SetScript(&quot;OnMouseDown&quot;,function() InfoPanel:StartMoving() end)&#xD;&#xA;    InfoPanel:SetScript(&quot;OnMouseUp&quot;,function() InfoPanel:StopMovingOrSizing() end)&#xD;&#xA;    &#xD;&#xA;    InfoPanel.Close = CreateFrame(&quot;BUTTON&quot;, nil, InfoPanel, &quot;UIPanelCloseButton&quot;)&#xD;&#xA;    InfoPanel.Close:SetWidth(20)&#xD;&#xA;    InfoPanel.Close:SetHeight(20)&#xD;&#xA;    InfoPanel.Close:SetPoint(&quot;TOPRIGHT&quot;, InfoPanel, 3, 3)&#xD;&#xA;    InfoPanel.Close:SetScript(&quot;OnClick&quot;, function()&#xD;&#xA;        InfoPanel:Hide()&#xD;&#xA;        DEFAULT_CHAT_FRAME:AddMessage(&quot;Info Panel |cffC41F3Bclosed |cffFFFFFFWrite /InfoPanel to enable again.&quot;)     &#xD;&#xA;    end)&#xD;&#xA;    &#xD;&#xA;    SLASH_WHATEVERYOURFRAMESARECALLED1=&quot;/InfoPanel&quot;&#xD;&#xA;    SlashCmdList.WHATEVERYOURFRAMESARECALLED = function()&#xD;&#xA;        if InfoPanel:IsShown() then&#xD;&#xA;            InfoPanel:Hide()&#xD;&#xA;        else&#xD;&#xA;            InfoPanel:Show()&#xD;&#xA;        end&#xD;&#xA;    end&#xD;&#xA;end" />
+    <QuestsSorted Action="RunCode" NameClass="Lua.LuaDoString(&quot;InfoPanelText = 'v1.0.0 - A Quester - Launcher'&quot;);&#xD;&#xA;Lua.LuaDoString(&quot;InfoPanel.text:SetText(InfoPanelText)&quot;);" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFC813CF Thanks for using a Bambo Product! Feel free to add me on Discord if you have any problems with my products (Bambo#6404). Also checkout my Store please (https://rocketr.net/sellers/bambo). I have alot of Vanilla, tbc and wotlk Content: Grinders, Quester, Professions, a Gold Making Plugin and much more! |r&quot;)" />
+     <QuestsSorted Action="If" NameClass="(ObjectManager.Me.PlayerRace == PlayerFactions.NightElf) &amp;&amp; ObjectManager.Me.Level &lt; 12" />
+	 <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;Current Profile: Alliance 1-12 Teldrassil!&quot;)" />
+	 <QuestsSorted Action="LoadProfile" NameClass="\BambosVanillaTBCAllianceQuester\Alliance1-12Teldrassil.xml" />
+	 <QuestsSorted Action="EndIf" NameClass="" />
+     <QuestsSorted Action="If" NameClass="(ObjectManager.Me.PlayerRace == PlayerFactions.Dwarf || ObjectManager.Me.PlayerRace == PlayerFactions.Gnome) &amp;&amp; ObjectManager.Me.Level &lt; 12" />
+	 <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;Current Profile: Alliance 1-12 Dun Morogh!&quot;)" />
+	 <QuestsSorted Action="LoadProfile" NameClass="\BambosVanillaTBCAllianceQuester\Alliance1-12DunMorogh.xml" />
+	 <QuestsSorted Action="EndIf" NameClass="" />
+	 <QuestsSorted Action="If" NameClass="(ObjectManager.Me.PlayerRace == PlayerFactions.Human) &amp;&amp; ObjectManager.Me.Level &lt; 12" />
+	 <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;Current Profile: Alliance 1-12 Elwynn Forest!&quot;)" />
+	 <QuestsSorted Action="LoadProfile" NameClass="\BambosVanillaTBCAllianceQuester\Alliance1-12ElwynnForest.xml" />
+	 <QuestsSorted Action="EndIf" NameClass="" />
+	 <QuestsSorted Action="If" NameClass="(ObjectManager.Me.PlayerRace == PlayerFactions.Dwarf || ObjectManager.Me.PlayerRace == PlayerFactions.Gnome || ObjectManager.Me.PlayerRace == PlayerFactions.Human) &amp;&amp; ObjectManager.Me.Level &lt; 13" />
+	 <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;Current Profile: Alliance 12-13 Loch Modan!&quot;)" />
+	 <QuestsSorted Action="LoadProfile" NameClass="\BambosVanillaTBCAllianceQuester\Alliance12-13LochModan.xml" />
+	 <QuestsSorted Action="EndIf" NameClass="" />
+	 <QuestsSorted Action="If" NameClass="(ObjectManager.Me.Level &lt; 17)" />
+	 <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;Current Profile: Alliance 13-17 Darkshore!&quot;)" />
+	 <QuestsSorted Action="LoadProfile" NameClass="\BambosVanillaTBCAllianceQuester\Alliance13-17Darkshore.xml" />
+	 <QuestsSorted Action="EndIf" NameClass="" />
+	 <QuestsSorted Action="If" NameClass="(ObjectManager.Me.Level &lt; 20)" />
+	 <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;Current Profile: Alliance 17-20 Redridge Mountains!&quot;)" />
+	 <QuestsSorted Action="LoadProfile" NameClass="\BambosVanillaTBCAllianceQuester\Alliance17-20RedridgeMountains.xml" />
+	 <QuestsSorted Action="EndIf" NameClass="" />
+	 <QuestsSorted Action="If" NameClass="(ObjectManager.Me.Level &lt; 25)" />
+	 <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;Current Profile: Alliance 20-25 Darkshore p2!&quot;)" />
+	 <QuestsSorted Action="LoadProfile" NameClass="\BambosVanillaTBCAllianceQuester\Alliance20-25DarkShore2.xml" />
+	 <QuestsSorted Action="EndIf" NameClass="" /> 
+	 <QuestsSorted Action="If" NameClass="(ObjectManager.Me.Level &lt; 30)" />
+	 <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;Current Profile: Alliance 25-30 Menethil Harbor!&quot;)" />
+	 <QuestsSorted Action="LoadProfile" NameClass="\BambosVanillaTBCAllianceQuester\Alliance25-30MenethilHarbor.xml" />
+	 <QuestsSorted Action="EndIf" NameClass="" />
+	 <QuestsSorted Action="If" NameClass="(ObjectManager.Me.Level &lt; 31)" />
+	 <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;Current Profile: Alliance 30-31 Ashenvale!&quot;)" />
+	 <QuestsSorted Action="LoadProfile" NameClass="\BambosVanillaTBCAllianceQuester\Alliance30-31Ashenvale.xml" />
+	 <QuestsSorted Action="EndIf" NameClass="" />
+	 <QuestsSorted Action="If" NameClass="(ObjectManager.Me.Level &lt; 33)" />
+	 <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;Current Profile: Alliance 30-33 Menethril Harbor p2!&quot;)" />
+	 <QuestsSorted Action="LoadProfile" NameClass="\BambosVanillaTBCAllianceQuester\Alliance30-33MenethilHarbor2.xml" />
+	 <QuestsSorted Action="EndIf" NameClass="" />
+	 <QuestsSorted Action="If" NameClass="(ObjectManager.Me.Level &lt; 34)" />
+	 <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;Current Profile: Alliance 33-34 Thousand Needles!&quot;)" />
+	 <QuestsSorted Action="LoadProfile" NameClass="\BambosVanillaTBCAllianceQuester\Alliance33-34ThousandNeedles.xml" />
+	 <QuestsSorted Action="EndIf" NameClass="" />
+	 <QuestsSorted Action="If" NameClass="(ObjectManager.Me.Level &lt; 35)" />
+	 <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;Current Profile: Alliance 34-35 Stonetalon Mountains!&quot;)" />
+	 <QuestsSorted Action="LoadProfile" NameClass="\BambosVanillaTBCAllianceQuester\Alliance34-35StonetalonMountains.xml" />
+	 <QuestsSorted Action="EndIf" NameClass="" />
+	 <QuestsSorted Action="If" NameClass="(ObjectManager.Me.Level &lt; 36)" />
+	 <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;Current Profile: Alliance 35-36 Booty Bay!&quot;)" />
+	 <QuestsSorted Action="LoadProfile" NameClass="\BambosVanillaTBCAllianceQuester\Alliance35-36BootyBay.xml" />
+	 <QuestsSorted Action="EndIf" NameClass="" />
+	 <QuestsSorted Action="If" NameClass="(ObjectManager.Me.Level &lt; 38)" />
+	 <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;Current Profile: Alliance 36-38 Hillsbrad Foothills!&quot;)" />
+	 <QuestsSorted Action="LoadProfile" NameClass="\BambosVanillaTBCAllianceQuester\Alliance36-38HillsbradFoothills.xml" />
+	 <QuestsSorted Action="EndIf" NameClass="" />
+	 <QuestsSorted Action="If" NameClass="(ObjectManager.Me.Level &lt; 40)" />
+	 <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;Current Profile: Alliance 38-40 Booty Bay!&quot;)" />
+	 <QuestsSorted Action="LoadProfile" NameClass="\BambosVanillaTBCAllianceQuester\Alliance38-40BootyBay2.xml" />
+	 <QuestsSorted Action="EndIf" NameClass="" />
+	 <QuestsSorted Action="If" NameClass="(ObjectManager.Me.Level &lt; 60)" />
+	 <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;Current Profile: Alliance 40-60 Grinder (will be replaced with quests)!&quot;)" />
+	 <QuestsSorted Action="LoadProfile" NameClass="\BambosVanillaTBCAllianceQuester\Alliance40-60Grinder.xml" />
+	 <QuestsSorted Action="EndIf" NameClass="" />
+
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc />
+  <EasyQuests>
+    <EasyQuest>
+      <Name>AutoUpdate</Name>
+      <QuestId />
+      <QuestType>FullCSharpCode</QuestType>
+      <QuestClass xsi:type="FullCSharpCodeEasyQuestClass">
+        <Code>
+public sealed class AutoUpdate : QuestClass
+{
+    public AutoUpdate() // Don't forget to use good classe name
+    {
+		Name = "AutoUpdate";
+	
+try
+{
+    string onlineFile = "http://bambo.myds.me/vanilla/allyquester/AllianceLauncher.xml";
+    Quester.Bot.QuesterSetting.Load();
+    string currentFile = System.Windows.Forms.Application.StartupPath + @"\Profiles\Quester\" + Quester.Bot.QuesterSetting.CurrentSetting.ProfileName;
+
+    var currentFileContent = System.IO.File.ReadAllText(currentFile, System.Text.Encoding.UTF8);
+    var onlineFileContent = new System.Net.WebClient { Encoding = System.Text.Encoding.UTF8 }.DownloadString(onlineFile);
+
+    if (!string.IsNullOrWhiteSpace(currentFileContent) &amp;&amp; !string.IsNullOrWhiteSpace(onlineFileContent))
+    {
+        if (currentFileContent.Length == 39 &amp;&amp; onlineFileContent.Length == 39) // 39 is size of encrypted files with option "Short file"
+        {
+            if (currentFileContent != onlineFileContent) // if new update
+            {
+                robotManager.Helpful.Logging.Write("[Bambo_Quester_Alliance]: New version found, try to update.");
+                System.IO.File.WriteAllText(currentFile, onlineFileContent,
+                System.Text.Encoding.UTF8); // replace user file by online file 
+                new System.Threading.Thread(() =&gt; robotManager.Products.Products.ProductRestart()).Start(); // reload product (profile)
+            }
+            if (currentFileContent == onlineFileContent)
+                robotManager.Helpful.Logging.Write("[Bambo_Quester_Alliance]: The version on your pc is the latest updated version.");
+        }
+        else
+            robotManager.Helpful.Logging.Write("[Bambo_Quester_Alliance]: Your currently running version is not encrypted.");
+    }
+}
+catch (System.Exception e)
+{
+    robotManager.Helpful.Logging.WriteError("Auto update: " + e);
+}
+
+        Lua.LuaDoString("DungeonFrameWorkLoaded = true");
+    }
+}
+// More info here: http://wrobot.eu/topic/374-how-to-create-quest-profile/ (please don't add using and add only one quest)
+</Code>
+      </QuestClass>
+      <ObjectiveCount1>0</ObjectiveCount1>
+      <ObjectiveCount2>0</ObjectiveCount2>
+      <ObjectiveCount3>0</ObjectiveCount3>
+      <ObjectiveCount4>0</ObjectiveCount4>
+      <ObjectiveCount5>0</ObjectiveCount5>
+      <AutoDetectObjectiveCount1>false</AutoDetectObjectiveCount1>
+      <AutoDetectObjectiveCount2>false</AutoDetectObjectiveCount2>
+      <AutoDetectObjectiveCount3>false</AutoDetectObjectiveCount3>
+      <AutoDetectObjectiveCount4>false</AutoDetectObjectiveCount4>
+      <AutoDetectObjectiveCount5>false</AutoDetectObjectiveCount5>
+      <CanCondition />
+      <IsCompleteCondition>return Lua.LuaDoString&lt;bool&gt;("return UpdateFrameWorkLoaded");</IsCompleteCondition>
+      <RepeatableQuest>false</RepeatableQuest>
+      <NotRequiredInQuestLog>true</NotRequiredInQuestLog>
+      <PickUpQuestOnItem>false</PickUpQuestOnItem>
+      <PickUpQuestOnItemID>0</PickUpQuestOnItemID>
+      <Comment />
+      <GossipOptionRewardItem>1</GossipOptionRewardItem>
+      <RequiredQuest>0</RequiredQuest>
+      <MaxLevel>100</MaxLevel>
+      <MinLevel>0</MinLevel>
+      <WoWClass>None</WoWClass>
+    </EasyQuest>
+  </EasyQuests>
+  <Script>
+using System;
+using System.ComponentModel;
+using System.Configuration;
+using System.IO;
+using System.Net;
+using System.Threading;
+using System.Windows.Forms;
+using robotManager.Helpful;
+using robotManager.Products;
+
+public class Authentication
+{
+    private readonly string orderId;
+    private readonly string productId;
+    private readonly string wRobotAuthKey;
+
+    private readonly BackgroundWorker _validationThread = new BackgroundWorker();
+    private bool _isRunning = false;
+    private string authUrl;
+
+    public Authentication(string orderId, string productId)
+    {
+        if (orderId == null)
+        {
+            MessageBox.Show("You need to enter your transaction id (from your Rocketr email) into the plugin settings to use this!");
+        }
+
+        this.orderId = orderId;
+        this.productId = productId;
+
+        System.Text.RegularExpressions.Match matcher = System.Text.RegularExpressions.Regex.Match(authManager.LoginServer.GetSubcriptionInfoThread(), "(Key: )(.*)(\\.\\.\\.)(.*)");
+        if (matcher.Success) 
+        {
+		    wRobotAuthKey = matcher.Groups[2].Value;
+        }
+
+        _isRunning = true;
+        authUrl = "http://51.38.126.73:8080/authenticate?orderId=" + orderId.Trim() + "&amp;productId=" + productId + "&amp;wRobotAuthKey=" + wRobotAuthKey;
+        _validationThread.DoWork += CheckValidiation;
+        _validationThread.RunWorkerAsync();
+    }
+    
+    ~Authentication()
+    {
+        _isRunning = false;
+        _validationThread.DoWork -= CheckValidiation;
+        _validationThread.Dispose();
+    }
+
+    private void CheckValidiation(object sender, DoWorkEventArgs e)
+    {
+        while (Products.IsStarted &amp;&amp; _isRunning)
+        {
+            try
+            {
+                bool timedOut = false;
+                HttpWebResponse content = null;
+                try
+                {
+                    var request = (HttpWebRequest)WebRequest.Create(authUrl);
+                    request.Timeout = 30000;
+                    request.ReadWriteTimeout = 30000;
+                    content = (HttpWebResponse)request.GetResponse();
+                }
+                catch (Exception ex)
+                {
+                    timedOut = true;
+                }
+                
+                //give it another try
+                if ((content != null &amp;&amp; content.StatusCode != HttpStatusCode.OK) || timedOut)
+                {
+                    Thread.Sleep(3* 60 * 1000);
+                    try
+                    {
+                        var request = (HttpWebRequest)WebRequest.Create(authUrl);
+                        request.Timeout = 30000;
+                        request.ReadWriteTimeout = 30000;
+                        content = (HttpWebResponse)request.GetResponse();
+                        timedOut = false;
+                    }
+                    catch (Exception ex)
+                    {
+                        timedOut = true;
+                    }
+                }
+
+                string result = content != null ? new StreamReader(content.GetResponseStream()).ReadToEnd() : "false";
+
+                if (!bool.Parse(result) || (content != null &amp;&amp; content.StatusCode != HttpStatusCode.OK) || timedOut)
+                {
+                    Products.ProductStop();
+                    _isRunning = false;
+                    _validationThread.DoWork -= CheckValidiation;
+                    _validationThread.Dispose();
+                    MessageBox.Show(@"You are trying to use a transaction id for a different product or another IP is already using this transaction id.
+                    
+If you changed your IP (one on wRobot session), wait 30 minutes.
+
+This error was produced by the vanilla/tbc alliance Quester of bambo.
+
+                    ");
+                    return;
+                }
+
+                Thread.Sleep(60 * 1000);
+            }
+            catch (Exception exp)
+            {
+                Logging.WriteError("" + exp);
+            }
+        }
+    }
+}
+
+public class ControlAuthentication
+{
+    private static volatile int _controlVariable = 0;
+    private static int _timeout = 0;
+    private static bool _isRunning = true;
+    private static bool disposeAuthThread = false;
+    private static string profileName = "";
+
+    public static void SetControl(int control)
+    {
+        _controlVariable = control;
+    }
+
+    static ControlAuthentication()
+    {
+        new Thread(() =&gt;
+        {
+            profileName = wManager.Wow.Helpers.Quest.QuesterCurrentContext.ProfileName;
+
+            while(_isRunning &amp;&amp; !disposeAuthThread &amp;&amp; (wManager.Wow.Helpers.Conditions.ProductIsStarted || wManager.Wow.Helpers.Conditions.ProductInPause))
+            {
+                if(!wManager.Wow.Helpers.Quest.QuesterCurrentContext.ProfileName.Equals(profileName))
+                {
+                    disposeAuthThread = true;
+                    break;
+                }
+
+                if(!wManager.Wow.Helpers.Conditions.ProductIsStarted)
+                {
+                    disposeAuthThread = true;
+                    break;
+                }
+
+                while(wManager.Wow.Helpers.Quest.QuesterCurrentContext.CurrentStep &lt; 2)
+                {
+                    Thread.Sleep(500);
+
+                    if(_controlVariable == 5 || !wManager.Wow.Helpers.Conditions.ProductIsStarted)
+                        break;
+
+                    _timeout += 500;
+
+                    if(_timeout &gt;= 910000)
+                    {
+                        Products.ProductStop();
+                        MessageBox.Show("[BambosVanillaTBCQuesterAlliance]: Timeout error. Unable to authenticate for more than 15 minutes. \n\nBot name: " + ObjectManager.Me.Name);
+                        break;
+                    }
+                }
+
+                _isRunning = false;
+
+                if(wManager.Wow.Helpers.Conditions.ProductIsStarted || wManager.Wow.Helpers.Conditions.ProductInPause)
+                {
+                    Thread.Sleep(60000);
+
+                    if(_controlVariable != 5)
+                    {
+                        Products.ProductStop();
+                        MessageBox.Show("[BambosVanillaTBCQuesterAlliance]: Please enter your ID faster or make sure the authentication step is enabled. \nRestart the Bot now. \n\nBot name: " + ObjectManager.Me.Name);
+                    }
+                    _timeout = 0;
+                    _isRunning = true;
+                }
+            }
+
+        }).Start();
+    }
+    
+}
+
+[Serializable]
+public class AllianceQuesterVanillaTBCAuthSettings : robotManager.Helpful.Settings
+{
+    [Setting]
+    [Category("__IMPORTANT__")]
+    [DisplayName("Rocketr ORDER ID")]
+    [Description("You can find this ID at the top of the Email that you have received after your purchase.")]
+    public string TransactionId { get; set; }
+
+    public AllianceQuesterVanillaTBCAuthSettings()
+    {
+        TransactionId = null;
+    }
+    
+    public static AllianceQuesterVanillaTBCAuthSettings CurrentSetting { get; set; }
+
+    public bool Save()
+    {
+        try
+        {
+            return Save(AdviserFilePathAndName("AllianceQuesterVanillaTBCAuthSettings", "Vanilla"));
+        }
+        catch (Exception e)
+        {
+            robotManager.Helpful.Logging.Write("AllianceQuesterVanillaTBCAuthSettings &gt; Save(): " + e);
+            return false;
+        }
+    }
+
+    public static bool Load()
+    {
+        try
+        {
+            if (File.Exists(AdviserFilePathAndName("AllianceQuesterVanillaTBCAuthSettings", "Vanilla")))
+            {
+                CurrentSetting =
+                    Load&lt;AllianceQuesterVanillaTBCAuthSettings&gt;(AdviserFilePathAndName("AllianceQuesterVanillaTBCAuthSettings", "Vanilla"));
+                return true;
+            }
+            CurrentSetting = new AllianceQuesterVanillaTBCAuthSettings();
+        }
+        catch (Exception e)
+        {
+            robotManager.Helpful.Logging.Write("AllianceQuesterVanillaTBCAuthSettings &gt; Load(): " + e);
+        }
+        return false;
+    }
+}</Script>
+  <OffMeshConnections />
+  <BlacklistNpc />
+  <BlacklistNpcType />
+  <Blackspots />
+</EasyQuestProfile>

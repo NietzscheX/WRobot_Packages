@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EasyQuestProfile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <QuestsSorted>
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.PlayerRace == PlayerFactions.Human &amp;&amp; ObjectManager.Me.WowClass != WoWClass.DeathKnight &amp;&amp; ObjectManager.Me.Level &lt; 60" />
+    <QuestsSorted Action="LoadProfile" NameClass="Leveling\1-13 Human.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.PlayerRace == PlayerFactions.Draenei &amp;&amp; ObjectManager.Me.WowClass != WoWClass.DeathKnight &amp;&amp; ObjectManager.Me.Level &lt; 60" />
+    <QuestsSorted Action="LoadProfile" NameClass="Leveling\1-13 Draenei.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.PlayerRace == PlayerFactions.NightElf &amp;&amp; ObjectManager.Me.WowClass != WoWClass.DeathKnight &amp;&amp; ObjectManager.Me.Level &lt; 60" />
+    <QuestsSorted Action="LoadProfile" NameClass="Leveling\1-13 Nightelf.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.PlayerRace == PlayerFactions.Gnome &amp;&amp; ObjectManager.Me.WowClass != WoWClass.DeathKnight &amp;&amp; ObjectManager.Me.Level &lt; 60" />
+    <QuestsSorted Action="LoadProfile" NameClass="Leveling\1-13 Dwarf, Gnome.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.PlayerRace == PlayerFactions.Dwarf &amp;&amp; ObjectManager.Me.WowClass != WoWClass.DeathKnight &amp;&amp; ObjectManager.Me.Level &lt; 60" />
+    <QuestsSorted Action="LoadProfile" NameClass="Leveling\1-13 Dwarf, Gnome.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.WowClass == WoWClass.DeathKnight &amp;&amp; ObjectManager.Me.Level &lt; 60" />
+    <QuestsSorted Action="LoadProfile" NameClass="Leveling\55-60 Deathknight.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.Level &lt; 70" />
+    <QuestsSorted Action="LoadProfile" NameClass="Leveling\60-62 Outlands.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="If" NameClass="ObjectManager.Me.Level &lt; 80" />
+    <QuestsSorted Action="LoadProfile" NameClass="Leveling\70-72 Northrend.xml" />
+    <QuestsSorted Action="EndIf" NameClass="" />
+    <QuestsSorted Action="RunLuaCode" NameClass="DEFAULT_CHAT_FRAME:AddMessage(&quot;|cFFFFCE2ESpellBot|r Questing 1-80 Alliance finished&quot;)" />
+  </QuestsSorted>
+  <NpcQuest />
+  <Npc />
+  <EasyQuests />
+  <Script>
+public class MyCustomScript
+{
+    static MyCustomScript()
+    {
+        // You can put here code to run when bot start, you can also add methods and classes.
+    }
+}
+</Script>
+  <OffMeshConnections />
+  <BlacklistNpc />
+  <BlacklistNpcType />
+  <Blackspots />
+</EasyQuestProfile>
